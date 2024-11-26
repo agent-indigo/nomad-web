@@ -1,0 +1,11 @@
+.git/
+.next/
+node_modules/
+.dockerignore
+.gitignore
+Dockerfile
+docker-compose.yaml
+environmentTemplate.txt
+LICENSE.md
+next-env.d.ts
+README.md
