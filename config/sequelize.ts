@@ -1,6 +1,6 @@
 import {Sequelize} from 'sequelize'
 const sequelize: Sequelize = new Sequelize({
-  database: process.env.DB_NAME ?? 'geni.gpt',
+  database: process.env.DB_NAME ?? 'nomad',
   username: process.env.DB_USER ?? 'postgres',
   password: process.env.DB_PW ?? '',
   host: process.env.DB_HOST ?? 'localhost',

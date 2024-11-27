@@ -1,4 +1,4 @@
-DB_NAME = geni.gpt
+DB_NAME = nomad
 DB_USER = postgres
 DB_PW = 
 DB_HOST = localhost
