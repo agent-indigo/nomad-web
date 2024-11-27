@@ -23,7 +23,7 @@ const authOpts = {
           return user && await bcrypt.compare(
             credentials.password,
             user.toJSON().hashedPassword
-          ) ? user.toJSON() : null
+          ) ? {id: user.toJSON().id} : null
         }
       }
     })
