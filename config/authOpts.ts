@@ -33,7 +33,10 @@ const authOpts: AuthOptions = {
           },
           attributes: {
             exclude: [
-              'hashedPassword'
+              'hashedPassword',
+              'roles',
+              'createdAt',
+              'updatedAt'
             ]
           }
         }))?.toJSON() ?? null : null

@@ -12,7 +12,19 @@ const getSessionUser: Function = async (): Promise<ServerActionResponse> => {
     const session: SessionWithUserId | null = await getServerSession(authOpts)
     if (session) {
       await connectSequelize()
-      const user: Model<UserSqlRecord> | null = await userSqlModel.findByPk(session.user.id)
+      const user: Model<UserSqlRecord> | null = await userSqlModel.findOne({
+        where: {
+          email: session.user.id
+        },
+        attributes: {
+          exclude: [
+            'hashedPassword',
+            'roles',
+            'createdAt',
+            'updatedAt'
+          ]
+        }
+      })
       return user ? {
         success: true,
         sessionUser: user.toJSON()
