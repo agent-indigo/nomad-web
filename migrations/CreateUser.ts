@@ -1,9 +1,11 @@
 import {
   DataTypes,
+  Model,
   QueryInterface
 } from 'sequelize'
 import createId from '@/utilities/createId'
-export const up: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.createTable(
+import UserSqlRecord from '@/interfaces/UserSqlRecord'
+export const up: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.createTable<Model<UserSqlRecord>>(
   'users', {
     ...createId(),
     email: {
@@ -41,9 +43,6 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       ],
       defaultValue: [
         'user'
-      ],
-      unique: [
-        'root'
       ]
     },
     createdAt: {
