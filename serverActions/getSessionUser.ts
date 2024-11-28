@@ -14,7 +14,7 @@ const getSessionUser: Function = async (): Promise<ServerActionResponse> => {
       await connectSequelize()
       const user: Model<UserSqlRecord> | null = await userSqlModel.findOne({
         where: {
-          email: session.user.id
+          id: session.user.id
         },
         attributes: {
           exclude: [
