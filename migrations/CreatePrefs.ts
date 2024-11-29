@@ -11,7 +11,8 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     ...createId(),
     user: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     theme: {
       type: DataTypes.ENUM(

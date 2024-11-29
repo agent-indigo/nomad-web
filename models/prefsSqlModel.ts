@@ -11,7 +11,8 @@ const prefsSqlModel: ModelStatic<Model<PrefsSqlRecord>> = sequelize.models.Prefs
     ...createId(),
     user: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     theme: {
       type: DataTypes.ENUM(
