@@ -1,4 +1,5 @@
+import PrefsSqlRecord from '@/interfaces/PrefsSqlRecord'
 interface State {
-  sessionUserId?: string
+  sessionUserPrefs?: PrefsSqlRecord
 }
 export default State
