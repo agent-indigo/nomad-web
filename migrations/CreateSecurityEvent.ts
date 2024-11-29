@@ -19,16 +19,26 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     event: {
       type: DataTypes.ENUM(
         'email changed',
+        'granted',
         'linked',
         'mfa disabled',
         'mfa enabled',
         'name changed',
         'password changed',
         'reinstated',
+        'revoked',
         'suspended',
         'unlinked'
       ),
       allowNull: false
+    },
+    role: {
+      type: DataTypes.ENUM(
+        'admin',
+        'dev',
+        'mode'
+      ),
+      allowNull: true
     },
     createdAt: {
       type: DataTypes.DATE,

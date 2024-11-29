@@ -3,16 +3,16 @@ import {
   Model,
   QueryInterface
 } from 'sequelize'
-import MfaBackupCodeSqlRecord from '@/interfaces/MfaBackupCodeSqlRecord'
+import HashedMfaBackupSqlRecord from '@/interfaces/HashedMfaBackupSqlRecord'
 import createId from '@/utilities/createId'
-export const up: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.createTable<Model<MfaBackupCodeSqlRecord>>(
-  'mfaBackupCodes', {
+export const up: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.createTable<Model<HashedMfaBackupSqlRecord>>(
+  'hashedMfaBackups', {
     ...createId(),
     user: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    code: {
+    hash: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -31,4 +31,4 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     }
   }
 )
-export const down: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.dropTable('mfaBackupCodes')
+export const down: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.dropTable('hashedMfaBackups')

@@ -63,7 +63,11 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
       allowNull: false,
       defaultValue: false
     },
-    mfaBackupCodes: {
+    hashedMfaSecret: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    hashedMfaBackus: {
       type: [DataTypes.STRING]
     },
     suspended: {
@@ -99,8 +103,8 @@ userSqlModel.hasMany(
   }
 )
 userSqlModel.hasMany(
-  sequelize.models.MfaBackupCode, {
-    foreignKey: 'mfaBackupCodes'
+  sequelize.models.HashedMfaBackup, {
+    foreignKey: 'hashedMfaBackus'
   }
 )
 userSqlModel.hasMany(

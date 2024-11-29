@@ -20,16 +20,26 @@ const securityEventSqlModel: ModelStatic<Model<SecurityEventSqlRecord>> = sequel
     event: {
       type: DataTypes.ENUM(
         'email changed',
+        'granted',
         'linked',
         'mfa disabled',
         'mfa enabled',
         'name changed',
         'password changed',
         'reinstated',
+        'revoked',
         'suspended',
         'unlinked'
       ),
       allowNull: false
+    },
+    role: {
+      type: DataTypes.ENUM(
+        'admin',
+        'dev',
+        'mode'
+      ),
+      allowNull: true
     }
   }, {
     tableName: 'securityEvents',

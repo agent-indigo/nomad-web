@@ -62,7 +62,11 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: false,
       defaultValue: false
     },
-    mfaBackupCodes: {
+    hashedMfaSecret: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    hashedMfaBackus: {
       type: [DataTypes.STRING]
     },
     suspended: {

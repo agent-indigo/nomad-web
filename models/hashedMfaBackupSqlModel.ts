@@ -4,16 +4,16 @@ import {
   ModelStatic
 } from 'sequelize'
 import sequelize from '@/config/sequelize'
-import MfaBackupCodeSqlRecord from '@/interfaces/MfaBackupCodeSqlRecord'
+import HashedMfaBackupSqlRecord from '@/interfaces/HashedMfaBackupSqlRecord'
 import createId from '@/utilities/createId'
-const mfaBackupCodeSqlModel: ModelStatic<Model<MfaBackupCodeSqlRecord>> = sequelize.models.MfaBackupCode ?? sequelize.define<Model<MfaBackupCodeSqlRecord>>(
-  'MfaBackupCode', {
+const hashedMfaBackupSqlModel: ModelStatic<Model<HashedMfaBackupSqlRecord>> = sequelize.models.HashedMfaBackup ?? sequelize.define<Model<HashedMfaBackupSqlRecord>>(
+  'HashedMfaBackup', {
     ...createId(),
     user: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    code: {
+    hash: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -23,13 +23,13 @@ const mfaBackupCodeSqlModel: ModelStatic<Model<MfaBackupCodeSqlRecord>> = sequel
       defaultValue: false
     }
   }, {
-    tableName: 'mfaBackupCodes',
+    tableName: 'hashedMfaBackups',
     timestamps: true
   }
 )
-mfaBackupCodeSqlModel.belongsTo(
+hashedMfaBackupSqlModel.belongsTo(
   sequelize.models.User, {
     foreignKey: 'user'
   }
 )
-export default mfaBackupCodeSqlModel
+export default hashedMfaBackupSqlModel
