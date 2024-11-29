@@ -5,6 +5,7 @@ import {
 } from 'sequelize'
 import createId from '@/utilities/createId'
 import UserSqlRecord from '@/interfaces/UserSqlRecord'
+import createTimeStamps from '@/utilities/createTimeStamps'
 export const up: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.createTable<Model<UserSqlRecord>>(
   'users', {
     ...createId(),
@@ -48,14 +49,9 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     actors: {
       type: [DataTypes.STRING]
     },
-    theme: {
-      type: DataTypes.ENUM(
-        'dark',
-        'light',
-        'system'
-      ),
-      allowNull: false,
-      defaultValue: 'system'
+    prefs: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     mfaEnabled: {
       type: DataTypes.BOOLEAN,
@@ -77,14 +73,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     securityEvents: {
       type: [DataTypes.STRING]
     },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: true
-    }
+    ...createTimeStamps()
   }
 )
 export const down: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.dropTable('users')

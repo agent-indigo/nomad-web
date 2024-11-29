@@ -10,7 +10,7 @@ interface UserSqlRecord extends SqlRecord {
     'user'
   ]
   actors: string[]
-  theme: 'dark' | 'light' | 'system'
+  prefs: string
   mfaEnabled: boolean
   hashedMfaSecret?: string
   hashedMfaBackups: string[]

@@ -49,14 +49,9 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
     actors: {
       type: [DataTypes.STRING]
     },
-    theme: {
-      type: DataTypes.ENUM(
-        'dark',
-        'light',
-        'system'
-      ),
-      allowNull: false,
-      defaultValue: 'system'
+    prefs: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     mfaEnabled: {
       type: DataTypes.BOOLEAN,
@@ -100,6 +95,11 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
 userSqlModel.hasMany(
   sequelize.models.Actor, {
     foreignKey: 'actors'
+  }
+)
+userSqlModel.hasOne(
+  sequelize.models.Prefs, {
+    foreignKey: 'prefs'
   }
 )
 userSqlModel.hasMany(
