@@ -45,6 +45,43 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
       defaultValue: [
         'user'
       ]
+    },
+    actors: {
+      type: [DataTypes.STRING]
+    },
+    theme: {
+      type: DataTypes.ENUM(
+        'dark',
+        'light',
+        'system'
+      ),
+      allowNull: false,
+      defaultValue: 'system'
+    },
+    mfaEnabled: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    mfaBackupCodes: {
+      type: [DataTypes.STRING]
+    },
+    enabled: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    },
+    passwordChangedOn: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    mfaEnabledOn: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    mfaDisabledOn: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     tableName: 'users',
@@ -63,6 +100,16 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
         if (user.toJSON().roles.includes('root')) throw new Error('The root user shouldn\'t be deleted.')
       }
     }
+  }
+)
+userSqlModel.hasMany(
+  sequelize.models.Actor, {
+    foreignKey: 'actors'
+  }
+)
+userSqlModel.hasMany(
+  sequelize.models.MfaBackupCode, {
+    foreignKey: 'mfaBackupCodes'
   }
 )
 export default userSqlModel

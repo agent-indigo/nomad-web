@@ -45,6 +45,43 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
         'user'
       ]
     },
+    actors: {
+      type: [DataTypes.STRING]
+    },
+    theme: {
+      type: DataTypes.ENUM(
+        'dark',
+        'light',
+        'system'
+      ),
+      allowNull: false,
+      defaultValue: 'system'
+    },
+    mfaEnabled: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    mfaBackupCodes: {
+      type: [DataTypes.STRING]
+    },
+    enabled: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    },
+    passwordChangedOn: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    mfaEnabledOn: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    mfaDisabledOn: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false
