@@ -23,55 +23,12 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
         isEmail: true
       }
     },
-    hashedPassword: {
+    encrypted_password: {
       type: DataTypes.STRING,
       allowNull: [
         false,
         'Please provide a secure password.'
       ]
-    },
-    roles: {
-      type: [DataTypes.ENUM(
-        'admin',
-        'dev',
-        'mod',
-        'root',
-        'user'
-      )],
-      allowNull: [
-        false,
-        'Please assign at least one role.'
-      ],
-      defaultValue: [
-        'user'
-      ]
-    },
-    actors: {
-      type: [DataTypes.STRING]
-    },
-    prefs: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    mfaEnabled: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false
-    },
-    hashedMfaSecret: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    hashedMfaBackus: {
-      type: [DataTypes.STRING]
-    },
-    suspended: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false
-    },
-    securityEvents: {
-      type: [DataTypes.STRING]
     },
     ...createTimeStamps()
   }

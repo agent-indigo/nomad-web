@@ -31,7 +31,7 @@ const authOpts: AuthOptions = {
         })
         return user && await bcrypt.compare(
           credentials?.password ?? '',
-          user.toJSON().hashedPassword
+          user.toJSON().encrypted_password
         ) ? (await userSqlModel.findOne({
           where: {
             email: credentials?.email
