@@ -23,9 +23,11 @@ const authOpts: AuthOptions = {
           where: {
             email: credentials?.email
           },
-          include: [
-            'hashedPassword'
-          ]
+          attributes: {
+            include: [
+              'hashedPassword'
+            ]
+          }
         })
         return user && await bcrypt.compare(
           credentials?.password ?? '',
