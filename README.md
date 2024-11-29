@@ -6,14 +6,22 @@ Full stack decentralized social media web application
 
 ## Technologies used
 
-- ActivityPub
+- [ActivityPub](https://activitypub.rocks)
 
-- Next.js
+- [Matrix](https://matrix.org)
 
-- NextAuth
+- [Next.js](https://nextjs.org)
 
-- DaisyUI
+- [NextAuth](https://next-auth.js.org)
 
-- Sequelize
+- [DaisyUI](https://daisyui.com)
+
+- [Sequelize](https://sequelize.org)
+
+## Links
+
+- [React Native](https://reactnative.dev) Android & iOS app
+
+- [Feature Wish List](https://github.com/agent-indigo/nomad-mobile)
 
 ### NOT READY FOR USE
