@@ -88,7 +88,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     },
     updatedAt: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: true
     }
   }
 )
