@@ -10,21 +10,20 @@ import {
 } from 'react'
 import State from '@/interfaces/State'
 import DestructuredReactNode from '@/interfaces/DestructuredReactNode'
-import UserSqlRecord from '@/interfaces/UserSqlRecord'
 import ServerActionResponse from '@/interfaces/ServerActionResponse'
 import getSessionUser from '@/serverActions/getSessionUser'
 const GlobalContext: Context<State> = createContext<State>({})
 const GlobalContextProvider: FunctionComponent<DestructuredReactNode> = ({children}): ReactElement => {
-  const [user, setUser] = useState<UserSqlRecord | undefined>(undefined)
+  const [sessionUserId, setSessionUserId] = useState<string>('')
   useEffect((): void => {
     const getUser: Function = async (): Promise<void> => {
       const {success, sessionUser}: ServerActionResponse = await getSessionUser()
-      success && sessionUser && setUser(sessionUser)
+      success && sessionUser && setSessionUserId(sessionUser.id)
     }
     getUser()
   }, [])
   return (
-    <GlobalContext.Provider value={{user}}>
+    <GlobalContext.Provider value={{sessionUserId}}>
       {children}
     </GlobalContext.Provider>
   )

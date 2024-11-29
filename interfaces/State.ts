@@ -1,5 +1,4 @@
-import UserSqlRecord from '@/interfaces/UserSqlRecord'
 interface State {
-  user?: UserSqlRecord
+  sessionUserId?: string
 }
 export default State

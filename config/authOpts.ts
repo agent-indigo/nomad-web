@@ -22,7 +22,10 @@ const authOpts: AuthOptions = {
         const user: Model<UserSqlRecord> | null = await userSqlModel.findOne({
           where: {
             email: credentials?.email
-          }
+          },
+          include: [
+            'hashedPassword'
+          ]
         })
         return user && await bcrypt.compare(
           credentials?.password ?? '',
@@ -32,11 +35,8 @@ const authOpts: AuthOptions = {
             email: credentials?.email
           },
           attributes: {
-            exclude: [
-              'hashedPassword',
-              'roles',
-              'createdAt',
-              'updatedAt'
+            include: [
+              'id'
             ]
           }
         }))?.toJSON() ?? null : null
