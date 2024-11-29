@@ -13,9 +13,7 @@ interface UserSqlRecord extends SqlRecord {
   theme: 'dark' | 'light' | 'system'
   mfaEnabled: boolean
   mfaBackupCodes: string[]
-  enabled: boolean
-  passwordChangedOn?: string
-  mfaEnabledOn?: string
-  mfaDisabledOn?: string
+  suspended: boolean
+  securityEvents: string[]
 }
 export default UserSqlRecord

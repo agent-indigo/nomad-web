@@ -65,22 +65,13 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     mfaBackupCodes: {
       type: [DataTypes.STRING]
     },
-    enabled: {
+    suspended: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: true
+      defaultValue: false
     },
-    passwordChangedOn: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    mfaEnabledOn: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    mfaDisabledOn: {
-      type: DataTypes.DATE,
-      allowNull: true
+    securityEvents: {
+      type: [DataTypes.STRING]
     },
     createdAt: {
       type: DataTypes.DATE,

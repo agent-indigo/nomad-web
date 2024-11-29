@@ -66,22 +66,13 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
     mfaBackupCodes: {
       type: [DataTypes.STRING]
     },
-    enabled: {
+    suspended: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: true
+      defaultValue: false
     },
-    passwordChangedOn: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    mfaEnabledOn: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    mfaDisabledOn: {
-      type: DataTypes.DATE,
-      allowNull: true
+    securityEvents: {
+      type: [DataTypes.STRING]
     }
   }, {
     tableName: 'users',
@@ -110,6 +101,11 @@ userSqlModel.hasMany(
 userSqlModel.hasMany(
   sequelize.models.MfaBackupCode, {
     foreignKey: 'mfaBackupCodes'
+  }
+)
+userSqlModel.hasMany(
+  sequelize.models.SecurityEvent, {
+    foreignKey: 'securityEvents'
   }
 )
 export default userSqlModel
