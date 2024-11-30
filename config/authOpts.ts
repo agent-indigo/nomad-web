@@ -4,6 +4,7 @@ import {AuthOptions} from 'next-auth'
 import CredentialsProvider, {CredentialInput} from 'next-auth/providers/credentials'
 import userSqlModel from '@/models/userSqlModel'
 import UserSqlRecord from '@/interfaces/UserSqlRecord'
+import connectSequelize from '@/utilities/connectSequelize'
 const authOpts: AuthOptions = {
   providers: [
     CredentialsProvider<Record<string, CredentialInput>>({
@@ -19,6 +20,7 @@ const authOpts: AuthOptions = {
         }
       },
       authorize: async (credentials: Record<string, string> | undefined): Promise<UserSqlRecord | null> => {
+        await connectSequelize()
         const user: Model<UserSqlRecord> | null = await userSqlModel.findOne({
           where: {
             email: credentials?.email

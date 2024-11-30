@@ -4,27 +4,14 @@ import {
   createContext,
   FunctionComponent,
   ReactElement,
-  useContext,
-  useEffect,
-  useState
+  useContext
 } from 'react'
 import State from '@/interfaces/State'
 import DestructuredReactNode from '@/interfaces/DestructuredReactNode'
-import ServerActionResponse from '@/interfaces/ServerActionResponse'
-import PrefsSqlRecord from '@/interfaces/PrefsSqlRecord'
-import getSessionUserPrefs from '@/serverActions/getSessionUserPrefs'
 const GlobalContext: Context<State> = createContext<State>({})
 const GlobalContextProvider: FunctionComponent<DestructuredReactNode> = ({children}): ReactElement => {
-  const [sessionUserPrefs, sestSessionUserPrefs] = useState<PrefsSqlRecord | undefined>(undefined)
-  useEffect((): void => {
-    const getPrefs: Function = async (): Promise<void> => {
-      const {success, sessionUserPrefs}: ServerActionResponse = await getSessionUserPrefs()
-      success && sessionUserPrefs && sestSessionUserPrefs(sessionUserPrefs)
-    }
-    getPrefs()
-  }, [])
   return (
-    <GlobalContext.Provider value={{sessionUserPrefs}}>
+    <GlobalContext.Provider value={{}}>
       {children}
     </GlobalContext.Provider>
   )
