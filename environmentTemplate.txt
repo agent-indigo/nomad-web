@@ -1,6 +1,6 @@
 NEXTAUTH_SECRET = 
-PG_SQL_DB_NAME = nomad
-PG_SQL_DB_USER = postgres
-PG_SQL_DB_PW = 
-PG_SQL_DB_HOST = localhost
-PG_SQL_DB_PORT = 5432
+SQL_DB_NAME = nomad
+SQL_DB_USER = postgres
+SQL_DB_PW = 
+SQL_DB_HOST = localhost
+SQL_DB_PORT = 5432
