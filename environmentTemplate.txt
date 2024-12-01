@@ -1,5 +1,6 @@
-DB_NAME = nomad
-DB_USER = postgres
-DB_PW = 
-DB_HOST = localhost
-DB_PORT = 5432
+NEXTAUTH_SECRET = 
+PG_SQL_DB_NAME = nomad
+PG_SQL_DB_USER = postgres
+PG_SQL_DB_PW = 
+PG_SQL_DB_HOST = localhost
+PG_SQL_DB_PORT = 5432
