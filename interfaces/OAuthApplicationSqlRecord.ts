@@ -1,5 +1,5 @@
 import SqlRecord from '@/interfaces/SqlRecord'
-export default interface OauthApplicationSqlRecord extends SqlRecord {
+export default interface OAuthApplicationSqlRecord extends SqlRecord {
   owner_id?: number
   uid: string
   owner_type?: string
