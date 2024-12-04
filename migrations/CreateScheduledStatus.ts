@@ -19,7 +19,8 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     },
     scheduled_at: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
+      index: true
     },
     params: {
       type: DataTypes.TEXT,

@@ -20,10 +20,12 @@ const accountSqlModel: ModelStatic<Model<AccountSqlRecord>> = sequelize.models.A
     uri: {
       type: DataTypes.TEXT,
       allowNull: false,
+      index: true
     },
     url: {
       type: DataTypes.TEXT,
       allowNull: true,
+      index: true,
       validate: {
         isUrl: true
       }

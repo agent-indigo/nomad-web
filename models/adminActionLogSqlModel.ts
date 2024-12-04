@@ -19,11 +19,13 @@ const adminActionLogSqlModel: ModelStatic<Model<AdminActionLogSqlRecord>> = sequ
     },
     target_type: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
+      index: true
     },
     target_id: {
       type: DataTypes.UUID,
-      allowNull: true
+      allowNull: true,
+      index: true
     },
     action: {
       type: DataTypes.TEXT,

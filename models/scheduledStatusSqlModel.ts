@@ -19,7 +19,8 @@ const scheduledStatusSqlModel: ModelStatic<Model<ScheduledStatusSqlRecord>> = se
     },
     scheduled_at: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
+      index: true
     },
     params: {
       type: DataTypes.TEXT,

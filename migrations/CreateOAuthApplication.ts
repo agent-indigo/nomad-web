@@ -24,7 +24,8 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     },
     owner_type: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: true,
+      index: true
     },
     name: {
       type: DataTypes.TEXT,

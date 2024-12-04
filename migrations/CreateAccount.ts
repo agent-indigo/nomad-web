@@ -18,10 +18,12 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     uri: {
       type: DataTypes.TEXT,
       allowNull: false,
+      index: true,
     },
     url: {
       type: DataTypes.TEXT,
       allowNull: true,
+      index: true,
       validate: {
         isUrl: true
       }

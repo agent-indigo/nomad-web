@@ -48,7 +48,8 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     },
     visibility: {
       type: DataTypes.NUMBER,
-      allowNull: false
+      allowNull: false,
+      index: true
     },
     text: {
       type: DataTypes.TEXT,
