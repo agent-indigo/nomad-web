@@ -29,7 +29,7 @@ const mediaAttachmentSqlRecord: ModelStatic<Model<MediaAttachmentSqlRecord>> = s
       type: DataTypes.TEXT,
       allowNull: true,
       references: {
-        model: 'Status',
+        model: 'ScheduledStatus',
         key: 'id'
       }
     },
@@ -93,7 +93,7 @@ mediaAttachmentSqlRecord.hasOne(
   }
 )
 mediaAttachmentSqlRecord.hasOne(
-  sequelize.models.Status, {
+  sequelize.models.ScheduledStatus, {
     foreignKey: 'scheduled_status_id'
   }
 )

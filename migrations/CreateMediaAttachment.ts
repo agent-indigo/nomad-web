@@ -29,7 +29,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       type: DataTypes.TEXT,
       allowNull: true,
       references: {
-        model: 'Status',
+        model: 'ScheduledStatus',
         key: 'id'
       }
     },

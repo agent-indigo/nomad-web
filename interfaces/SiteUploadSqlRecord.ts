@@ -5,5 +5,5 @@ export default interface SiteUploadSqlRecord extends SqlRecord {
   file_content_type?: string
   file_file_size?: number
   meta?: string
-  file_update_at?: string
+  file_updated_at?: string
 }
