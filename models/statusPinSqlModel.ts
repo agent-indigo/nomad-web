@@ -10,7 +10,7 @@ const statusPinSqlModel: ModelStatic<Model<StatusPinSqlRecord>> = sequelize.mode
   'StatusPin', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const statusPinSqlModel: ModelStatic<Model<StatusPinSqlRecord>> = sequelize.mode
       }
     },
     status_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Status',

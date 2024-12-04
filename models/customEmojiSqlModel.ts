@@ -53,12 +53,8 @@ const customEmojiSqlModel: ModelStatic<Model<CustomEmojiSqlRecord>> = sequelize.
       }
     },
     category_id: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      references: {
-        model: 'CustomEmojiCategory',
-        key: 'id'
-      }
+      type: DataTypes.UUID,
+      allowNull: true
     },
     image_uploaded_at: {
       type: DataTypes.DATE,
@@ -67,11 +63,6 @@ const customEmojiSqlModel: ModelStatic<Model<CustomEmojiSqlRecord>> = sequelize.
   }, {
     tableName: 'custom_emojis',
     timestamps: true
-  }
-)
-customEmojiSqlModel.hasOne(
-  sequelize.models.CustomEmojiCategory, {
-    foreignKey: 'category_id'
   }
 )
 export default customEmojiSqlModel

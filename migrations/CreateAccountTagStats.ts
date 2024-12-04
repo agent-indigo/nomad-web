@@ -10,7 +10,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
   'account_tag_stats', {
     ...createId(),
     tag_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Tag',

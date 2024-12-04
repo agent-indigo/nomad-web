@@ -10,7 +10,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
   'report_notes', {
     ...createId(),
     report_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Report',
@@ -18,7 +18,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',

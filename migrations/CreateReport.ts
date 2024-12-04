@@ -10,7 +10,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
   'reports', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     target_account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -26,7 +26,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     action_taken_by_account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',
@@ -34,7 +34,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     assigned_account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',
@@ -42,11 +42,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     status_ids: {
-      type: [DataTypes.TEXT],
-      references: {
-        model: 'Status',
-        key: 'id'
-      }
+      type: [DataTypes.UUID]
     },
     comment: {
       type: DataTypes.TEXT,

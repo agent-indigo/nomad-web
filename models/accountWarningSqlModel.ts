@@ -10,7 +10,7 @@ const accountWarningSqlModel: ModelStatic<Model<AccountWarningSqlRecord>> = sequ
   'AccountWarning', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const accountWarningSqlModel: ModelStatic<Model<AccountWarningSqlRecord>> = sequ
       }
     },
     target_account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',

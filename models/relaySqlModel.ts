@@ -21,7 +21,7 @@ const relaySqlModel: ModelStatic<Model<RelaySqlRecord>> = sequelize.models.Relay
       allowNull: false
     },
     follow_activity_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true
     }
   }, {

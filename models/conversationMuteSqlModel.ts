@@ -10,7 +10,7 @@ const conversationMuteSqlModel: ModelStatic<Model<ConversationMuteSqlRecord>> = 
   'ConversationMute', {
     ...createId(),
     conversation_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Conversation',
@@ -18,7 +18,7 @@ const conversationMuteSqlModel: ModelStatic<Model<ConversationMuteSqlRecord>> = 
       }
     },
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',

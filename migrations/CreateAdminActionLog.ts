@@ -10,7 +10,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
   'admin_action_logs', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',
@@ -22,12 +22,8 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: true
     },
     target_id: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      references: {
-        model: 'Account',
-        key: 'id'
-      }
+      type: DataTypes.UUID,
+      allowNull: true
     },
     action: {
       type: DataTypes.TEXT,

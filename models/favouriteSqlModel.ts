@@ -10,7 +10,7 @@ const favouriteSqlModel: ModelStatic<Model<FavouriteSqlRecord>> = sequelize.mode
   'Favourite', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const favouriteSqlModel: ModelStatic<Model<FavouriteSqlRecord>> = sequelize.mode
       }
     },
     status_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Status',

@@ -10,7 +10,7 @@ const adminActionLogSqlModel: ModelStatic<Model<AdminActionLogSqlRecord>> = sequ
   'AdminActionLog', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',
@@ -22,12 +22,8 @@ const adminActionLogSqlModel: ModelStatic<Model<AdminActionLogSqlRecord>> = sequ
       allowNull: true
     },
     target_id: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      references: {
-        model: 'Account',
-        key: 'id'
-      }
+      type: DataTypes.UUID,
+      allowNull: true
     },
     action: {
       type: DataTypes.TEXT,
@@ -45,11 +41,6 @@ const adminActionLogSqlModel: ModelStatic<Model<AdminActionLogSqlRecord>> = sequ
 adminActionLogSqlModel.hasOne(
   sequelize.models.Account, {
     foreignKey: 'account_id'
-  }
-)
-adminActionLogSqlModel.hasOne(
-  sequelize.models.Account, {
-    foreignKey: 'target_id'
   }
 )
 export default adminActionLogSqlModel

@@ -10,7 +10,7 @@ const listAccountSqlModel: ModelStatic<Model<ListAccountSqlRecord>> = sequelize.
   'ListAccount', {
     ...createId(),
     list_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'List',
@@ -18,7 +18,7 @@ const listAccountSqlModel: ModelStatic<Model<ListAccountSqlRecord>> = sequelize.
       }
     },
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -26,7 +26,7 @@ const listAccountSqlModel: ModelStatic<Model<ListAccountSqlRecord>> = sequelize.
       }
     },
     follow_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Follow',

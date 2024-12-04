@@ -10,7 +10,7 @@ const accountTagStatsSqlModel: ModelStatic<Model<AccountTagStatsSqlRecord>> = se
   'AccountTagStats', {
     ...createId(),
     tag_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Tag',

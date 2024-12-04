@@ -27,18 +27,10 @@ const accountConversationSqlModel: ModelStatic<Model<AccountConversationSqlRecor
     },
     participant_account_ids: {
       type: [DataTypes.UUID],
-      unique: true,
-      references: {
-        model: 'Account',
-        key: 'id'
-      }
+      unique: true
     },
     status_ids: {
-      type: [DataTypes.UUID],
-      references: {
-        model: 'Status',
-        key: 'id'
-      }
+      type: [DataTypes.UUID]
     },
     lock_version: {
       type: DataTypes.NUMBER,
@@ -50,11 +42,7 @@ const accountConversationSqlModel: ModelStatic<Model<AccountConversationSqlRecor
     },
     last_status_id: {
       type: DataTypes.UUID,
-      allowNull: true,
-      references: {
-        model: 'Status',
-        key: 'id'
-      }
+      allowNull: true
     }
   }, {
     tableName: 'account_conversations',
@@ -69,21 +57,6 @@ accountConversationSqlModel.hasOne(
 accountConversationSqlModel.hasOne(
   sequelize.models.Conversation, {
     foreignKey: 'conversation_id'
-  }
-)
-accountConversationSqlModel.hasMany(
-  sequelize.models.Account, {
-    foreignKey: 'participant_account_ids'
-  }
-)
-accountConversationSqlModel.hasMany(
-  sequelize.models.Status, {
-    foreignKey: 'status_ids'
-  }
-)
-accountConversationSqlModel.hasOne(
-  sequelize.models.Status, {
-    foreignKey: 'last_status_id'
   }
 )
 export default accountConversationSqlModel

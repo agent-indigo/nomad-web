@@ -10,7 +10,7 @@ const backupSqlModel: ModelStatic<Model<BackupSqlRecord>> = sequelize.models.Bac
   'Backup', {
     ...createId(),
     user_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'User',

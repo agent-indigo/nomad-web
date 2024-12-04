@@ -10,7 +10,7 @@ const announcementMuteSqlModel: ModelStatic<Model<AnnouncementMuteSqlRecord>> = 
   'AnnouncementMute', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const announcementMuteSqlModel: ModelStatic<Model<AnnouncementMuteSqlRecord>> = 
       }
     },
     announcement_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Announcement',

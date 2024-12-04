@@ -10,7 +10,7 @@ const markerSqlModel: ModelStatic<Model<MarkerSqlRecord>> = sequelize.models.Mar
   'Marker', {
     ...createId(),
     user_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'User',

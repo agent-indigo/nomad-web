@@ -10,7 +10,7 @@ const blockSqlModel: ModelStatic<Model<BlockSqlRecord>> = sequelize.models.Block
   'Block', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const blockSqlModel: ModelStatic<Model<BlockSqlRecord>> = sequelize.models.Block
       }
     },
     target_account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',

@@ -10,7 +10,7 @@ const accountStatsSqlModel: ModelStatic<Model<AccountStatsSqlRecord>> = sequeliz
   'AccountStats', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',

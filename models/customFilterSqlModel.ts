@@ -10,7 +10,7 @@ const customFilterSqlModel: ModelStatic<Model<CustomFilterSqlRecord>> = sequeliz
   'CustomFilter', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',

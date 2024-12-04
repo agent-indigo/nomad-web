@@ -26,19 +26,10 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     participant_account_ids: {
-      type: [DataTypes.UUID],
-      unique: true,
-      references: {
-        model: 'Account',
-        key: 'id'
-      }
+      type: [DataTypes.UUID]
     },
     status_ids: {
-      type: [DataTypes.UUID],
-      references: {
-        model: 'Status',
-        key: 'id'
-      }
+      type: [DataTypes.UUID]
     },
     lock_version: {
       type: DataTypes.NUMBER,
@@ -50,11 +41,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     },
     last_status_id: {
       type: DataTypes.UUID,
-      allowNull: true,
-      references: {
-        model: 'Status',
-        key: 'id'
-      }
+      allowNull: true
     },
     ...createTimeStamps()
   }

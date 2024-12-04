@@ -19,7 +19,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       unique: true
     },
     thing_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       unique: true
     },

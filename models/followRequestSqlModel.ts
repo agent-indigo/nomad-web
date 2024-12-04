@@ -10,7 +10,7 @@ const followRequestSqlModel: ModelStatic<Model<FollowRequestSqlRecord>> = sequel
   'FollowRequest', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const followRequestSqlModel: ModelStatic<Model<FollowRequestSqlRecord>> = sequel
       }
     },
     target_account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',

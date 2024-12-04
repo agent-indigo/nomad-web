@@ -10,7 +10,7 @@ const bookmarkSqlModel: ModelStatic<Model<BookmarkSqlRecord>> = sequelize.models
   'Bookmark', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const bookmarkSqlModel: ModelStatic<Model<BookmarkSqlRecord>> = sequelize.models
       }
     },
     status_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',

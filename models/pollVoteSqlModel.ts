@@ -10,7 +10,7 @@ const pollVoteSqlModel: ModelStatic<Model<PollVoteSqlRecord>> = sequelize.models
   'PollVote', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const pollVoteSqlModel: ModelStatic<Model<PollVoteSqlRecord>> = sequelize.models
       }
     },
     poll_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Poll',

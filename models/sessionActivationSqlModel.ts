@@ -10,7 +10,7 @@ const sessionActivateSqlModel: ModelStatic<Model<SessionActivationSqlRecord>> = 
   'SessionActivation', {
     ...createId(),
     user_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'User',
@@ -18,7 +18,7 @@ const sessionActivateSqlModel: ModelStatic<Model<SessionActivationSqlRecord>> = 
       }
     },
     access_token_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'OAuthAccessToken',

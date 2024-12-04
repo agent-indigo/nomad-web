@@ -82,11 +82,7 @@ const statusSqlModel: ModelStatic<Model<StatusSqlRecord>> = sequelize.models.Sta
     },
     conversation_id: {
       type: DataTypes.UUID,
-      allowNull: true,
-      references: {
-        model: 'Conversation',
-        key: 'id'
-      }
+      allowNull: true
     },
     local: {
       type: DataTypes.BOOLEAN,
@@ -95,19 +91,11 @@ const statusSqlModel: ModelStatic<Model<StatusSqlRecord>> = sequelize.models.Sta
     },
     application_id: {
       type: DataTypes.UUID,
-      allowNull: true,
-      references: {
-        model: 'OAuthApplication',
-        key: 'id'
-      }
+      allowNull: true
     },
     poll_id: {
       type: DataTypes.UUID,
-      allowNull: true,
-      references: {
-        model: 'Poll',
-        key: 'id'
-      }
+      allowNull: true
     },
     deleted_at: {
       type: DataTypes.DATE,
@@ -136,21 +124,6 @@ statusSqlModel.hasOne(
 statusSqlModel.hasOne(
   sequelize.models.Account, {
     foreignKey: 'in_reply_to_account_id'
-  }
-)
-statusSqlModel.hasOne(
-  sequelize.models.Conversation, {
-    foreignKey: 'conversation_id'
-  }
-)
-statusSqlModel.hasOne(
-  sequelize.models.OAuthApplication, {
-    foreignKey: 'application_id'
-  }
-)
-statusSqlModel.hasOne(
-  sequelize.models.Poll, {
-    foreignKey: 'poll_id'
   }
 )
 export default statusSqlModel

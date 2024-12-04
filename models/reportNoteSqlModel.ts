@@ -10,7 +10,7 @@ const reportNoteSqlModel: ModelStatic<Model<ReportNoteSqlRecord>> = sequelize.mo
   'ReportNote', {
     ...createId(),
     report_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Report',
@@ -18,7 +18,7 @@ const reportNoteSqlModel: ModelStatic<Model<ReportNoteSqlRecord>> = sequelize.mo
       }
     },
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',

@@ -10,7 +10,7 @@ const identitySqlModel: ModelStatic<Model<IdentitySqlRecord>> = sequelize.models
   'Identity', {
     ...createId(),
     user_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'User',

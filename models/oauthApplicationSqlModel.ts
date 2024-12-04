@@ -10,7 +10,7 @@ const oauthApplicationSqlModel: ModelStatic<Model<OAuthApplicationSqlRecord>> = 
   'OAuthApplication', {
     ...createId(),
     owner_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'User',

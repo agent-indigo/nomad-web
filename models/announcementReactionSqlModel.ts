@@ -10,7 +10,7 @@ const announcementReactionSqlModel: ModelStatic<Model<AnnouncementReactionSqlRec
   'AnnouncementReaction', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const announcementReactionSqlModel: ModelStatic<Model<AnnouncementReactionSqlRec
       }
     },
     announcement_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Announcement',
@@ -26,7 +26,7 @@ const announcementReactionSqlModel: ModelStatic<Model<AnnouncementReactionSqlRec
       }
     },
     custom_emoji_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'CustomEmoji',

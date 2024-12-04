@@ -10,7 +10,7 @@ const importSqlModel: ModelStatic<Model<ImportSqlRecord>> = sequelize.models.Imp
   'Import', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',

@@ -10,7 +10,7 @@ const reportSqlModel: ModelStatic<Model<ReportSqlRecord>> = sequelize.models.Rep
   'Report', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const reportSqlModel: ModelStatic<Model<ReportSqlRecord>> = sequelize.models.Rep
       }
     },
     target_account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -26,7 +26,7 @@ const reportSqlModel: ModelStatic<Model<ReportSqlRecord>> = sequelize.models.Rep
       }
     },
     action_taken_by_account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',
@@ -34,7 +34,7 @@ const reportSqlModel: ModelStatic<Model<ReportSqlRecord>> = sequelize.models.Rep
       }
     },
     assigned_account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',
@@ -42,11 +42,7 @@ const reportSqlModel: ModelStatic<Model<ReportSqlRecord>> = sequelize.models.Rep
       }
     },
     status_ids: {
-      type: [DataTypes.TEXT],
-      references: {
-        model: 'Status',
-        key: 'id'
-      }
+      type: [DataTypes.UUID]
     },
     comment: {
       type: DataTypes.TEXT,
@@ -84,11 +80,6 @@ reportSqlModel.hasOne(
 reportSqlModel.hasOne(
   sequelize.models.Account, {
     foreignKey: 'assigned_to_account_id'
-  }
-)
-reportSqlModel.hasMany(
-  sequelize.models.Status, {
-    foreignKey: 'status_ids'
   }
 )
 export default reportSqlModel

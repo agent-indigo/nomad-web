@@ -82,11 +82,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     },
     conversation_id: {
       type: DataTypes.UUID,
-      allowNull: true,
-      references: {
-        model: 'Conversation',
-        key: 'id'
-      }
+      allowNull: true
     },
     local: {
       type: DataTypes.BOOLEAN,
@@ -95,19 +91,11 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     },
     application_id: {
       type: DataTypes.UUID,
-      allowNull: true,
-      references: {
-        model: 'OAuthApplication',
-        key: 'id'
-      }
+      allowNull: true
     },
     poll_id: {
       type: DataTypes.UUID,
-      allowNull: true,
-      references: {
-        model: 'Poll',
-        key: 'id'
-      }
+      allowNull: true
     },
     deleted_at: {
       type: DataTypes.DATE,

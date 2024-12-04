@@ -51,12 +51,8 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     category_id: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      references: {
-        model: 'CustomEmojiCategory',
-        key: 'id'
-      }
+      type: DataTypes.UUID,
+      allowNull: true
     },
     image_uploaded_at: {
       type: DataTypes.DATE,

@@ -10,7 +10,7 @@ const muteSqlModel: ModelStatic<Model<MuteSqlRecord>> = sequelize.models.Mute ??
   'Mute', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const muteSqlModel: ModelStatic<Model<MuteSqlRecord>> = sequelize.models.Mute ??
       }
     },
     target_account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',

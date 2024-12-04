@@ -10,7 +10,7 @@ const oauthAccessGrantSqlModel: ModelStatic<Model<OAuthAccessGrantSqlRecord>> = 
   'OAuthAccessGrant', {
     ...createId(),
     application_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'OAuthApplication',
@@ -18,7 +18,7 @@ const oauthAccessGrantSqlModel: ModelStatic<Model<OAuthAccessGrantSqlRecord>> = 
       }
     },
     resource_owner_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'User',

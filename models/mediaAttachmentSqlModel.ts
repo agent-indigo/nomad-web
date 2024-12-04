@@ -10,7 +10,7 @@ const mediaAttachmentSqlRecord: ModelStatic<Model<MediaAttachmentSqlRecord>> = s
   'MediaAttachment', {
     ...createId(),
     status_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Status',
@@ -18,7 +18,7 @@ const mediaAttachmentSqlRecord: ModelStatic<Model<MediaAttachmentSqlRecord>> = s
       }
     },
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',
@@ -26,7 +26,7 @@ const mediaAttachmentSqlRecord: ModelStatic<Model<MediaAttachmentSqlRecord>> = s
       }
     },
     scheduled_status_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'ScheduledStatus',

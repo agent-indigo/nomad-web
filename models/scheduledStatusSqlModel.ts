@@ -10,7 +10,7 @@ const scheduledStatusSqlModel: ModelStatic<Model<ScheduledStatusSqlRecord>> = se
   'ScheduledStatus', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'Account',

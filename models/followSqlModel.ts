@@ -10,7 +10,7 @@ const followSqlModel: ModelStatic<Model<FollowSqlRecord>> = sequelize.models.Fol
   'Follow', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const followSqlModel: ModelStatic<Model<FollowSqlRecord>> = sequelize.models.Fol
       }
     },
     target_account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',

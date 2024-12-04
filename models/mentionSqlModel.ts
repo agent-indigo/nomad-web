@@ -10,7 +10,7 @@ const mentionSqlModel: ModelStatic<Model<MentionSqlRecord>> = sequelize.models.M
   'Mention', {
     ...createId(),
     account_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Account',
@@ -18,7 +18,7 @@ const mentionSqlModel: ModelStatic<Model<MentionSqlRecord>> = sequelize.models.M
       }
     },
     status_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'Status',

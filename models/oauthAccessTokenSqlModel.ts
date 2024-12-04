@@ -10,7 +10,7 @@ const oauthAccessTokenSqlModel: ModelStatic<Model<OAuthAccessTokenSqlRecord>> = 
   'OAuthAccessToken', {
     ...createId(),
     application_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'OAuthApplication',
@@ -18,7 +18,7 @@ const oauthAccessTokenSqlModel: ModelStatic<Model<OAuthAccessTokenSqlRecord>> = 
       }
     },
     resource_owner_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.UUID,
       allowNull: true,
       references: {
         model: 'User',
