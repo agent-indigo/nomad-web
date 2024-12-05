@@ -1,4 +1,4 @@
-const domain = process.env.VERCEL_URL ?? 'localhost:3000'
+const domain = process.env.VERCEL_URL ?? process.env.DOMAIN ?? 'localhost:3000'
 const url = `http${domain === 'localhost:3000' ? null : 's'}://${domain}`
 const nextConfig = {
   env: {

@@ -1,3 +1,4 @@
+DOMAIN = 
 NEXTAUTH_SECRET = 
 SQL_DB_NAME = nomad
 SQL_DB_USER = postgres

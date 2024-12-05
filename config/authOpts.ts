@@ -8,7 +8,7 @@ import connectSequelize from '@/utilities/connectSequelize'
 const authOpts: AuthOptions = {
   providers: [
     CredentialsProvider<Record<string, CredentialInput>>({
-      name: process.env.VERCEL_URL ?? 'Development',
+      name: process.env.VERCEL_URL ?? process.env.DOMAIN ?? 'Development',
       credentials: {
         email: {
           label: 'Email Address',
