@@ -1,6 +1,6 @@
 .venv/
 __pycache__/
-static/
+/static/
 .DS_Store
 .env
 [Dd]esktop.ini
