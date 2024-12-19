@@ -3,11 +3,19 @@
 <html lang='en'>
   <head>
     <!-- Metadata -->
-    <meta charset='UTF-8'>
+    <meta charset='UTF-8'/>
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    >
+      content="
+        width=device-width,
+        initial-scale=1.0
+      "
+    />
+    <!-- Manifest -->
+    <link
+      rel="manifest"
+      href="{% static 'manifest.json' %}"
+    />
     <!-- CSS -->
     <!-- Font Awesome -->
     <link
@@ -57,13 +65,13 @@
     <!-- Title -->
     <title>
       {% block title %}
-      {% endblock %} | Nomad
+      {% endblock %} | <!-- TODO: Fetch outpost name -->Nomad
     </title>
   </head>
   <body>
     <!-- Disabled JavaScript Notice -->
     <noscript>
-      You need to enable JavaScript to use this app.
+      You need to enable JavaScript to run this app.
     </noscript>
     <!-- Content -->
     {% block content %}
