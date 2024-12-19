@@ -8,15 +8,9 @@ Full stack decentralized social media web application
 
 - [ActivityPub](https://activitypub.rocks)
 
-- [Matrix](https://matrix.org)
+- [Django](https://djangoproject.com)
 
-- [Next.js](https://nextjs.org)
-
-- [NextAuth](https://next-auth.js.org)
-
-- [DaisyUI](https://daisyui.com)
-
-- [Sequelize](https://sequelize.org)
+- [Python-Dotenv](https://pypi.org/project/python-dotenv/)
 
 ## Links
 
