@@ -10,7 +10,7 @@ class AccountWarning(models.Model):
     on_delete=models.DO_NOTHING,
     blank=True
   )
-  action = models.IntegerField
+  action = models.PositiveBigIntegerField
   text = models.TextField
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)

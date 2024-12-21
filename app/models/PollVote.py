@@ -10,7 +10,7 @@ class PollVote(models.Model):
     on_delete=models.DO_NOTHING,
     blank=True
   )
-  choice = models.IntegerField
+  choice = models.PositiveBigIntegerField
   uri = models.TextField
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)

@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from app.settings import AUTO_APPROVE_NEW_USERS
+from app.settings import auto_approve_new_users
 class User(AbstractUser):
   account_id = models.ForeignKey(
     'Account',
-    on_delete=models.CASCADE,
+    on_delete=models.DO_NOTHING,
     unique=True
   )
   invite_id = models.ForeignKey(
@@ -24,11 +24,11 @@ class User(AbstractUser):
     unique=True,
     blank=True
   )
-  sign_in_count = models.IntegerField(default=0)
+  sign_in_count = models.PositiveBigIntegerField(default=0)
   admin = models.BooleanField(default=False)
   filtered_languages = [models.TextField(blank=True)]
   moderator = models.BooleanField(default=False)
-  approved = models.BooleanField(default=AUTO_APPROVE_NEW_USERS)
+  approved = models.BooleanField(default=auto_approve_new_users)
   reset_password_sent_at = models.DateTimeField(blank=True)
   remember_created_at = models.DateTimeField(blank=True)
   current_sign_in_at = models.DateTimeField(blank=True)
@@ -39,7 +39,7 @@ class User(AbstractUser):
   confirmation_sent_at = models.DateTimeField(blank=True)
   unconfirmed_email = models.EmailField(blank=True)
   locale = models.TextField(blank=True)
-  consumed_timestep = models.IntegerField(blank=True)
+  consumed_timestep = models.PositiveBigIntegerField(blank=True)
   last_emailed_at = models.DateTimeField(blank=True)
   chosen_languages = [models.TextField(blank=True)]
   created_by_application_id = models.ForeignKey(

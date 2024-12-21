@@ -11,6 +11,6 @@ class AccountMigration(models.Model):
     blank=True
   )
   acct = models.TextField
-  followers_count = models.IntegerField(default=0)
+  followers_count = models.PositiveBigIntegerField(default=0)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)

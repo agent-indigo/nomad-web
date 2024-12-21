@@ -12,10 +12,10 @@ import os
 # Load .env
 load_dotenv()
 # Outpost config
-AUTO_APPROVE_NEW_USERS = os.getenv('BOOL_AUTO_APPROVE_NEW_USERS', 'True').title() == 'True'
-AUTO_APPROVE_USER_IMPORTS = os.getenv('BOOL_AUTO_APPROVE_USER_IMPORTS', 'True').title() = 'True'
-DEFAULT_INVITE_USES = os.getenv('INT_DEFAULT_INVITE_USES', 1)
-DEFAULT_INVITE_MAX_USES = os.getenv('INT_DEFAULT_INVITE_MAX_USES', 1)
+auto_approve_new_users = os.getenv(
+  'BOOL_AUTO_APPROVE_NEW_USERS',
+  'True'
+).title() == 'True'
 # Django config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -135,4 +135,4 @@ STATICFILES_DIRS = [
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-DEFAULT_AUTO_FIELD = 'django.db.models.UUIDField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

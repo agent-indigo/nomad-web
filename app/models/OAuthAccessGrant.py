@@ -9,7 +9,7 @@ class OAuthAccessGrant(models.Model):
     on_delete=models.DO_NOTHING
   )
   token = models.TextField(unique=True)
-  expires_in = models.IntegerField
+  expires_in = models.PositiveBigIntegerField
   redirect_uri = models.TextField
   revoked_at = models.DateTimeField(blank=True)
   scopes = models.TextField(blank=True)

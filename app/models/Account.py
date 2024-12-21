@@ -37,7 +37,7 @@ class Account(models.Model):
   outbox_url = models.URLField
   shared_inbox_url = models.URLField
   followers_url = models.URLField
-  protocol = models.IntegerField
+  protocol = models.PositiveBigIntegerField
   memorial = models.BooleanField(default=False)
   featured_collection_url = models.URLField(blank=True)
   fields = models.JSONField(blank=True)
@@ -49,6 +49,6 @@ class Account(models.Model):
   also_known_as = [models.TextField]
   silenced_at = models.DateTimeField(blank=True)
   suspended_at = models.DateTimeField(blank=True)
-  trust_level = models.IntegerField(blank=True)
+  trust_level = models.PositiveBigIntegerField(blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)

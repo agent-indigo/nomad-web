@@ -10,7 +10,7 @@ class AccountConversation(models.Model):
   )
   participant_account_ids = [models.TextField(unique=True)]
   status_ids = [models.TextField]
-  lock_version = models.IntegerField
+  lock_version = models.PositiveBigIntegerField
   unread = models.BooleanField(default=True)
   last_status_id = models.ForeignKey(
     'Status',

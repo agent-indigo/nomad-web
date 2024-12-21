@@ -15,7 +15,7 @@ class OAuthAccessToken(models.Model):
     unique=True,
     blank=True
   )
-  expires_in = models.IntegerField(blank=True)
+  expires_in = models.PositiveBigIntegerField(blank=True)
   revoked_at = models.DateTimeField(blank=True)
   scopes = models.TextField(blank=True)
   created_at = models.DateTimeField(auto_now_add=True)

@@ -11,14 +11,14 @@ class Poll(models.Model):
     blank=True
   )
   options = [models.TextField]
-  cached_tallies = [models.IntegerField]
+  cached_tallies = [models.PositiveBigIntegerField]
   multiple = models.BooleanField(default=False)
   hide_totals = models.BooleanField(default=False)
-  votes_count = models.IntegerField(default=0)
-  lock_version = models.IntegerField
+  votes_count = models.PositiveBigIntegerField(default=0)
+  lock_version = models.PositiveBigIntegerField
   expires_at = models.DateTimeField(blank=True)
   last_fetched_at = models.DateTimeField(blank=True)
-  voters_count = models.IntegerField(
+  voters_count = models.PositiveBigIntegerField(
     blank=True,
     default=0
   )
