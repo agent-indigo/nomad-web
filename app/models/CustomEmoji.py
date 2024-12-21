@@ -12,7 +12,7 @@ class CustomEmoji(models.Model):
   )
   image_file_name = models.TextField(blank=True)
   image_content_type = models.TextField(blank=True)
-  image_file_size = models.DecimalField(blank=True)
+  image_file_size = models.PositiveBigIntegerField(blank=True)
   uri = models.TextField(blank=True)
   image_remote_url = models.URLField(blank=True)
   category_id = models.TextField(blank=True)

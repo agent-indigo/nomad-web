@@ -14,7 +14,7 @@ class PreviewCard(models.Model):
   embed_url = models.URLField
   image_file_name = models.TextField(blank=True)
   image_content_type = models.TextField(blank=True)
-  image_file_size = models.DecimalField(blank=True)
+  image_file_size = models.PositiveBigIntegerField(blank=True)
   image_updated_at = models.DateTimeField(blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
