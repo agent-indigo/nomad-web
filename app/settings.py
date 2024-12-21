@@ -11,6 +11,12 @@ from dotenv import load_dotenv
 import os
 # Load .env
 load_dotenv()
+# Outpost config
+AUTO_APPROVE_NEW_USERS = os.getenv('BOOL_AUTO_APPROVE_NEW_USERS', 'True').title() == 'True'
+AUTO_APPROVE_USER_IMPORTS = os.getenv('BOOL_AUTO_APPROVE_USER_IMPORTS', 'True').title() = 'True'
+DEFAULT_INVITE_USES = os.getenv('INT_DEFAULT_INVITE_USES', 1)
+DEFAULT_INVITE_MAX_USES = os.getenv('INT_DEFAULT_INVITE_MAX_USES', 1)
+# Django config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
@@ -18,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv(
   'STR_SECRET_KEY',
-  ''
+  'd3v3l0pm3nt53cr3tk3yn0t53cur3@t@11n3v3ru53!npr0duct!0n3v3r!!!'
 )
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv(
@@ -129,4 +135,4 @@ STATICFILES_DIRS = [
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.UUIDField'
