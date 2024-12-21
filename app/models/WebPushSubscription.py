@@ -3,11 +3,13 @@ class WebPushSubscription(models.Model):
   access_token_id = models.ForeignKey(
     'OAuthAccessToken',
     on_delete=models.DO_NOTHING,
+    related_name='web_push_subscriptions',
     blank=True
   )
   user_id = models.ForeignKey(
     'User',
-    on_delete=models.DO_NOTHING
+    on_delete=models.DO_NOTHING,
+    related_name='web_push_subscriptions'
   )
   endpoint = models.TextField
   key_p256dh = models.TextField

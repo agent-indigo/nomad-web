@@ -2,11 +2,13 @@ from django.db import models
 class AccountModerationNote(models.Model):
   account_id = models.ForeignKey(
     'Account',
-    on_delete=models.DO_NOTHING
+    on_delete=models.DO_NOTHING,
+    related_name='filed_moderation_notes'
   )
   target_account_id = models.ForeignKey(
     'Account',
-    on_delete=models.DO_NOTHING
+    on_delete=models.DO_NOTHING,
+    related_name='issued_moderation_notes'
   )
   content = models.TextField
   created_at = models.DateTimeField(auto_now_add=True)

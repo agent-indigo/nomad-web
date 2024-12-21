@@ -1,8 +1,9 @@
 from django.db import models
 class Import(models.Model):
-  account_id = models.ForeignKey(
+  account_id = models.OneToOneField(
     'Account',
-    on_delete=models.DO_NOTHING
+    on_delete=models.DO_NOTHING,
+    related_name='account_import'
   )
   type = models.TextField
   approved = models.BooleanField(default=True)

@@ -2,21 +2,25 @@ from django.db import models
 class Status(models.Model):
   account_id = models.ForeignKey(
     'Account',
-    on_delete=models.DO_NOTHING
+    on_delete=models.DO_NOTHING,
+    related_name='statuses'
   )
   in_reply_to_id = models.ForeignKey(
     'Status',
     on_delete=models.DO_NOTHING,
+    related_name='replies',
     blank=True
   )
   reblog_of_id = models.ForeignKey(
     'Status',
     on_delete=models.DO_NOTHING,
+    related_name='reblogs',
     blank=True
   )
   in_reply_to_account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,
+    related_name='replies',
     blank=True
   )
   uri = models.TextField(

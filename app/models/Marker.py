@@ -3,6 +3,7 @@ class Marker(models.Model):
   user_id = models.ForeignKey(
     'User',
     on_delete=models.DO_NOTHING,
+    related_name='markers',
     blank=True
   )
   timeline = models.TextField(unique=True)

@@ -1,8 +1,9 @@
 from django.db import models
 class Account(models.Model):
-  moved_to_account_id = models.ForeignKey(
+  moved_to_account_id = models.OneToOneField(
     'Account',
     on_delete=models.DO_NOTHING,
+    related_name='account',
     blank=True
   )
   uri = models.TextField(db_index=True)

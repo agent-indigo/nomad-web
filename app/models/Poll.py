@@ -3,11 +3,13 @@ class Poll(models.Model):
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,
+    related_name='polls',
     blank=True
   )
   status_id = models.ForeignKey(
     'Status',
     on_delete=models.DO_NOTHING,
+    related_name='polls',
     blank=True
   )
   options = [models.TextField]

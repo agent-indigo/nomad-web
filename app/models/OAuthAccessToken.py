@@ -3,11 +3,13 @@ class OAuthAccessToken(models.Model):
   application_id = models.ForeignKey(
     'OAuthApplication',
     on_delete=models.DO_NOTHING,
+    related_name='oauth_access_tokens',
     blank=True
   )
   resource_owner_id = models.ForeignKey(
     'User',
     on_delete=models.DO_NOTHING,
+    related_name='oauth_access_tokens',
     blank=True
   )
   token = models.TextField(unique=True)

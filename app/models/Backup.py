@@ -3,6 +3,7 @@ class Backup(models.Model):
   user_id = models.ForeignKey(
     'User',
     on_delete=models.DO_NOTHING,
+    related_name='backups',
     blank=True
   )
   processed = models.BooleanField(default=False)

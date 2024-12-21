@@ -3,11 +3,13 @@ class PollVote(models.Model):
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,
+    related_name='poll_votes',
     blank=True
   )
   poll_id = models.ForeignKey(
     'Poll',
     on_delete=models.DO_NOTHING,
+    related_name='poll_votes',
     blank=True
   )
   choice = models.PositiveBigIntegerField

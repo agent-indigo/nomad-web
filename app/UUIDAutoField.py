@@ -1,3 +1,9 @@
+"""
+UUID Auto Field
+Can be set as the DEFAULT_AUTO_FIELD
+in settings.py to use v4 UUIDs as
+primary keys
+"""
 from django.db.models import AutoField
 from uuid import uuid4
 class UUIDAutoField(AutoField):

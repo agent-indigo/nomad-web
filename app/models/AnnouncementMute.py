@@ -1,13 +1,15 @@
 from django.db import models
 class AnnouncementMute(models.Model):
-  account_id = models.ForeignKey(
+  account_id = models.OneToOneField(
     'Account',
     on_delete=models.DO_NOTHING,
+    related_name='announcement_mutes',
     blank=True
   )
-  announcement_id = models.ForeignKey(
+  announcement_id = models.OneToOneField(
     'Announcement',
     on_delete=models.DO_NOTHING,
+    related_name='announcement_mutes',
     blank=True
   )
   created_at = models.DateTimeField(auto_now_add=True)

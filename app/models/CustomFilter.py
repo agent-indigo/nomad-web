@@ -3,6 +3,7 @@ class CustomFilter(models.Model):
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,
+    related_name='custom_filters',
     blank=True
   )
   phrase = models.TextField

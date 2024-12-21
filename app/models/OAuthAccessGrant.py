@@ -2,11 +2,13 @@ from django.db import models
 class OAuthAccessGrant(models.Model):
   application_id = models.ForeignKey(
     'OAuthApplication',
-    on_delete=models.DO_NOTHING
+    on_delete=models.DO_NOTHING,
+    related_name='oauth_access_grants'
   )
   resource_owner_id = models.ForeignKey(
     'User',
-    on_delete=models.DO_NOTHING
+    on_delete=models.DO_NOTHING,
+    related_name='oauth_access_grants'
   )
   token = models.TextField(unique=True)
   expires_in = models.PositiveBigIntegerField

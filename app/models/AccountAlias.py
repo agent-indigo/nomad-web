@@ -3,6 +3,7 @@ class AccountAlias(models.Model):
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,
+    related_name='aliases',
     blank=True
   )
   acct = models.TextField(blank=True)

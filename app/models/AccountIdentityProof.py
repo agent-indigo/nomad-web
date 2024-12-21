@@ -3,6 +3,7 @@ class AccountIdentityProof(models.Model):
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,
+    related_name='account_identity_proofs',
     blank=True
   )
   provider = models.TextField(unique=True)

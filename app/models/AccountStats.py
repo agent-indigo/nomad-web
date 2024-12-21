@@ -1,8 +1,9 @@
 from django.db import models
 class AccountStats(models.Model):
-  account_id = models.ForeignKey(
+  account_id = models.OneToOneField(
     'Account',
-    on_delete=models.DO_NOTHING
+    on_delete=models.DO_NOTHING,
+    related_name='stats'
   )
   statuses_count = models.PositiveBigIntegerField(default=0)
   following_count = models.PositiveBigIntegerField(default=0)

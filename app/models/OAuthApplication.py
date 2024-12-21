@@ -3,6 +3,7 @@ class OAuthApplication(models.Model):
   owner_id = models.ForeignKey(
     'User',
     on_delete=models.DO_NOTHING,
+    related_name='oauth_applications',
     blank=True
   )
   uid = models.TextField(unique=True)

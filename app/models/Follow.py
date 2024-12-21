@@ -2,11 +2,13 @@ from django.db import models
 class Follow(models.Model):
   account_id = models.ForeignKey(
     'Account',
-    on_delete=models.DO_NOTHING
+    on_delete=models.DO_NOTHING,
+    related_name='follows'
   )
   target_account_id = models.ForeignKey(
     'Account',
-    on_delete=models.DO_NOTHING
+    on_delete=models.DO_NOTHING,
+    related_name='followers'
   )
   show_reblogs = models.BooleanField(default=True)
   uri = models.TextField(blank=True)

@@ -3,16 +3,19 @@ class AnnouncementReaction(models.Model):
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,
+    related_name='announcement_reactions',
     blank=True
   )
   announcement_id = models.ForeignKey(
     'Announcement',
     on_delete=models.DO_NOTHING,
+    related_name='announcement_reactions',
     blank=True
   )
   custom_emoji_id = models.ForeignKey(
     'CustomEmoji',
     on_delete=models.DO_NOTHING,
+    related_name='announcement_reactions',
     blank=True
   )
   name = models.TextField(unique=True)

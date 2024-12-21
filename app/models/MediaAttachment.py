@@ -3,16 +3,19 @@ class MediaAttachment(models.Model):
   status_id = models.ForeignKey(
     'Status',
     on_delete=models.DO_NOTHING,
+    related_name='media_attachments',
     blank=True
   )
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,
+    related_name='media_attachments',
     blank=True
   )
   scheduled_status_id = models.ForeignKey(
     'ScheduledStatus',
     on_delete=models.DO_NOTHING,
+    related_name='media_attachments',
     blank=True
   )
   shortcode = models.TextField(
@@ -22,7 +25,7 @@ class MediaAttachment(models.Model):
   remote_url = models.URLField
   type = models.TextField
   file_file_name = models.TextField(blank=True)
-  file_file_size = models.DecimalField(blank=True)
+  file_file_size = models.PositiveBigIntegerField(blank=True)
   file_mate = models.TextField
   description = models.TextField(blank=True)
   blurhash = models.TextField(blank=True)

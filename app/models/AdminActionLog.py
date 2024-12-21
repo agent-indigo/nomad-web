@@ -3,6 +3,7 @@ class AdminActionLog(models.Model):
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,
+    related_name='admin_actions',
     blank=True
   )
   target_type = models.TextField(
