@@ -1,12 +1,11 @@
 from django.db import models
-from app.settings import auto_approve_new_users
 class Import(models.Model):
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING
   )
   type = models.TextField
-  approved = models.BooleanField(default=auto_approve_new_users)
+  approved = models.BooleanField(default=True)
   overwrite = models.BooleanField(default=True)
   data_file_name = models.TextField(blank=True)
   data_content_type = models.TextField(blank=True)

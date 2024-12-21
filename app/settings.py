@@ -11,12 +11,6 @@ from dotenv import load_dotenv
 import os
 # Load .env
 load_dotenv()
-# Outpost config
-auto_approve_new_users = os.getenv(
-  'BOOL_AUTO_APPROVE_NEW_USERS',
-  'True'
-).title() == 'True'
-# Django config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production

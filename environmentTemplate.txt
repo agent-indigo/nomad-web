@@ -1,6 +1,3 @@
-# Outpost config
-BOOL_AUTO_APPROVE_NEW_USERS = 
-# Django config
 STR_SECRET_KEY = 
 BOOL_ENABLE_DEBUG = True
 CSV_ALLOWED_HOSTS = *
