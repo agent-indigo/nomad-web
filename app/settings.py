@@ -37,6 +37,16 @@ INSTALLED_APPS = [
   'django.contrib.sessions',
   'django.contrib.messages',
   'django.contrib.staticfiles',
+  'django_otp',
+  'django_otp.plugins.otp_static',
+  'django_otp.plugins.otp_totp',
+  'django_otp.plugins.otp_email',
+  'otp_yubikey',
+  'rest_framework',
+  'two_factor',
+  'two_factor.plugins.email',
+  'two_factor.plugins.webauthn',
+  'two_factor.plugins.yubikey',
   'app'
 ]
 MIDDLEWARE = [
@@ -46,10 +56,13 @@ MIDDLEWARE = [
   'django.middleware.csrf.CsrfViewMiddleware',
   'django.contrib.auth.middleware.AuthenticationMiddleware',
   'django.contrib.messages.middleware.MessageMiddleware',
-  'django.middleware.clickjacking.XFrameOptionsMiddleware'
+  'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  'django_otp.middleware.OTPMiddleware'
 ]
 ROOT_URLCONF = 'app.urls'
 AUTH_USER_MODEL = 'app.User'
+LOGIN_URL = 'two_factor:login'
+TWO_FACTOR_WEBAUTHN_RP_NAME = 'Nomad'
 TEMPLATES = [{
   'BACKEND': 'django.template.backends.django.DjangoTemplates',
   'DIRS': [
