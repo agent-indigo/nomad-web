@@ -1,5 +1,9 @@
 from django.db import models
 class AnnouncementReaction(models.Model):
+  class Meta:
+    db_table = 'announcement_reactions'
+    verbose_name = 'Announcement reaction'
+    verbose_name_plural = f'{verbose_name}s'
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,

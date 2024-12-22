@@ -1,5 +1,9 @@
 from django.db import models
 class AccountTagStats(models.Model):
+  class Meta:
+    db_table = 'account_tag_stats'
+    verbose_name = 'Account tag stats'
+    verbose_name_plural = verbose_name
   tag_id = models.OneToOneField(
     'Tag',
     on_delete=models.DO_NOTHING,

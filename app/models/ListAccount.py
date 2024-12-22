@@ -1,5 +1,9 @@
 from django.db import models
 class ListAccount(models.Model):
+  class Meta:
+    db_table = 'list_accounts'
+    verbose_name = 'List account'
+    verbose_name_plural = f'{verbose_name}s'
   list_id = models.ForeignKey(
     'List',
     on_delete=models.DO_NOTHING,

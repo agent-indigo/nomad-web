@@ -1,5 +1,9 @@
 from django.db import models
 class Invite(models.Model):
+  class Meta:
+    db_table = 'invites'
+    verbose_name = 'Invite'
+    verbose_name_plural = f'{verbose_name}s'
   user_id = models.OneToOneField(
     'User',
     on_delete=models.DO_NOTHING,

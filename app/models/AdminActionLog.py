@@ -1,5 +1,9 @@
 from django.db import models
 class AdminActionLog(models.Model):
+  class Meta:
+    db_table = 'admin_action_logs'
+    verbose_name = 'Admin action log'
+    verbose_name_plural = f'{verbose_name}s'
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,

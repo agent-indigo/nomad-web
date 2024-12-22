@@ -1,5 +1,9 @@
 from django.db import models
 class PreviewCard(models.Model):
+  class Meta:
+    db_table = 'preview_cards'
+    verbose_name = 'Preview card'
+    verbose_name_plural = f'{verbose_name}s'
   url = models.URLField(unique=True)
   title = models.TextField
   description = models.TextField

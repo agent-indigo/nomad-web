@@ -1,5 +1,9 @@
 from django.db import models
 class WebSetting(models.Model):
+  class Meta:
+    db_table = 'web_settings'
+    verbose_name = 'Web setting'
+    verbose_name_plural = f'{verbose_name}s'
   user_id = models.ForeignKey(
     'User',
     on_delete=models.DO_NOTHING,

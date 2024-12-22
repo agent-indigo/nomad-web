@@ -1,5 +1,9 @@
 from django.db import models
 class AccountStats(models.Model):
+  class Meta:
+    db_table = 'account_stats'
+    verbose_name = 'Account stats'
+    verbose_name_plural = verbose_name
   account_id = models.OneToOneField(
     'Account',
     on_delete=models.DO_NOTHING,

@@ -1,5 +1,9 @@
 from django.db import models
 class Announcement(models.Model):
+  class Meta:
+    db_table = 'announcements'
+    verbose_name = 'Announcement'
+    verbose_name_plural = f'{verbose_name}s'
   text = models.TextField
   published = models.BooleanField(default=True)
   all_day = models.BooleanField(default=False)

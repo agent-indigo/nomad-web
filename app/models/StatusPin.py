@@ -1,5 +1,9 @@
 from django.db import models
 class StatusPin(models.Model):
+  class Meta:
+    db_table = 'status_pins'
+    verbose_name = 'Status pin'
+    verbose_name_plural = f'{verbose_name}s'
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,

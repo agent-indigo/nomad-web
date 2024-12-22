@@ -1,5 +1,9 @@
 from django.db import models
 class Account(models.Model):
+  class Meta:
+    db_table = 'accounts'
+    verbose_name = 'Account'
+    verbose_name_plural = f'{verbose_name}s'
   moved_to_account_id = models.OneToOneField(
     'Account',
     on_delete=models.DO_NOTHING,

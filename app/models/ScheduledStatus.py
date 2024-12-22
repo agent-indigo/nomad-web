@@ -1,5 +1,9 @@
 from django.db import models
 class ScheduledStatus(models.Model):
+  class Meta:
+    db_table = 'scheduled_statuses'
+    verbose_name = 'Scheduled status'
+    verbose_name_plural = f'{verbose_name}s'
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,

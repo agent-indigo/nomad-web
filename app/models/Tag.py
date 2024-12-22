@@ -1,5 +1,9 @@
 from django.db import models
 class Tag(models.Model):
+  class Meta:
+    db_table = 'tags'
+    verbose_name = 'Tag'
+    verbose_name_plural = f'{verbose_name}s'
   name = models.TextField(blank=True)
   usable = models.BooleanField(
     blank=True,

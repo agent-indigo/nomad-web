@@ -1,5 +1,9 @@
 from django.db import models
 class AccountMigration(models.Model):
+  class Meta:
+    db_table = 'account_migrations'
+    verbose_name = 'Account migration'
+    verbose_name_plural = f'{verbose_name}s'
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,

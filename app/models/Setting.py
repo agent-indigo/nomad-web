@@ -1,5 +1,9 @@
 from django.db import models
 class Setting(models.Model):
+  class Meta:
+    db_table = 'settings'
+    verbose_name = 'Setting'
+    verbose_name_plural = f'{verbose_name}s'
   var = models.TextField(unique=True)
   thing_type = models.TextField(
     unique=True,

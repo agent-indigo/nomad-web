@@ -1,5 +1,9 @@
 from django.db import models
 class WebPushSubscription(models.Model):
+  class Meta:
+    db_table = 'web_push_subscriptions'
+    verbose_name = 'Web push subscription'
+    verbose_name_plural = f'{verbose_name}s'
   access_token_id = models.ForeignKey(
     'OAuthAccessToken',
     on_delete=models.DO_NOTHING,

@@ -1,5 +1,9 @@
 from django.db import models
 class Report(models.Model):
+  class Meta:
+    db_table = 'reports'
+    verbose_name = 'Report'
+    verbose_name_plural = f'{verbose_name}s'
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,

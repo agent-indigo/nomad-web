@@ -1,5 +1,9 @@
 from django.db import models
 class OAuthAccessGrant(models.Model):
+  class Meta:
+    db_table = 'oauth_access_grants'
+    verbose_name = 'OAuth access grant'
+    verbose_name_plural = f'{verbose_name}s'
   application_id = models.ForeignKey(
     'OAuthApplication',
     on_delete=models.DO_NOTHING,

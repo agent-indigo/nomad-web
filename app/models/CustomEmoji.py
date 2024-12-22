@@ -1,5 +1,9 @@
 from django.db import models
 class CustomEmoji(models.Model):
+  class Meta:
+    db_table = 'custom_emoji'
+    verbose_name = 'Custom emoji'
+    verbose_name_plural = f'{verbose_name}s'
   shortcode = models.TextField(unique=True)
   domain = models.TextField(
     unique=True,

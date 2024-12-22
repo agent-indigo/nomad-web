@@ -1,5 +1,9 @@
 from django.db import models
 class SessionActivation(models.Model):
+  class Meta:
+    db_table = 'session_activations'
+    verbose_name = 'Session activation'
+    verbose_name_plural = f'{verbose_name}s'
   user_id = models.ForeignKey(
     'User',
     on_delete=models.DO_NOTHING,

@@ -1,5 +1,9 @@
 from django.db import models
 class MediaAttachment(models.Model):
+  class Meta:
+    db_table = 'media_attachments'
+    verbose_name = 'Media attachment'
+    verbose_name_plural = f'{verbose_name}s'
   status_id = models.ForeignKey(
     'Status',
     on_delete=models.DO_NOTHING,

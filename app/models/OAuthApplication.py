@@ -1,5 +1,9 @@
 from django.db import models
 class OAuthApplication(models.Model):
+  class Meta:
+    db_table = 'oauth_applications'
+    verbose_name = 'OAuth application'
+    verbose_name_plural = f'{verbose_name}s'
   owner_id = models.ForeignKey(
     'User',
     on_delete=models.DO_NOTHING,

@@ -1,5 +1,9 @@
 from django.db import models
 class Import(models.Model):
+  class Meta:
+    db_table = 'imports'
+    verbose_name = 'Import'
+    verbose_name_plural = f'{verbose_name}s'
   account_id = models.OneToOneField(
     'Account',
     on_delete=models.DO_NOTHING,

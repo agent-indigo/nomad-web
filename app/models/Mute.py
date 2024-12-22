@@ -1,5 +1,9 @@
 from django.db import models
 class Mute(models.Model):
+  class Meta:
+    db_table = 'mutes'
+    verbose_name = 'Mute'
+    verbose_name_plural = f'{verbose_name}s'
   account_id = models.ForeignKey(
     'Account',
     on_delete=models.DO_NOTHING,
