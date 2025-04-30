@@ -1,7 +1,7 @@
-.venv/
-**/__pycache__/
-/static/
+.next/
+node_modules/
 .DS_Store
 .env
 [Dd]esktop.ini
+next-env.d.ts
 thumbs.db

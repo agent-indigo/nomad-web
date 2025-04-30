@@ -108,7 +108,7 @@ making modifications to it. “Object code” means any non-source form of a
 work.
 
 A “Standard Interface” means an interface that either is an official
-standard defined by a recognized standards body, or, in the case of interfaces
+standard defined by a recognized standards body, or, in the case of types
 specified for a particular programming language, one that is widely used among
 developers working in that language.
 
@@ -203,8 +203,8 @@ applicable section 7 additional terms, to the whole of the work, and all its par
 regardless of how they are packaged. This License gives no permission to license the
 work in any other way, but it does not invalidate such permission if you have
 separately received it.
-* **d)** If the work has interactive user interfaces, each must display Appropriate Legal
-Notices; however, if the Program has interactive interfaces that do not display
+* **d)** If the work has interactive user types, each must display Appropriate Legal
+Notices; however, if the Program has interactive types that do not display
 Appropriate Legal Notices, your work need not make them do so.
 
 A compilation of a covered work with other separate and independent works, which are

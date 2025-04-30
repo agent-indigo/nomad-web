@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  nomad-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nomad-web:latest
+    ports:
+      - "3000:3000"

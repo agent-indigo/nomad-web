@@ -1,9 +1,0 @@
-django
-django-otp-yubikey
-django-two-factor-auth[webauthn]
-djangorestframework
-minio
-pillow
-phonenumbers
-psycopg2-binary
-python-dotenv
