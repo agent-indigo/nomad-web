@@ -5,13 +5,29 @@ import {
   FunctionComponent,
   PropsWithChildren,
   ReactElement,
-  useContext
+  useContext,
+  useEffect,
+  useState
 } from 'react'
 import ConextProps from '@/types/ContextProps'
-const AppContext: Context<ConextProps> = createContext<ConextProps>({})
+import UserSqlRecord from '@/types/UserSqlRecord'
+const AppContext: Context<ConextProps> = createContext<ConextProps>({
+  setUser: (): void => {}
+})
 const ContextProvider: FunctionComponent<PropsWithChildren> = ({children}): ReactElement => {
+  const [
+    user,
+    setUser
+  ] = useState<UserSqlRecord | undefined>(undefined)
+  useEffect((): void => {(async (): Promise<void> => {
+    const response: Response = await fetch(`${process.env.NEXT_PUBLIC_API_DOMAIN}/api/auth/user`)
+    response.ok && setUser(await response.json())
+  })()})
   return (
-    <AppContext.Provider value={{}}>
+    <AppContext.Provider value={{
+      user,
+      setUser
+    }}>
       {children}
     </AppContext.Provider>
   )
