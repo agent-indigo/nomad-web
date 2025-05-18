@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:lts
 WORKDIR /nomad-web
 COPY .next/standalone/. .
 EXPOSE 3000
