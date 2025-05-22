@@ -162,10 +162,10 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
       allowNull: true
     },
     otp_backup_codes: {
-      type: [DataTypes.TEXT]
+      type: DataTypes.ARRAY(DataTypes.TEXT)
     },
     chosen_languages: {
-      type: [DataTypes.TEXT]
+      type: DataTypes.ARRAY(DataTypes.TEXT)
     },
     created_by_application_id: {
       type: DataTypes.UUID,
