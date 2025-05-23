@@ -77,7 +77,7 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
       defaultValue: false
     },
     filtered_languages: {
-      type: [DataTypes.TEXT]
+      type: DataTypes.ARRAY(DataTypes.TEXT)
     },
     disabled: {
       type: DataTypes.BOOLEAN,
