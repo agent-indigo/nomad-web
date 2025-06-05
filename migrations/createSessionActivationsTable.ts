@@ -42,7 +42,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     web_push_subscription_id: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true
     },
     ...createTimeStamps()

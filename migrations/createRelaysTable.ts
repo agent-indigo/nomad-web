@@ -17,11 +17,11 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     state: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false
     },
     follow_activity_id: {
-      type: DataTypes.UUID,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     ...createTimeStamps()

@@ -47,7 +47,7 @@ const statusSqlModel: ModelStatic<Model<StatusSqlRecord>> = sequelize.models.Sta
       unique: true
     },
     visibility: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       index: true
     },

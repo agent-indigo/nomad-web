@@ -31,7 +31,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: true
     },
     dump_file_size: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     dump_updated_at: {

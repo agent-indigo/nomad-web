@@ -42,7 +42,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     status_ids: {
-      type: DataTypes.ARRAY(DataTypes.UUID)
+      type: DataTypes.ARRAY(DataTypes.TEXT)
     },
     comment: {
       type: DataTypes.TEXT,

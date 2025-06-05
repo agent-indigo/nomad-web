@@ -26,7 +26,7 @@ const accountWarningSqlModel: ModelStatic<Model<AccountWarningSqlRecord>> = sequ
       }
     },
     action: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false
     },
     text: {

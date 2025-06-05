@@ -18,17 +18,17 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     replies_count: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 0
     },
     reblogs_count: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 0
     },
     favourites_count: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 0
     },

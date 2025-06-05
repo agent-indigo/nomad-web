@@ -27,7 +27,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: false
     },
     lock_version: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     ...createTimeStamps()

@@ -105,7 +105,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: true
     },
     avatar_file_size: {
-      type: DataTypes.TEXT,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     avatar_updated_at: {
@@ -165,7 +165,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     protocol: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     memorial: {
@@ -194,7 +194,8 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       defaultValue: true
     },
     also_known_as: {
-      type: DataTypes.ARRAY(DataTypes.TEXT)
+      type: DataTypes.ARRAY(DataTypes.TEXT),
+      unique: true
     },
     silenced_at: {
       type: DataTypes.DATE,

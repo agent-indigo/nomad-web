@@ -26,7 +26,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     action: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false
     },
     text: {

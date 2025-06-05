@@ -17,11 +17,11 @@ const relaySqlModel: ModelStatic<Model<RelaySqlRecord>> = sequelize.models.Relay
       }
     },
     state: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false
     },
     follow_activity_id: {
-      type: DataTypes.UUID,
+      type: DataTypes.TEXT,
       allowNull: true
     }
   }, {

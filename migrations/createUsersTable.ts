@@ -62,7 +62,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       ]
     },
     sign_in_count: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 0
     },
@@ -77,7 +77,8 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       defaultValue: false
     },
     filtered_languages: {
-      type: DataTypes.ARRAY(DataTypes.TEXT)
+      type: DataTypes.ARRAY(DataTypes.TEXT),
+      unique: true
     },
     disabled: {
       type: DataTypes.BOOLEAN,
@@ -153,7 +154,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: true
     },
     consumed_timestep: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true,
       defaultValue: 0
     },
@@ -162,10 +163,12 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: true
     },
     otp_backup_codes: {
-      type: DataTypes.ARRAY(DataTypes.TEXT)
+      type: DataTypes.ARRAY(DataTypes.TEXT),
+      unique: true
     },
     chosen_languages: {
-      type: DataTypes.ARRAY(DataTypes.TEXT)
+      type: DataTypes.ARRAY(DataTypes.TEXT),
+      unique: true
     },
     created_by_application_id: {
       type: DataTypes.UUID,

@@ -26,7 +26,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     statuses_count: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 0
     },

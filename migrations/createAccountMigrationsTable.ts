@@ -29,7 +29,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       type: DataTypes.TEXT
     },
     followers_count: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 0
     },

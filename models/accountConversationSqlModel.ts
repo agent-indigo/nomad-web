@@ -26,14 +26,15 @@ const accountConversationSqlModel: ModelStatic<Model<AccountConversationSqlRecor
       }
     },
     participant_account_ids: {
-      type: DataTypes.ARRAY(DataTypes.UUID),
+      type: DataTypes.ARRAY(DataTypes.STRING),
       unique: true
     },
     status_ids: {
-      type: DataTypes.ARRAY(DataTypes.UUID)
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      unique: true
     },
     lock_version: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     unread: {
@@ -41,7 +42,7 @@ const accountConversationSqlModel: ModelStatic<Model<AccountConversationSqlRecor
       allowNull: false
     },
     last_status_id: {
-      type: DataTypes.UUID,
+      type: DataTypes.STRING,
       allowNull: true
     }
   }, {

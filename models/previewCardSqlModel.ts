@@ -26,7 +26,7 @@ const previewCardSqlModel: ModelStatic<Model<PreviewCardSqlRecord>> = sequelize.
       allowNull: false
     },
     type: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false
     },
     html: {
@@ -53,11 +53,11 @@ const previewCardSqlModel: ModelStatic<Model<PreviewCardSqlRecord>> = sequelize.
       }
     },
     width: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     height: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     embed_url: {
@@ -76,7 +76,7 @@ const previewCardSqlModel: ModelStatic<Model<PreviewCardSqlRecord>> = sequelize.
       allowNull: true
     },
     image_file_size: {
-      type: DataTypes.TEXT,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     image_updated_at: {

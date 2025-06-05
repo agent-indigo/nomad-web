@@ -26,7 +26,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: false
     },
     type: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false
     },
     html: {
@@ -53,11 +53,11 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     width: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     height: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     embed_url: {
@@ -76,7 +76,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: true
     },
     image_file_size: {
-      type: DataTypes.TEXT,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     image_updated_at: {

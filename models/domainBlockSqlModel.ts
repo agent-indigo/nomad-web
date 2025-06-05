@@ -25,7 +25,7 @@ const domainBlockSqlModel: ModelStatic<Model<DomainBlockSqlRecord>> = sequelize.
       defaultValue: true
     },
     severity: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true
     },
     private_comment: {

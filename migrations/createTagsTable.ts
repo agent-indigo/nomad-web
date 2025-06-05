@@ -37,7 +37,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: true
     },
     max_score: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     max_score_at: {

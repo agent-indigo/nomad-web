@@ -6,6 +6,7 @@ import {
 import sequelize from '@/config/sequelize'
 import PollSqlRecord from '@/types/PollSqlRecord'
 import createId from '@/utilities/createId'
+import { truncate } from 'node:fs'
 const pollSqlModel: ModelStatic<Model<PollSqlRecord>> = sequelize.models.Poll ?? sequelize.define<Model<PollSqlRecord>>(
   'Poll', {
     ...createId(),
@@ -26,10 +27,12 @@ const pollSqlModel: ModelStatic<Model<PollSqlRecord>> = sequelize.models.Poll ??
       }
     },
     options: {
-      type: DataTypes.ARRAY(DataTypes.TEXT)
+      type: DataTypes.ARRAY(DataTypes.TEXT),
+      unique: true
     },
     cached_tallies: {
-      type: DataTypes.ARRAY(DataTypes.NUMBER)
+      type: DataTypes.ARRAY(DataTypes.BIGINT),
+      unique: truncate
     },
     multiple: {
       type: DataTypes.BOOLEAN,
@@ -42,12 +45,12 @@ const pollSqlModel: ModelStatic<Model<PollSqlRecord>> = sequelize.models.Poll ??
       defaultValue: false
     },
     votes_count: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 0
     },
     lock_version: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     expires_at: {
@@ -59,7 +62,7 @@ const pollSqlModel: ModelStatic<Model<PollSqlRecord>> = sequelize.models.Poll ??
       allowNull: true
     },
     voters_count: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true,
       defaultValue: 0
     }

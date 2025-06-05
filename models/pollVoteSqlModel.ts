@@ -26,7 +26,7 @@ const pollVoteSqlModel: ModelStatic<Model<PollVoteSqlRecord>> = sequelize.models
       }
     },
     choice: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false
     },
     uri: {

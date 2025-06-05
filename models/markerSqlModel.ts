@@ -27,7 +27,7 @@ const markerSqlModel: ModelStatic<Model<MarkerSqlRecord>> = sequelize.models.Mar
       allowNull: false
     },
     lock_version: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: false
     }
   }, {

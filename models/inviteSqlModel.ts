@@ -23,7 +23,7 @@ const inviteSqlModel: ModelStatic<Model<InviteSqlRecord>> = sequelize.models.Inv
       unique: true
     },
     uses: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 1
     },
@@ -37,7 +37,7 @@ const inviteSqlModel: ModelStatic<Model<InviteSqlRecord>> = sequelize.models.Inv
       allowNull: true
     },
     max_uses: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true,
       defaultValue: 1
     },

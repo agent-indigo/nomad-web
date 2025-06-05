@@ -20,7 +20,10 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     domain: {
       type: DataTypes.TEXT,
       allowNull: true,
-      unique: true
+      unique: true,
+      validate: {
+        isUrl: true
+      }
     },
     ...createTimeStamps()
   }

@@ -36,7 +36,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: true
     },
     image_file_size: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     uri: {

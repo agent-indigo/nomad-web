@@ -20,7 +20,7 @@ const settingSqlModel: ModelStatic<Model<SettingSqlRecord>> = sequelize.models.S
       unique: true
     },
     thing_id: {
-      type: DataTypes.UUID,
+      type: DataTypes.TEXT,
       allowNull: true,
       unique: true
     },

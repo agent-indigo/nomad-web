@@ -25,7 +25,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       defaultValue: true
     },
     severity: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true
     },
     private_comment: {

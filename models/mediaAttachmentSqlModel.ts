@@ -58,7 +58,7 @@ const mediaAttachmentSqlRecord: ModelStatic<Model<MediaAttachmentSqlRecord>> = s
       allowNull: true
     },
     file_file_size: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     file_meta: {

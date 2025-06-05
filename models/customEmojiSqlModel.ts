@@ -38,7 +38,7 @@ const customEmojiSqlModel: ModelStatic<Model<CustomEmojiSqlRecord>> = sequelize.
       allowNull: true
     },
     image_file_size: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     uri: {

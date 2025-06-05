@@ -26,10 +26,12 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     options: {
-      type: DataTypes.ARRAY(DataTypes.TEXT)
+      type: DataTypes.ARRAY(DataTypes.TEXT),
+      unique: true
     },
     cached_tallies: {
-      type: DataTypes.ARRAY(DataTypes.NUMBER)
+      type: DataTypes.ARRAY(DataTypes.BIGINT),
+      unique: true
     },
     multiple: {
       type: DataTypes.BOOLEAN,
@@ -42,12 +44,12 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       defaultValue: false
     },
     votes_count: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 0
     },
     lock_version: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     expires_at: {
@@ -59,7 +61,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: true
     },
     voters_count: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true,
       defaultValue: 0
     },

@@ -42,7 +42,7 @@ const sessionActivateSqlModel: ModelStatic<Model<SessionActivationSqlRecord>> = 
       }
     },
     web_push_subscription_id: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true
     }
   }, {

@@ -18,7 +18,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     type: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false
     },
     approved: {
@@ -40,7 +40,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: true
     },
     data_file_size: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     data_updated_at: {

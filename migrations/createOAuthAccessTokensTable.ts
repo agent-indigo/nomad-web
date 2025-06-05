@@ -36,7 +36,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       unique: true
     },
     expires_in: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true,
       defaultValue: 0
     },

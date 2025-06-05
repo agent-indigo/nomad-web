@@ -23,7 +23,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       unique: true
     },
     uses: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 1
     },
@@ -37,7 +37,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: true
     },
     max_uses: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true,
       defaultValue: 1
     },

@@ -31,7 +31,7 @@ const backupSqlModel: ModelStatic<Model<BackupSqlRecord>> = sequelize.models.Bac
       allowNull: true
     },
     dump_file_size: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     dump_updated_at: {

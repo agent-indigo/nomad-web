@@ -26,7 +26,7 @@ const featuredTagSqlModel: ModelStatic<Model<FeaturedTagSqlRecord>> = sequelize.
       }
     },
     statuses_count: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 0
     },

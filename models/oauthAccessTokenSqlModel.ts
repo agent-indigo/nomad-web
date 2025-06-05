@@ -36,7 +36,7 @@ const oauthAccessTokenSqlModel: ModelStatic<Model<OAuthAccessTokenSqlRecord>> = 
       unique: true
     },
     expires_in: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true,
       defaultValue: 0
     },

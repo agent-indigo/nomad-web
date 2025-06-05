@@ -26,13 +26,14 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       }
     },
     participant_account_ids: {
-      type: DataTypes.ARRAY(DataTypes.UUID)
+      type: DataTypes.ARRAY(DataTypes.STRING)
     },
     status_ids: {
-      type: DataTypes.ARRAY(DataTypes.UUID)
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      unique: true
     },
     lock_version: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     unread: {
@@ -40,7 +41,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: false
     },
     last_status_id: {
-      type: DataTypes.UUID,
+      type: DataTypes.STRING,
       allowNull: true
     },
     ...createTimeStamps()

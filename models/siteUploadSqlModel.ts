@@ -23,7 +23,7 @@ const siteUploadSqlModel: ModelStatic<Model<SiteUploadSqlRecord>> = sequelize.mo
       allowNull: true
     },
     file_file_size: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     meta: {

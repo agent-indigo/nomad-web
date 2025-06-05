@@ -107,7 +107,7 @@ const accountSqlModel: ModelStatic<Model<AccountSqlRecord>> = sequelize.models.A
       allowNull: true
     },
     avatar_file_size: {
-      type: DataTypes.TEXT,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     avatar_updated_at: {
@@ -123,7 +123,7 @@ const accountSqlModel: ModelStatic<Model<AccountSqlRecord>> = sequelize.models.A
       allowNull: true
     },
     header_file_size: {
-      type: DataTypes.TEXT,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     header_updated_at: {
@@ -167,7 +167,7 @@ const accountSqlModel: ModelStatic<Model<AccountSqlRecord>> = sequelize.models.A
       }
     },
     protocol: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     memorial: {
@@ -196,7 +196,8 @@ const accountSqlModel: ModelStatic<Model<AccountSqlRecord>> = sequelize.models.A
       defaultValue: true
     },
     also_known_as: {
-      type: DataTypes.ARRAY(DataTypes.STRING)
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      unique: true
     },
     silenced_at: {
       type: DataTypes.DATE,
@@ -207,7 +208,7 @@ const accountSqlModel: ModelStatic<Model<AccountSqlRecord>> = sequelize.models.A
       allowNull: true
     },
     trust_level: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: true
     }
   }, {

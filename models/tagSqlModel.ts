@@ -37,7 +37,7 @@ const tagSqlModel: ModelStatic<Model<TagSqlRecord>> = sequelize.models.Tag ?? se
       allowNull: true
     },
     max_score: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     max_score_at: {

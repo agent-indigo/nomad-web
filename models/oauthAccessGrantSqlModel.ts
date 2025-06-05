@@ -31,7 +31,7 @@ const oauthAccessGrantSqlModel: ModelStatic<Model<OAuthAccessGrantSqlRecord>> = 
       unique: true
     },
     expires_in: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 0
     },

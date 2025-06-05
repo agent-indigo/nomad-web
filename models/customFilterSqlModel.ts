@@ -22,7 +22,8 @@ const customFilterSqlModel: ModelStatic<Model<CustomFilterSqlRecord>> = sequeliz
       allowNull: false
     },
     context: {
-      type: DataTypes.ARRAY(DataTypes.TEXT)
+      type: DataTypes.ARRAY(DataTypes.TEXT),
+      unique: true
     },
     irreversible: {
       type: DataTypes.BOOLEAN,
