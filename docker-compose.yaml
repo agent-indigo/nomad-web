@@ -6,12 +6,22 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_DB: nomad
+  static:
+    image: nginx:latest
+    volumes:
+      - static:/usr/share/nginx/html/static
+    ports:
+      - 443:443
   nomad-web:
     image: nomad-web:latest
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      DJANGO_SUPERUSER_USERNAME: root
+      DJANGO_SUPERUSER_PASSWORD: p@5$w0rD
     ports:
-      - 443:3000
+      - 8000:8000
     depends_on:
       - database
+      - static

@@ -108,7 +108,7 @@ making modifications to it. “Object code” means any non-source form of a
 work.
 
 A “Standard Interface” means an interface that either is an official
-standard defined by a recognized standards body, or, in the case of types
+standard defined by a recognized standards body, or, in the case of interfaces
 specified for a particular programming language, one that is widely used among
 developers working in that language.
 
@@ -203,8 +203,8 @@ applicable section 7 additional terms, to the whole of the work, and all its par
 regardless of how they are packaged. This License gives no permission to license the
 work in any other way, but it does not invalidate such permission if you have
 separately received it.
-* **d)** If the work has interactive user types, each must display Appropriate Legal
-Notices; however, if the Program has interactive types that do not display
+* **d)** If the work has interactive user interfaces, each must display Appropriate Legal
+Notices; however, if the Program has interactive interfaces that do not display
 Appropriate Legal Notices, your work need not make them do so.
 
 A compilation of a covered work with other separate and independent works, which are
@@ -552,7 +552,7 @@ and each file should have at least the “copyright” line and a pointer to
 where the full notice is found.
 
     <Nomad | Decentralized Social Media Application using ActivityPub>
-    Copyright (C) <2024>  <The Nomad Project>
+    Copyright (C) <2025>  <The Nomad Project>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -572,7 +572,7 @@ Also add information on how to contact you by electronic and paper mail.
 If the program does terminal interaction, make it output a short notice like this
 when it starts in an interactive mode:
 
-    <Nomad | Decentralized Social Media Application using ActivityPub>  Copyright (C) <2024>  <The Nomad Project>
+    <Nomad | Decentralized Social Media Application using ActivityPub>  Copyright (C) <2025>  <The Nomad Project>
     This program comes with ABSOLUTELY NO WARRANTY; for details type 'show w'.
     This is free software, and you are welcome to redistribute it
     under certain conditions; type 'show c' for details.

@@ -1,8 +1,9 @@
-.next/
+.venv/
 .vscode/
+__pycache__/
 node_modules/
 .DS_Store
 .env
-[Dd]esktop.ini
-next-env.d.ts
+app.js
+desktop.ini
 thumbs.db
