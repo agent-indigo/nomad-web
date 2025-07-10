@@ -17,6 +17,7 @@ LICENSE.md
 package-lock.json
 package.json
 README.md
+requirements.dev.txt
 thumbs.db
 tsconfig.json
 wbepack.config.ts

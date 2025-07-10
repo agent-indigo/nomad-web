@@ -1,3 +1,9 @@
+"""
+Nomad App Configuration
+"""
 from django.apps import AppConfig
 class NomadConfig(AppConfig):
-  name = 'nomad'
+    """
+    Nomad App Configuration
+    """
+    name = 'nomad'

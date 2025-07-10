@@ -20,8 +20,7 @@ services:
     environment:
       DJANGO_SUPERUSER_USERNAME: root
       DJANGO_SUPERUSER_PASSWORD: p@5$w0rD
-    ports:
-      - 8000:8000
+      DJANGO_DEBUG: false
     depends_on:
       - database
       - static

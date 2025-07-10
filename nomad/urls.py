@@ -22,39 +22,39 @@ from .apiViews import CurrentUserApiView, LogInApiView, RegistrationApiView
 from .settings import DEBUG, STATIC_URL, STATIC_ROOT
 from .views import index
 urlpatterns = [
-  path(
-    '',
-    index
-  ),
-  path(
-    'admin/',
-    admin.site.urls
-  ),
-  path(
-    'api/auth/',
-    include('knox.urls')
-  ),
-  path(
-    'api/auth/user/',
-    CurrentUserApiView.as_view()
-  ),
-  path(
-    'api/auth/login/',
-    LogInApiView.as_view()
-  ),
-  path(
-    'api/auth/logout/',
-    knox_views.LogoutView.as_view(),
-    name = 'knox_logout'
-  ),
-  path(
-    'api/auth/register/',
-    RegistrationApiView.as_view()
-  )
+    path(
+        '',
+        index
+    ),
+    path(
+        'admin/',
+        admin.site.urls
+    ),
+    path(
+        'api/auth/',
+        include('knox.urls')
+    ),
+    path(
+        'api/auth/user/',
+        CurrentUserApiView.as_view()
+    ),
+    path(
+        'api/auth/login/',
+        LogInApiView.as_view()
+    ),
+    path(
+        'api/auth/logout/',
+        knox_views.LogoutView.as_view(),
+        name = 'knox_logout'
+    ),
+    path(
+        'api/auth/register/',
+        RegistrationApiView.as_view()
+    )
 ]
 # Serve static files only during development
-if DEBUG == True:
-  urlpatterns += static(
-    STATIC_URL,
-    document_root = STATIC_ROOT
-  )
+if DEBUG is True:
+    urlpatterns += static(
+        STATIC_URL,
+        document_root = STATIC_ROOT
+    )
