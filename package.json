@@ -1,9 +1,10 @@
 {
+  "name": "nomad-web",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build && cp build/static/css/*.css nomad/static/app.css && cp build/static/js/*.js nomad/static/app.js"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -34,5 +35,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:8080"
 }
