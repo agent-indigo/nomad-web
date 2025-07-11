@@ -1,5 +1,10 @@
 {
   "name": "Nomad Outpost",
   "short_name": "Nomad",
-  "start_url": "."
+  "start_url": ".",
+  "icons": [{
+    "src": "favicon.svg",
+    "sizes": "256x256, 128x128 64x64 32x32 24x24 16x16",
+    "type": "image/svg+xml"
+  }]
 }

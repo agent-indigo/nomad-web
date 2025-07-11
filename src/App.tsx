@@ -2,7 +2,7 @@ import {
   FunctionComponent,
   ReactElement
 } from 'react'
-import './tw.css'
+import './App.css'
 const App: FunctionComponent = (): ReactElement => (
   <>
     

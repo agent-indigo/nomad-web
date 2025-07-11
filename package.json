@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cp build/static/css/*.css nomad/static/app.css && cp build/static/js/*.js nomad/static/app.js"
+    "build": "react-scripts build"
   },
   "dependencies": {
     "react": "^19.1.0",
