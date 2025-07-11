@@ -1,9 +1,11 @@
 .venv/
 .vscode/
 __pycache__/
+build/
 node_modules/
 .DS_Store
 .env
+app.css
 app.js
 desktop.ini
 thumbs.db

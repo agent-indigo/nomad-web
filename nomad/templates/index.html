@@ -14,9 +14,19 @@
       rel="manifest"
       href="{% static 'manifest.json' %}"
     />
+    <link
+      rel="stylesheet"
+      href="{% static 'app.css' %}"
+    />
+    <script
+      defer="defer"
+      src="{% static 'app.js' %}"
+    ></script>
   </head>
   <body>
-    <div id="app"/>
-    <script src="{% static 'app.js' %}"></script>
+    <noscript>
+      You need to enable JavaScript to use this app.
+    </noscript>
+    <div id="root"/>
   </body>
 </html>
