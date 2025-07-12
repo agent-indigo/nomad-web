@@ -2,9 +2,7 @@
 .venv/
 .vscode/
 __pycache__/
-build/
 node_modules/
-public/
 src/
 types/
 .dockerignore
@@ -18,8 +16,11 @@ Dockerfile
 LICENSE.md
 package-lock.json
 package.json
+postcss.config.json
+prettier.config.json
 README.md
 requirements.dev.txt
+tailwind.config.ts
 thumbs.db
 tsconfig.json
-wbepack.config.ts
+webpack.config.ts

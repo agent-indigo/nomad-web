@@ -1,7 +1,6 @@
 .venv/
 .vscode/
 __pycache__/
-build/
 node_modules/
 .DS_Store
 .env
