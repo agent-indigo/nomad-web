@@ -1,6 +1,7 @@
 import path from 'path'
 import {Configuration} from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import TerserPlugin from 'terser-webpack-plugin'
 const webpackConfig: Configuration = {
   resolve: {
@@ -50,6 +51,18 @@ const webpackConfig: Configuration = {
           format: {
             comments: false
           }
+        }
+      }),
+      new CssMinimizerPlugin({
+        test: /\.css$/,
+        minimizerOptions: {
+          preset: [
+            'default', {
+              discardComments: {
+                removeAll: true
+              }
+            }
+          ]
         }
       })
     ]
