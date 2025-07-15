@@ -29,7 +29,7 @@ class LogInSerializer(Serializer):
     def create(
         self: 'LogInSerializer',
         validated_data: object
-    ):
+    ) -> User:
         """
         Required by BaseSerializer, not used for login.
         """
@@ -38,7 +38,7 @@ class LogInSerializer(Serializer):
         self: 'LogInSerializer',
         instance: User,
         validated_data: object
-    ):
+    ) -> User:
         """
         Required by BaseSerializer, not used for login.
         """
