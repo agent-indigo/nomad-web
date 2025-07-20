@@ -1,11 +1,11 @@
 {% extends 'admin/base.html' %}
 {% load static %}
 {% block title %}
-  Outpost Admin Office |<!-- TODO: Fetch outpost name --> Nomad
+  Outpost Admin Office | {{ request.get_host }} | Nomad
 {% endblock %}
 {% block branding %}
   <h1 id="head">
-    <!-- TODO: Fetch outpost name -->Nomad Outpost Admin Office
+    {{ request.get_host }} | Nomad Outpost Admin Office
   </h1>
 {% endblock %}
 {% block extrastyle %}
