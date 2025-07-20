@@ -1,0 +1,60 @@
+"""
+Report note admin config
+"""
+from django.contrib.admin import ModelAdmin
+from django.urls import reverse
+from django.utils.html import format_html
+from django.utils.safestring import SafeText
+from ..models import ReportNote
+class ReportNoteAdminConfig(ModelAdmin):
+    """
+    Report note admin config
+    """
+    list_display = (
+        'actor',
+        'report',
+        'content',
+        'created_at',
+        'updated_at'
+    )
+    list_display_links = (
+        'comment',
+    )
+    list_filter = '__all__'
+    search_fields = '__all__'
+    readonly_fields = '__all__'
+    list_per_page = 20
+    def actor(
+        self: 'ReportNoteAdminConfig',
+        note: ReportNote
+    ) -> SafeText:
+        """
+        Link to the actor who created the report note
+        """
+        return format_html(
+            '<a href="{}">{}</a>',
+            reverse(
+                'admin:auth_user_change',
+                args = (
+                    note.actor_id.user_id.id,
+                )
+            ),
+            note.actor_id.username
+        )
+    def report(
+        self: 'ReportNoteAdminConfig',
+        note: ReportNote
+    ) -> SafeText:
+        """
+        Link to the report referenced in the note
+        """
+        return format_html(
+            '<a href="{}">{}</a>',
+            reverse(
+                'admin:nomad_report_change',
+                args = (
+                    note.report_id.id,
+                )
+            ),
+            note.report_id.comment
+        )
