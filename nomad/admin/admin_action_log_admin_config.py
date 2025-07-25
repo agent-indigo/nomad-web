@@ -35,14 +35,14 @@ class AdminActionLogAdminConfig(ModelAdmin):
         Link to the actor who issued the action
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args=(
                     log.actor_id.user_id.id,
                 )
             ),
-            log.actor_id.user_id.username
+            text = log.actor_id.user_id.username
         )
     def target_actor(
         self: 'AdminActionLogAdminConfig',
@@ -52,12 +52,12 @@ class AdminActionLogAdminConfig(ModelAdmin):
         Link to the actor who received action
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args=(
                     log.target_actor_id.user_id.id,
                 )
             ),
-            log.target_actor_id.user_id.username
+            text = log.target_actor_id.user_id.username
         )

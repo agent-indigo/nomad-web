@@ -37,14 +37,14 @@ class ActorModerationNoteAdminConfig(ModelAdmin):
         Link to the actor who issued the moderation note
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args = (
                     note.actor_id.user_id.id,
                 )
             ),
-            note.actor_id.user_id.username
+            text = note.actor_id.user_id.username
         )
     def target_actor(
         self: 'ActorModerationNoteAdminConfig',
@@ -54,12 +54,12 @@ class ActorModerationNoteAdminConfig(ModelAdmin):
         Link to the actor who was issued the moderation note
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args = (
                     note.target_actor_id.user_id.id,
                 )
             ),
-            note.target_actor_id.user_id.username
+            text = note.target_actor_id.user_id.username
         )

@@ -38,14 +38,14 @@ class PostAdminConfig(ModelAdmin):
         Link to the actor who made the post
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args = (
                     post.actor_id.user_id.id,
                 )
             ),
-            post.actor_id.username
+            text = post.actor_id.username
         )
     def reply_to_actor(
         self: 'PostAdminConfig',
@@ -55,14 +55,14 @@ class PostAdminConfig(ModelAdmin):
         Link to the actor being replied to in the post
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args = (
                     post.in_reply_to_actor_id.user_id.id,
                 )
             ),
-            post.in_reply_to_actor_id.username
+            text = post.in_reply_to_actor_id.username
         )
     def reply_to_post(
         self: 'PostAdminConfig',
@@ -72,14 +72,14 @@ class PostAdminConfig(ModelAdmin):
         Link to the post being replied to in the post
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:nomad_post_change',
                 args = (
                     post.in_reply_to_post_id.id,
                 )
             ),
-            post.in_reply_to_post_id.text
+            text = post.in_reply_to_post_id.text
         )
     def reblog_of_post(
             self: 'PostAdminConfig',
@@ -89,12 +89,12 @@ class PostAdminConfig(ModelAdmin):
         Link to the post being reblogged by the post
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:nomad:post:change',
                 args = (
                     post.reblog_of_post_id.id,
                 )
             ),
-            post.reblog_of_post_id.text
+            text = post.reblog_of_post_id.text
         )

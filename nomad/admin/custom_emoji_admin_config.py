@@ -57,14 +57,14 @@ class CustomEmojiAdminConfig(ModelAdmin):
         Link to the actor who created the custom emoji
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args = (
                     emoji.actor_id.user_id.id,
                 )
             ),
-            emoji.actor_id.username
+            text = emoji.actor_id.username
         )
     def category(
         self: 'CustomEmojiAdminConfig',
@@ -74,14 +74,14 @@ class CustomEmojiAdminConfig(ModelAdmin):
         Link to the category of the custom emoji
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:nomad_customemojicategory_change',
                 args = (
                     emoji.category_id.id,
                 )
             ),
-            emoji.category_id.name
+            text = emoji.category_id.name
         )
     def domain(
         self: 'CustomEmojiAdminConfig',
@@ -91,9 +91,9 @@ class CustomEmojiAdminConfig(ModelAdmin):
         Link to the domain of the custom emoji
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            emoji.domain,
-            emoji.domain
+            '<a href="{url}">{text}</a>',
+            url = emoji.domain,
+            text = emoji.domain
         )
     def uri(
         self: 'CustomEmojiAdminConfig',
@@ -103,7 +103,7 @@ class CustomEmojiAdminConfig(ModelAdmin):
         Link to the URI of the custom emoji
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            emoji.uri,
-            emoji.uri
+            '<a href="{url}">{text}</a>',
+            url = emoji.uri,
+            text = emoji.uri
         )

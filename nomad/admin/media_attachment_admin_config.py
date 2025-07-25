@@ -39,14 +39,14 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         Link to the actor who made the post that the file is attached to
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args = (
                     file.actor_id.user_id.id,
                 )
             ),
-            file.actor_id.username
+            text = file.actor_id.username
         )
     def post(
         self: 'MediaAttachmentAdminConfig',
@@ -56,14 +56,14 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         Link to the post that the file is attached to
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:nomad_post_change',
                 args = (
                     file.post_id.id,
                 )
             ),
-            file.post_id.text
+            text = file.post_id.text
         )
     def remote_url(
         self: 'MediaAttachmentAdminConfig',
@@ -73,7 +73,7 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         Link to the file
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            file.remote_url,
-            file.remote_url
+            '<a href="{url}">{text}</a>',
+            url = file.remote_url,
+            text = file.remote_url
         )

@@ -32,14 +32,14 @@ class ReportNoteAdminConfig(ModelAdmin):
         Link to the actor who created the report note
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args = (
                     note.actor_id.user_id.id,
                 )
             ),
-            note.actor_id.username
+            text = note.actor_id.username
         )
     def report(
         self: 'ReportNoteAdminConfig',
@@ -49,12 +49,12 @@ class ReportNoteAdminConfig(ModelAdmin):
         Link to the report referenced in the note
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:nomad_report_change',
                 args = (
                     note.report_id.id,
                 )
             ),
-            note.report_id.comment
+            text = note.report_id.comment
         )

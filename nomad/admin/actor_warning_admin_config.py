@@ -39,14 +39,14 @@ class ActorWarningAdminConfig(ModelAdmin):
         Link to the actor who issued the warning
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args = (
                     warning.actor_id.user_id.id,
                 )
             ),
-            warning.actor_id.user_id.username
+            text = warning.actor_id.user_id.username
         )
     def target_actor(
         self: 'ActorWarningAdminConfig',
@@ -56,12 +56,12 @@ class ActorWarningAdminConfig(ModelAdmin):
         Link to the actor who was issued the warning
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args = (
                     warning.target_actor_id.user_id.id,
                 )
             ),
-            warning.target_actor_id.user_id.username
+            text = warning.target_actor_id.user_id.username
         )

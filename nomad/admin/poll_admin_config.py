@@ -33,14 +33,14 @@ class PollAdminConfig(ModelAdmin):
         Link to the actor who created the poll
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args = (
                     poll.actor_id.user_id.id,
                 )
             ),
-            poll.actor_id.username
+            text = poll.actor_id.username
         )
     def post(
         self: 'PollAdminConfig',
@@ -50,12 +50,12 @@ class PollAdminConfig(ModelAdmin):
         Link to the post containing the poll
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:nomad_post_change',
                 args = (
                     poll.post_id.id,
                 )
             ),
-            poll.post_id.text
+            text = poll.post_id.text
         )

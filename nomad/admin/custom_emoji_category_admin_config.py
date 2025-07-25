@@ -35,12 +35,12 @@ class CustomEmojiCategoryAdminConfig(ModelAdmin):
         Link to the actor who created the custom emoji category
         """
         return format_html(
-            '<a href="{}">{}</a>',
-            reverse(
+            '<a href="{url}">{text}</a>',
+            url = reverse(
                 'admin:auth_user_change',
                 args = (
                     category.actor_id.user_id.id,
                 )
             ),
-            category.actor_id.username
+            text = category.actor_id.username
         )
