@@ -2,7 +2,7 @@
 Domain allow admin config
 """
 from django.contrib.admin import ModelAdmin
-class DoaminAllowAdminConfig(ModelAdmin):
+class DomainAllowAdminConfig(ModelAdmin):
     """
     Domain allow admin config
     """

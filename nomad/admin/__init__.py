@@ -1,6 +1,7 @@
 """
-Import admin configuration linking utility
+Import admin configurations and relevant models and register them here
 """
+# Import admin site registration utility here
 from django.contrib.admin import site
 # Import admin configurations here
 from .actor_moderation_note_admin_config import ActorModerationNoteAdminConfig
@@ -10,7 +11,7 @@ from .admin_action_log_admin_config import AdminActionLogAdminConfig
 from .announcement_admin_config import AnnouncementAdminConfig
 from .custom_emoji_category_admin_config import CustomEmojiCategoryAdminConfig
 from .custom_emoji_admin_config import CustomEmojiAdminConfig
-from .domain_allow_admin_config import DoaminAllowAdminConfig
+from .domain_allow_admin_config import DomainAllowAdminConfig
 from .domain_block_admin_config import DomainBlockAdminConfig
 from .email_domain_block_admin_config import EmailDomainBlockAdminConfig
 from .media_attachment_admin_config import MediaAttachmentAdminConfig
@@ -69,7 +70,7 @@ site.register(
 )
 site.register(
     DomainAllow,
-    DoaminAllowAdminConfig
+    DomainAllowAdminConfig
 )
 site.register(
     DomainBlock,
