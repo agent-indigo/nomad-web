@@ -49,6 +49,7 @@ REST_FRAMEWORK = {
         'knox.auth.TokenAuthentication',
     )
 }
+KNOX_TOKEN_MODEL = 'knox.AuthToken'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
