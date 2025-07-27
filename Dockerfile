@@ -8,4 +8,4 @@ RUN source .venv/bin/activate && \
     python manage.py collectstatic && \
     python manage.py migrate
 EXPOSE 443
-CMD [".venv/bin/gunicorn", "--bind", "0.0.0.0:443", "btre.wsgi:application"]
+CMD [".venv/bin/gunicorn", "--bind", "0.0.0.0:443", "nomad.wsgi:application"]
