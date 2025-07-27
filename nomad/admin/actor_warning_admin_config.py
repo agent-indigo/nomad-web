@@ -22,11 +22,25 @@ class ActorWarningAdminConfig(ModelAdmin):
         'action',
         'text'
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
+    list_filter = (
+        'actor_id__display_name',
+        'target_actor_id__display_name',
+        'action',
+        'text',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'actor_id__display_name',
+        'target_actor_id__display_name',
+        'action',
+        'text',
+        'created_at',
+        'updated_at'
+    )
     readonly_fields = (
-        'actor',
-        'target_actor',
+        'actor_id__display_name',
+        'target_actor_id__display_name',
         'created_at',
         'updated_at'
     )
@@ -39,14 +53,14 @@ class ActorWarningAdminConfig(ModelAdmin):
         Link to the actor who issued the warning
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
                 args = (
                     warning.actor_id.user_id.id,
                 )
             ),
-            text = warning.actor_id.user_id.username
+            name = warning.actor_id.display_name
         )
     def target_actor(
         self: 'ActorWarningAdminConfig',
@@ -56,12 +70,12 @@ class ActorWarningAdminConfig(ModelAdmin):
         Link to the actor who was issued the warning
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
                 args = (
                     warning.target_actor_id.user_id.id,
                 )
             ),
-            text = warning.target_actor_id.user_id.username
+            name = warning.target_actor_id.display_name
         )

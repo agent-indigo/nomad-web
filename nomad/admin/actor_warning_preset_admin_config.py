@@ -14,8 +14,16 @@ class ActorWarningPresetAdminConfig(ModelAdmin):
     list_display_links = (
         'text',
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
+    list_filter = (
+        'text',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'text',
+        'created_at',
+        'updated_at'
+    )
     readonly_fields = (
         'created_at',
         'updated_at'

@@ -20,11 +20,23 @@ class ActorModerationNoteAdminConfig(ModelAdmin):
     list_display_links = (
         'content',
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
+    list_filter = (
+        'actor_id__display_name',
+        'target_actor_id___display_name',
+        'content',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'actor_id__display_name',
+        'target_actor_id___display_name',
+        'content',
+        'created_at',
+        'updated_at'
+    )
     readonly_fields = (
-        'actor',
-        'target_actor',
+        'actor_id__display_name',
+        'target_actor_id__display_name',
         'created_at',
         'updated_at'
     )
@@ -37,14 +49,14 @@ class ActorModerationNoteAdminConfig(ModelAdmin):
         Link to the actor who issued the moderation note
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
                 args = (
                     note.actor_id.user_id.id,
                 )
             ),
-            text = note.actor_id.user_id.username
+            name = note.actor_id.display_name
         )
     def target_actor(
         self: 'ActorModerationNoteAdminConfig',
@@ -54,12 +66,12 @@ class ActorModerationNoteAdminConfig(ModelAdmin):
         Link to the actor who was issued the moderation note
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
                 args = (
                     note.target_actor_id.user_id.id,
                 )
             ),
-            text = note.target_actor_id.user_id.username
+            name = note.target_actor_id.display_name
         )

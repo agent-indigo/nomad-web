@@ -26,9 +26,45 @@ class PostAdminConfig(ModelAdmin):
     list_display_links = (
         'text',
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
-    readonly_fields = '__all__'
+    list_filter = (
+        'actor_id__display_name',
+        'in_reply_to_actor_id__display_name',
+        'in_reply_to_post_id__text',
+        'reblog_of_post_id__text',
+        'text',
+        'language',
+        'is_sensitive',
+        'is_spoiler',
+        'is_reply',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'actor_id__display_name',
+        'in_reply_to_actor_id__display_name',
+        'in_reply_to_post_id__text',
+        'reblog_of_post_id__text',
+        'text',
+        'language',
+        'is_sensitive',
+        'is_spoiler',
+        'is_reply',
+        'created_at',
+        'updated_at'
+    )
+    readonly_fields = (
+        'actor_id__display_name',
+        'in_reply_to_actor_id__display_name',
+        'in_reply_to_post_id__text',
+        'reblog_of_post_id__text',
+        'text',
+        'language',
+        'is_sensitive',
+        'is_spoiler',
+        'is_reply',
+        'created_at',
+        'updated_at'
+    )
     list_per_page = 20
     def actor(
         self: 'PostAdminConfig',
@@ -38,14 +74,14 @@ class PostAdminConfig(ModelAdmin):
         Link to the actor who made the post
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
                 args = (
                     post.actor_id.user_id.id,
                 )
             ),
-            text = post.actor_id.username
+            name = post.actor_id.display_name
         )
     def reply_to_actor(
         self: 'PostAdminConfig',
@@ -55,14 +91,14 @@ class PostAdminConfig(ModelAdmin):
         Link to the actor being replied to in the post
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
                 args = (
                     post.in_reply_to_actor_id.user_id.id,
                 )
             ),
-            text = post.in_reply_to_actor_id.username
+            name = post.in_reply_to_actor_id.display_name
         )
     def reply_to_post(
         self: 'PostAdminConfig',

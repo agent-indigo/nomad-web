@@ -23,9 +23,30 @@ class AdminActionLogAdminConfig(ModelAdmin):
         'action',
         'recorded_changes'
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
-    readonly_fields = '__all__'
+    list_filter = (
+        'actor_id__display_name',
+        'target_actor_id__display_name',
+        'action',
+        'recorded_changes',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'actor_id__display_name',
+        'target_actor_id__display_name',
+        'action',
+        'recorded_changes',
+        'created_at',
+        'updated_at'
+    )
+    readonly_fields = (
+        'actor_id__display_name',
+        'target_actor_id__display_name',
+        'action',
+        'recorded_changes',
+        'created_at',
+        'updated_at'
+    )
     list_per_page = 20
     def actor(
         self: 'AdminActionLogAdminConfig',
@@ -35,14 +56,14 @@ class AdminActionLogAdminConfig(ModelAdmin):
         Link to the actor who issued the action
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
                 args=(
                     log.actor_id.user_id.id,
                 )
             ),
-            text = log.actor_id.user_id.username
+            name = log.actor_id.display_name
         )
     def target_actor(
         self: 'AdminActionLogAdminConfig',
@@ -52,12 +73,12 @@ class AdminActionLogAdminConfig(ModelAdmin):
         Link to the actor who received action
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
                 args=(
                     log.target_actor_id.user_id.id,
                 )
             ),
-            text = log.target_actor_id.user_id.username
+            name = log.target_actor_id.display_name
         )

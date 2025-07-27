@@ -27,9 +27,45 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         'short_code',
         'description'
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
-    readonly_fields = '__all__'
+    list_filter = (
+        'post_id__text',
+        'actor_id__display_name',
+        'short_code',
+        'description',
+        'remote_url',
+        'file_name',
+        'file_meta_data',
+        'file_content_type',
+        'file_size',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'post_id__text',
+        'actor_id__display_name',
+        'short_code',
+        'description',
+        'remote_url',
+        'file_name',
+        'file_meta_data',
+        'file_content_type',
+        'file_size',
+        'created_at',
+        'updated_at'
+    )
+    readonly_fields = (
+        'post_id__text',
+        'actor_id__display_name',
+        'short_code',
+        'description',
+        'remote_url',
+        'file_name',
+        'file_meta_data',
+        'file_content_type',
+        'file_size',
+        'created_at',
+        'updated_at'
+    )
     list_per_page = 20
     def actor(
         self: 'MediaAttachmentAdminConfig',
@@ -39,14 +75,14 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         Link to the actor who made the post that the file is attached to
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
                 args = (
                     file.actor_id.user_id.id,
                 )
             ),
-            text = file.actor_id.username
+            name = file.actor_id.display_name
         )
     def post(
         self: 'MediaAttachmentAdminConfig',
@@ -73,7 +109,6 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         Link to the file
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
-            url = file.remote_url,
-            text = file.remote_url
+            '<a href="{url}">{url}</a>',
+            url = file.remote_url
         )

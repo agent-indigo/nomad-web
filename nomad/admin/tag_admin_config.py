@@ -26,7 +26,40 @@ class TagAdminConfig(ModelAdmin):
         'is_trendable',
         'is_listable'
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
-    readonly_fields = '__all__'
+    list_filter = (
+        'name',
+        'is_usable',
+        'is_trendable',
+        'is_listable',
+        'max_score',
+        'max_score_at',
+        'last_post_at',
+        'reviewed_at',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'name',
+        'is_usable',
+        'is_trendable',
+        'is_listable',
+        'max_score',
+        'max_score_at',
+        'last_post_at',
+        'reviewed_at',
+        'created_at',
+        'updated_at'
+    )
+    readonly_fields = (
+        'name',
+        'is_usable',
+        'is_trendable',
+        'is_listable',
+        'max_score',
+        'max_score_at',
+        'last_post_at',
+        'reviewed_at',
+        'created_at',
+        'updated_at'
+    )
     list_per_page = 20

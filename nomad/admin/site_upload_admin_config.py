@@ -14,7 +14,28 @@ class SiteUploadAdminConfig(ModelAdmin):
         'created_at',
         'updated_at'
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
-    readonly_fields = '__all__'
+    list_filter = (
+        'file_name',
+        'file_content_type',
+        'file_meta_data',
+        'file_size',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'file_name',
+        'file_content_type',
+        'file_meta_data',
+        'file_size',
+        'created_at',
+        'updated_at'
+    )
+    readonly_fields = (
+        'file_name',
+        'file_content_type',
+        'file_meta_data',
+        'file_size',
+        'created_at',
+        'updated_at'
+    )
     list_per_page = 20

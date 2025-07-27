@@ -25,8 +25,26 @@ class DomainBlockAdminConfig(ModelAdmin):
         'do_reject_media',
         'do_reject_reports'
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
+    list_filter = (
+        'domain',
+        'do_reject_media',
+        'do_reject_reports',
+        'severity',
+        'private_comment',
+        'public_comment',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'domain',
+        'do_reject_media',
+        'do_reject_reports',
+        'severity',
+        'private_comment',
+        'public_comment',
+        'created_at',
+        'updated_at'
+    )
     readonly_fields = (
         'created_at',
         'updated_at'

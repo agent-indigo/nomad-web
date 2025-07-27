@@ -14,8 +14,16 @@ class DomainAllowAdminConfig(ModelAdmin):
     list_display_links = (
         'domain',
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
+    list_filter = (
+        'domain',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'domain',
+        'created_at',
+        'updated_at'
+    )
     readonly_fields = (
         'created_at',
         'updated_at'

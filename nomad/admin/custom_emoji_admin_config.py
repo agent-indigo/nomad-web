@@ -33,10 +33,40 @@ class CustomEmojiAdminConfig(ModelAdmin):
         'is_disabled',
         'is_visible_in_selector'
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
+    list_filter = (
+        'actor_id__display_name',
+        'category_id__name',
+        'short_code',
+        'domain',
+        'is_disabled',
+        'is_visible_in_selector',
+        'image_file_name',
+        'image_content_type',
+        'image_file_size',
+        'image_remote_url',
+        'image_uploaded_at',
+        'uri',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'actor_id__display_name',
+        'category_id__name',
+        'short_code',
+        'domain',
+        'is_disabled',
+        'is_visible_in_selector',
+        'image_file_name',
+        'image_content_type',
+        'image_file_size',
+        'image_remote_url',
+        'image_uploaded_at',
+        'uri',
+        'created_at',
+        'updated_at'
+    )
     readonly_fields = (
-        'actor',
+        'actor_id__display_name',
         'short_code',
         'domain',
         'image_file_name',
@@ -57,14 +87,14 @@ class CustomEmojiAdminConfig(ModelAdmin):
         Link to the actor who created the custom emoji
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
                 args = (
                     emoji.actor_id.user_id.id,
                 )
             ),
-            text = emoji.actor_id.username
+            name = emoji.actor_id.display_name
         )
     def category(
         self: 'CustomEmojiAdminConfig',
@@ -74,14 +104,14 @@ class CustomEmojiAdminConfig(ModelAdmin):
         Link to the category of the custom emoji
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:nomad_customemojicategory_change',
                 args = (
                     emoji.category_id.id,
                 )
             ),
-            text = emoji.category_id.name
+            name = emoji.category_id.name
         )
     def domain(
         self: 'CustomEmojiAdminConfig',
@@ -91,9 +121,8 @@ class CustomEmojiAdminConfig(ModelAdmin):
         Link to the domain of the custom emoji
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
-            url = emoji.domain,
-            text = emoji.domain
+            '<a href="{url}">{url}</a>',
+            url = emoji.domain
         )
     def uri(
         self: 'CustomEmojiAdminConfig',
@@ -103,7 +132,6 @@ class CustomEmojiAdminConfig(ModelAdmin):
         Link to the URI of the custom emoji
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
-            url = emoji.uri,
-            text = emoji.uri
+            '<a href="{url}">{url}</a>',
+            url = emoji.uri
         )

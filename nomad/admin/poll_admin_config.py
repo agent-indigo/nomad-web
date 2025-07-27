@@ -21,9 +21,30 @@ class PollAdminConfig(ModelAdmin):
     list_display_links = (
         'options',
     )
-    list_filter = '__all__'
-    search_fields = '__all__'
-    readonly_fields = '__all__'
+    list_filter = (
+        'post_id__text',
+        'actor_id__display_name',
+        'options',
+        'expires_at',
+        'created_at',
+        'updated_at'
+    )
+    search_fields = (
+        'post_id__text',
+        'actor_id__display_name',
+        'options',
+        'expires_at',
+        'created_at',
+        'updated_at'
+    )
+    readonly_fields = (
+        'post_id__text',
+        'actor_id__display_name',
+        'options',
+        'expires_at',
+        'created_at',
+        'updated_at'
+    )
     list_per_page = 20
     def actor(
         self: 'PollAdminConfig',
@@ -33,14 +54,14 @@ class PollAdminConfig(ModelAdmin):
         Link to the actor who created the poll
         """
         return format_html(
-            '<a href="{url}">{text}</a>',
+            '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
                 args = (
                     poll.actor_id.user_id.id,
                 )
             ),
-            text = poll.actor_id.username
+            name = poll.actor_id.display_name
         )
     def post(
         self: 'PollAdminConfig',
