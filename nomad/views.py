@@ -1,5 +1,5 @@
 """
-Views for Nomad app
+Nomad app views
 """
 from urllib.request import Request
 from django.http import HttpResponse

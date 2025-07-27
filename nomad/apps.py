@@ -1,9 +1,9 @@
 """
-Nomad App Configuration
+Nomad app config
 """
 from django.apps import AppConfig
 class NomadConfig(AppConfig):
     """
-    Nomad App Configuration
+    Nomad app config
     """
     name = 'nomad'
