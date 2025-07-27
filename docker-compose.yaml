@@ -12,6 +12,16 @@ services:
       - static:/usr/share/nginx/html/static
     ports:
       - 443:443
+  media:
+    image: minio/minio:latest
+    environment:
+      MINIO_ROOT_USER: root
+      MINIO_ROOT_PASSWORD: p@5$w0rD
+    command: server /data
+    volumes:
+      - media:/data
+    ports:
+      - 9000:9000
   nomad-web:
     image: nomad-web:latest
     build:
@@ -24,3 +34,4 @@ services:
     depends_on:
       - database
       - static
+      - media

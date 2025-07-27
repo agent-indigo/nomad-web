@@ -1,5 +1,6 @@
 django
 djangorestframework
 django-rest-knox
+minio
 psycopg2-binary
 python-dotenv

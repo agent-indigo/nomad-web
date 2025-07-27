@@ -139,3 +139,21 @@ STATIC_ROOT = '/usr/share/nginx/html/static'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# MinIO config
+MINIO_ACCESS_KEY = os.getenv(
+  'STR_MINIO_ACCESS_KEY',
+  ''
+)
+MINIO_SECRET_KEY = os.getenv(
+  'STR_MINIO_SECRET_KEY',
+  ''
+)
+MINIO_ENDPOINT = os.getenv(
+  'STR_MINIO_ENDPOINT',
+  'localhost:9000'
+)
+MINIO_BUCKET_NAME = os.getenv(
+  'STR_MINIO_BUCKET_NAME',
+  'nomad'
+)
+MINIO_SECURE = DEBUG is False
