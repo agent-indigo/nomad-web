@@ -3,7 +3,7 @@ Media attachment SQL table model
 """
 from uuid import uuid4
 from django.db import models
-class MediaAttachment():
+class MediaAttachment(models.Model):
     """
     Media attachment SQL table model
     """

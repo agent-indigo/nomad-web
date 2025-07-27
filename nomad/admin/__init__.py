@@ -80,7 +80,6 @@ site.register(
     EmailDomainBlock,
     EmailDomainBlockAdminConfig
 )
-## The problem with this one is unique.
 # site.register(
 #     MediaAttachment,
 #     MediaAttachmentAdminConfig
