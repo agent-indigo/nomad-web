@@ -1,9 +1,9 @@
 """
-Import admin configurations and relevant models and register them here
+Import admin configs and corresponding SQL table models and register them here.
 """
-# Import admin site registration utility here
+# Import admin site registration utility here.
 from django.contrib.admin import site
-# Import admin configurations here
+# Import admin configs here.
 from .actor_moderation_note_admin_config import ActorModerationNoteAdminConfig
 from .actor_warning_preset_admin_config import ActorWarningPresetAdminConfig
 from .actor_warning_admin_config import ActorWarningAdminConfig
@@ -21,7 +21,7 @@ from .report_note_admin_config import ReportNoteAdminConfig
 from .report_admin_config import ReportAdminConfig
 from .site_upload_admin_config import SiteUploadAdminConfig
 from .tag_admin_config import TagAdminConfig
-# Import SQL table models here
+# Import SQL table models here.
 from ..models import ActorModerationNote
 from ..models import ActorWarningPreset
 from ..models import ActorWarning
@@ -39,72 +39,62 @@ from ..models import ReportNote
 from ..models import Report
 from ..models import SiteUpload
 from ..models import Tag
-# Register admin configurations here
-site.register(
-    ActorModerationNote,
-    ActorModerationNoteAdminConfig
-)
-site.register(
-    ActorWarningPreset,
-    ActorWarningPresetAdminConfig
-)
-site.register(
-    ActorWarning,
-    ActorWarningAdminConfig
-)
-site.register(
-    AdminActionLog,
-    AdminActionLogAdminConfig
-)
-site.register(
-    Announcement,
-    AnnouncementAdminConfig
-)
-site.register(
-    CustomEmojiCategory,
-    CustomEmojiCategoryAdminConfig
-)
-site.register(
-    CustomEmoji,
-    CustomEmojiAdminConfig
-)
-site.register(
-    DomainAllow,
-    DomainAllowAdminConfig
-)
-site.register(
-    DomainBlock,
-    DomainBlockAdminConfig
-)
-site.register(
-    EmailDomainBlock,
-    EmailDomainBlockAdminConfig
-)
-site.register(
-    MediaAttachment,
-    MediaAttachmentAdminConfig
-)
-site.register(
-    Poll,
-    PollAdminConfig
-)
-site.register(
-    Post,
-    PostAdminConfig
-)
-site.register(
-    ReportNote,
-    ReportNoteAdminConfig
-)
-site.register(
-    Report,
-    ReportAdminConfig
-)
-site.register(
-    SiteUpload,
-    SiteUploadAdminConfig
-)
-site.register(
-    Tag,
-    TagAdminConfig
-)
+# Pair admin configs with corresponding SQL table model here.
+PAIRS = ({
+    'config': ActorModerationNoteAdminConfig,
+    'model': ActorModerationNote
+}, {
+    'config': ActorWarningPresetAdminConfig,
+    'model': ActorWarningPreset
+}, {
+    'config': ActorWarningAdminConfig,
+    'model': ActorWarning
+}, {
+    'config': AdminActionLogAdminConfig,
+    'model': AdminActionLog
+}, {
+    'config': AnnouncementAdminConfig,
+    'model': Announcement
+}, {
+    'config': CustomEmojiCategoryAdminConfig,
+    'model': CustomEmojiCategory
+}, {
+    'config': CustomEmojiAdminConfig,
+    'model': CustomEmoji
+}, {
+    'config': DomainAllowAdminConfig,
+    'model': DomainAllow
+}, {
+    'config': DomainBlockAdminConfig,
+    'model': DomainBlock
+}, {
+    'config': EmailDomainBlockAdminConfig,
+    'model': EmailDomainBlock
+}, {
+    'config': MediaAttachmentAdminConfig,
+    'model': MediaAttachment
+}, {
+    'config': PollAdminConfig,
+    'model': Poll
+}, {
+    'config': PostAdminConfig,
+    'model': Post
+}, {
+    'config': ReportNoteAdminConfig,
+    'model': ReportNote
+}, {
+    'config': ReportAdminConfig,
+    'model': Report
+}, {
+    'config': SiteUploadAdminConfig,
+    'model': SiteUpload
+}, {
+    'config': TagAdminConfig,
+    'model': Tag
+})
+# Register admin configs and corresponding SQL table models here.
+for PAIR in PAIRS:
+    site.register(
+        PAIR.get('model'),
+        PAIR.get('config')
+    )
