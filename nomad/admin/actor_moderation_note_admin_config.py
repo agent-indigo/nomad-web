@@ -22,21 +22,21 @@ class ActorModerationNoteAdminConfig(ModelAdmin):
     ]
     list_filter = [
         'actor_id__display_name',
-        'target_actor_id___display_name',
+        'target_actor_id__display_name',
         'content',
         'created_at',
         'updated_at'
     ]
     search_fields = [
         'actor_id__display_name',
-        'target_actor_id___display_name',
+        'target_actor_id__display_name',
         'content',
         'created_at',
         'updated_at'
     ]
     readonly_fields = [
-        'actor_id__display_name',
-        'target_actor_id__display_name',
+        'actor',
+        'target_actor',
         'created_at',
         'updated_at'
     ]

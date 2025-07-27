@@ -18,7 +18,7 @@ class ReportNoteAdminConfig(ModelAdmin):
         'updated_at'
     ]
     list_display_links = [
-        'comment'
+        'content'
     ]
     list_filter = [
         'actor_id__display_name',
@@ -35,8 +35,8 @@ class ReportNoteAdminConfig(ModelAdmin):
         'updated_at'
     ]
     readonly_fields = [
-        'actor_id__display_name',
-        'report_id__comment',
+        'actor',
+        'report',
         'content',
         'created_at',
         'updated_at'

@@ -53,10 +53,10 @@ class PostAdminConfig(ModelAdmin):
         'updated_at'
     ]
     readonly_fields = [
-        'actor_id__display_name',
-        'in_reply_to_actor_id__display_name',
-        'in_reply_to_post_id__text',
-        'reblog_of_post_id__text',
+        'actor',
+        'reply_to_actor',
+        'reply_to_post',
+        'reblog_of_post',
         'text',
         'language',
         'is_sensitive',

@@ -40,34 +40,34 @@ from ..models import Report
 from ..models import SiteUpload
 from ..models import Tag
 # Register admin configs and corresponding SQL table models here.
-# site.register(
-#     ActorModerationNote,
-#     ActorModerationNoteAdminConfig
-# )
+site.register(
+    ActorModerationNote,
+    ActorModerationNoteAdminConfig
+)
 site.register(
     ActorWarningPreset,
     ActorWarningPresetAdminConfig
 )
-# site.register(
-#     ActorWarning,
-#     ActorWarningAdminConfig
-# )
-# site.register(
-#     AdminActionLog,
-#     AdminActionLogAdminConfig
-# )
+site.register(
+    ActorWarning,
+    ActorWarningAdminConfig
+)
+site.register(
+    AdminActionLog,
+    AdminActionLogAdminConfig
+)
 site.register(
     Announcement,
     AnnouncementAdminConfig
 )
-# site.register(
-#     CustomEmojiCategory,
-#     CustomEmojiCategoryAdminConfig
-# )
-# site.register(
-#     CustomEmoji,
-#     CustomEmojiAdminConfig
-# )
+site.register(
+    CustomEmojiCategory,
+    CustomEmojiCategoryAdminConfig
+)
+site.register(
+    CustomEmoji,
+    CustomEmojiAdminConfig
+)
 site.register(
     DomainAllow,
     DomainAllowAdminConfig
@@ -80,22 +80,22 @@ site.register(
     EmailDomainBlock,
     EmailDomainBlockAdminConfig
 )
-# site.register(
-#     MediaAttachment,
-#     MediaAttachmentAdminConfig
-# )
-# site.register(
-#     Poll,
-#     PollAdminConfig
-# )
-# site.register(
-#     Post,
-#     PostAdminConfig
-# )
-# site.register(
-#     ReportNote,
-#     ReportNoteAdminConfig
-# )
+site.register(
+    MediaAttachment,
+    MediaAttachmentAdminConfig
+)
+site.register(
+    Poll,
+    PollAdminConfig
+)
+site.register(
+    Post,
+    PostAdminConfig
+)
+site.register(
+    ReportNote,
+    ReportNoteAdminConfig
+)
 site.register(
     Report,
     ReportAdminConfig

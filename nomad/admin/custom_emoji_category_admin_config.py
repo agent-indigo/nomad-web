@@ -32,7 +32,7 @@ class CustomEmojiCategoryAdminConfig(ModelAdmin):
         'updated_at'
     ]
     readonly_fields = [
-        'actor_id__display_name',
+        'actor',
         'created_at',
         'updated_at'
     ]

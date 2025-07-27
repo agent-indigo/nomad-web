@@ -66,7 +66,7 @@ class CustomEmojiAdminConfig(ModelAdmin):
         'updated_at'
     ]
     readonly_fields = [
-        'actor_id__display_name',
+        'actor',
         'short_code',
         'domain',
         'image_file_name',

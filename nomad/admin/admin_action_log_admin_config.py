@@ -13,7 +13,7 @@ class AdminActionLogAdminConfig(ModelAdmin):
     list_display = [
         'actor',
         'target_actor',
-        'target_type',
+        'target_actor_type',
         'action',
         'recorded_changes',
         'created_at',
@@ -40,8 +40,8 @@ class AdminActionLogAdminConfig(ModelAdmin):
         'updated_at'
     ]
     readonly_fields = [
-        'actor_id__display_name',
-        'target_actor_id__display_name',
+        'actor',
+        'target_actor',
         'action',
         'recorded_changes',
         'created_at',

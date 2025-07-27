@@ -38,8 +38,8 @@ class PollAdminConfig(ModelAdmin):
         'updated_at'
     ]
     readonly_fields = [
-        'post_id__text',
-        'actor_id__display_name',
+        'post',
+        'actor',
         'options',
         'expires_at',
         'created_at',
