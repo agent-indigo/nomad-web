@@ -13,9 +13,9 @@ class PostStatsSerializer(ModelSerializer):
         """
         model = PostStats
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'post_id',
             'created_at',
             'updated_at'
-        )
+        ]

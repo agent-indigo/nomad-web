@@ -10,7 +10,7 @@ class AdminActionLogAdminConfig(ModelAdmin):
     """
     Admin action log admin config
     """
-    list_display = (
+    list_display = [
         'actor',
         'target_actor',
         'target_type',
@@ -18,35 +18,35 @@ class AdminActionLogAdminConfig(ModelAdmin):
         'recorded_changes',
         'created_at',
         'updated_at'
-    )
-    list_display_links = (
+    ]
+    list_display_links = [
         'action',
         'recorded_changes'
-    )
-    list_filter = (
+    ]
+    list_filter = [
         'actor_id__display_name',
         'target_actor_id__display_name',
         'action',
         'recorded_changes',
         'created_at',
         'updated_at'
-    )
-    search_fields = (
+    ]
+    search_fields = [
         'actor_id__display_name',
         'target_actor_id__display_name',
         'action',
         'recorded_changes',
         'created_at',
         'updated_at'
-    )
-    readonly_fields = (
+    ]
+    readonly_fields = [
         'actor_id__display_name',
         'target_actor_id__display_name',
         'action',
         'recorded_changes',
         'created_at',
         'updated_at'
-    )
+    ]
     list_per_page = 20
     def actor(
         self: 'AdminActionLogAdminConfig',
@@ -59,9 +59,9 @@ class AdminActionLogAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
-                args=(
-                    log.actor_id.user_id.id,
-                )
+                args = [
+                    log.actor_id.user_id.id
+                ]
             ),
             name = log.actor_id.display_name
         )
@@ -76,9 +76,9 @@ class AdminActionLogAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
-                args=(
-                    log.target_actor_id.user_id.id,
-                )
+                args = [
+                    log.target_actor_id.user_id.id
+                ]
             ),
             name = log.target_actor_id.display_name
         )

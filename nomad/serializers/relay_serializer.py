@@ -13,10 +13,10 @@ class RelaySerializer(ModelSerializer):
         """
         model = Relay
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'inbox_url',
             'follow_activity',
             'created_at',
             'updated_at'
-        )
+        ]

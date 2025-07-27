@@ -13,7 +13,7 @@ class CustomEmojiSerializer(ModelSerializer):
         """
         model = CustomEmoji
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'category_id',
             'short_code',
@@ -26,4 +26,4 @@ class CustomEmojiSerializer(ModelSerializer):
             'uri',
             'created_at',
             'updated_at',
-        )
+        ]

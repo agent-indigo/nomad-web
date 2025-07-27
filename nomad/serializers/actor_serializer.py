@@ -12,7 +12,7 @@ class ActorSerializer(ModelSerializer):
         Actor serializer meta class
         """
         model = Actor
-        fields = (
+        fields = [
             'id',
             'username',
             'display_name',
@@ -36,9 +36,9 @@ class ActorSerializer(ModelSerializer):
             'header_remote_url',
             'created_at',
             'updated_at',
-        )
-        read_only_fields = (
+        ]
+        read_only_fields = [
             'id',
             'created_at',
             'updated_at'
-        )
+        ]

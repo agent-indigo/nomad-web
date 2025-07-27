@@ -10,7 +10,7 @@ class MediaAttachmentAdminConfig(ModelAdmin):
     """
     Media attachment admin config
     """
-    list_display = (
+    list_display = [
         'post',
         'actor',
         'short_code',
@@ -22,12 +22,12 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         'file_size',
         'created_at',
         'updated_at'
-    )
-    list_display_links = (
+    ]
+    list_display_links = [
         'short_code',
         'description'
-    )
-    list_filter = (
+    ]
+    list_filter = [
         'post_id__text',
         'actor_id__display_name',
         'short_code',
@@ -39,8 +39,8 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         'file_size',
         'created_at',
         'updated_at'
-    )
-    search_fields = (
+    ]
+    search_fields = [
         'post_id__text',
         'actor_id__display_name',
         'short_code',
@@ -52,8 +52,8 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         'file_size',
         'created_at',
         'updated_at'
-    )
-    readonly_fields = (
+    ]
+    readonly_fields = [
         'post_id__text',
         'actor_id__display_name',
         'short_code',
@@ -65,7 +65,7 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         'file_size',
         'created_at',
         'updated_at'
-    )
+    ]
     list_per_page = 20
     def actor(
         self: 'MediaAttachmentAdminConfig',
@@ -78,9 +78,9 @@ class MediaAttachmentAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
-                args = (
-                    file.actor_id.user_id.id,
-                )
+                args = [
+                    file.actor_id.user_id.id
+                ]
             ),
             name = file.actor_id.display_name
         )
@@ -95,9 +95,9 @@ class MediaAttachmentAdminConfig(ModelAdmin):
             '<a href="{url}">{text}</a>',
             url = reverse(
                 'admin:nomad_post_change',
-                args = (
-                    file.post_id.id,
-                )
+                args = [
+                    file.post_id.id
+                ]
             ),
             text = file.post_id.text
         )

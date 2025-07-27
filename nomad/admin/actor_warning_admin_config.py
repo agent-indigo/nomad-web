@@ -10,40 +10,40 @@ class ActorWarningAdminConfig(ModelAdmin):
     """
     Actor warning admin config
     """
-    list_display = (
+    list_display = [
         'actor',
         'target_actor',
         'action',
         'text',
         'created_at',
         'updated_at'
-    )
-    list_display_links = (
+    ]
+    list_display_links = [
         'action',
         'text'
-    )
-    list_filter = (
+    ]
+    list_filter = [
         'actor_id__display_name',
         'target_actor_id__display_name',
         'action',
         'text',
         'created_at',
         'updated_at'
-    )
-    search_fields = (
+    ]
+    search_fields = [
         'actor_id__display_name',
         'target_actor_id__display_name',
         'action',
         'text',
         'created_at',
         'updated_at'
-    )
-    readonly_fields = (
+    ]
+    readonly_fields = [
         'actor_id__display_name',
         'target_actor_id__display_name',
         'created_at',
         'updated_at'
-    )
+    ]
     list_per_page = 20
     def actor(
         self: 'ActorWarningAdminConfig',
@@ -56,9 +56,9 @@ class ActorWarningAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
-                args = (
-                    warning.actor_id.user_id.id,
-                )
+                args = [
+                    warning.actor_id.user_id.id
+                ]
             ),
             name = warning.actor_id.display_name
         )
@@ -73,9 +73,9 @@ class ActorWarningAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
-                args = (
-                    warning.target_actor_id.user_id.id,
-                )
+                args = [
+                    warning.target_actor_id.user_id.id
+                ]
             ),
             name = warning.target_actor_id.display_name
         )

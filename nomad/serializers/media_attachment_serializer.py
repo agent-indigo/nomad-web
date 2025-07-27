@@ -13,7 +13,7 @@ class MediaAttachmentSerializer(ModelSerializer):
         """
         model = MediaAttachment
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'post_id',
             'actor_id',
@@ -26,4 +26,4 @@ class MediaAttachmentSerializer(ModelSerializer):
             'file_size',
             'created_at',
             'updated_at'
-        )
+        ]

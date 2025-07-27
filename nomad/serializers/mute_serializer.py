@@ -13,10 +13,10 @@ class MuteSerializer(ModelSerializer):
         """
         model = Mute
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'actor_id',
             'target_actor_id',
             'created_at',
             'updated_at'
-        )
+        ]

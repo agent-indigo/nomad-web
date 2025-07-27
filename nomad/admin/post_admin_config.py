@@ -10,7 +10,7 @@ class PostAdminConfig(ModelAdmin):
     """
     Post admin config
     """
-    list_display = (
+    list_display = [
         'actor',
         'reply_to_actor',
         'reply_to_post',
@@ -22,11 +22,11 @@ class PostAdminConfig(ModelAdmin):
         'is_reply',
         'created_at',
         'updated_at'
-    )
-    list_display_links = (
-        'text',
-    )
-    list_filter = (
+    ]
+    list_display_links = [
+        'text'
+    ]
+    list_filter = [
         'actor_id__display_name',
         'in_reply_to_actor_id__display_name',
         'in_reply_to_post_id__text',
@@ -38,8 +38,8 @@ class PostAdminConfig(ModelAdmin):
         'is_reply',
         'created_at',
         'updated_at'
-    )
-    search_fields = (
+    ]
+    search_fields = [
         'actor_id__display_name',
         'in_reply_to_actor_id__display_name',
         'in_reply_to_post_id__text',
@@ -51,8 +51,8 @@ class PostAdminConfig(ModelAdmin):
         'is_reply',
         'created_at',
         'updated_at'
-    )
-    readonly_fields = (
+    ]
+    readonly_fields = [
         'actor_id__display_name',
         'in_reply_to_actor_id__display_name',
         'in_reply_to_post_id__text',
@@ -64,7 +64,7 @@ class PostAdminConfig(ModelAdmin):
         'is_reply',
         'created_at',
         'updated_at'
-    )
+    ]
     list_per_page = 20
     def actor(
         self: 'PostAdminConfig',
@@ -77,9 +77,9 @@ class PostAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
-                args = (
-                    post.actor_id.user_id.id,
-                )
+                args = [
+                    post.actor_id.user_id.id
+                ]
             ),
             name = post.actor_id.display_name
         )
@@ -94,9 +94,9 @@ class PostAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
-                args = (
-                    post.in_reply_to_actor_id.user_id.id,
-                )
+                args = [
+                    post.in_reply_to_actor_id.user_id.id
+                ]
             ),
             name = post.in_reply_to_actor_id.display_name
         )
@@ -111,9 +111,9 @@ class PostAdminConfig(ModelAdmin):
             '<a href="{url}">{text}</a>',
             url = reverse(
                 'admin:nomad_post_change',
-                args = (
-                    post.in_reply_to_post_id.id,
-                )
+                args = [
+                    post.in_reply_to_post_id.id
+                ]
             ),
             text = post.in_reply_to_post_id.text
         )
@@ -128,9 +128,9 @@ class PostAdminConfig(ModelAdmin):
             '<a href="{url}">{text}</a>',
             url = reverse(
                 'admin:nomad:post:change',
-                args = (
-                    post.reblog_of_post_id.id,
-                )
+                args = [
+                    post.reblog_of_post_id.id
+                ]
             ),
             text = post.reblog_of_post_id.text
         )

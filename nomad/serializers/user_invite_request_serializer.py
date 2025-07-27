@@ -13,9 +13,9 @@ class UserInviteSerializer(ModelSerializer):
         """
         model = UserInvite
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'user_id',
             'created_at',
             'updated_at'
-        )
+        ]

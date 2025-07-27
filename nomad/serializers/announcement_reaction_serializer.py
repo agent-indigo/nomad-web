@@ -13,10 +13,10 @@ class AnnouncementReactionSerializer(ModelSerializer):
         """
         model = AnnouncementReaction
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'actor_id',
             'announcement_id',
             'created_at',
             'updated_at'
-        )
+        ]

@@ -10,32 +10,32 @@ class CustomEmojiCategoryAdminConfig(ModelAdmin):
     """
     Custom emoji category admin config
     """
-    list_display = (
+    list_display = [
         'actor',
         'name',
         'created_at',
         'updated_at'
-    )
-    list_display_links = (
-        'name',
-    )
-    list_filter = (
+    ]
+    list_display_links = [
+        'name'
+    ]
+    list_filter = [
         'actor_id__display_name',
         'name',
         'created_at',
         'updated_at'
-    )
-    search_fields = (
+    ]
+    search_fields = [
         'actor_id__display_name',
         'name',
         'created_at',
         'updated_at'
-    )
-    readonly_fields = (
+    ]
+    readonly_fields = [
         'actor_id__display_name',
         'created_at',
         'updated_at'
-    )
+    ]
     list_per_page = 20
     def actor(
         self: 'CustomEmojiCategoryAdminConfig',
@@ -48,9 +48,9 @@ class CustomEmojiCategoryAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
-                args = (
-                    category.actor_id.user_id.id,
-                )
+                args = [
+                    category.actor_id.user_id.id
+                ]
             ),
             name = category.actor_id.username
         )

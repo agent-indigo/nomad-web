@@ -10,41 +10,41 @@ class PollAdminConfig(ModelAdmin):
     """
     Poll admin config
     """
-    list_display = (
+    list_display = [
         'post',
         'actor',
         'options',
         'expires_at',
         'created_at',
         'updated_at'
-    )
-    list_display_links = (
-        'options',
-    )
-    list_filter = (
+    ]
+    list_display_links = [
+        'options'
+    ]
+    list_filter = [
         'post_id__text',
         'actor_id__display_name',
         'options',
         'expires_at',
         'created_at',
         'updated_at'
-    )
-    search_fields = (
+    ]
+    search_fields = [
         'post_id__text',
         'actor_id__display_name',
         'options',
         'expires_at',
         'created_at',
         'updated_at'
-    )
-    readonly_fields = (
+    ]
+    readonly_fields = [
         'post_id__text',
         'actor_id__display_name',
         'options',
         'expires_at',
         'created_at',
         'updated_at'
-    )
+    ]
     list_per_page = 20
     def actor(
         self: 'PollAdminConfig',
@@ -57,9 +57,9 @@ class PollAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
-                args = (
-                    poll.actor_id.user_id.id,
-                )
+                args = [
+                    poll.actor_id.user_id.id
+                ]
             ),
             name = poll.actor_id.display_name
         )
@@ -74,9 +74,9 @@ class PollAdminConfig(ModelAdmin):
             '<a href="{url}">{text}</a>',
             url = reverse(
                 'admin:nomad_post_change',
-                args = (
-                    poll.post_id.id,
-                )
+                args = [
+                    poll.post_id.id
+                ]
             ),
             text = poll.post_id.text
         )

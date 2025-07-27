@@ -13,9 +13,9 @@ class WebSettingSerializer(ModelSerializer):
         """
         model = WebSetting
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'user_id',
             'created_at',
             'updated_at'
-        )
+        ]

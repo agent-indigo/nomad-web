@@ -10,37 +10,37 @@ class ReportNoteAdminConfig(ModelAdmin):
     """
     Report note admin config
     """
-    list_display = (
+    list_display = [
         'actor',
         'report',
         'content',
         'created_at',
         'updated_at'
-    )
-    list_display_links = (
-        'comment',
-    )
-    list_filter = (
+    ]
+    list_display_links = [
+        'comment'
+    ]
+    list_filter = [
         'actor_id__display_name',
         'report_id__comment',
         'content',
         'created_at',
         'updated_at'
-    )
-    search_fields = (
+    ]
+    search_fields = [
         'actor_id__display_name',
         'report_id__comment',
         'content',
         'created_at',
         'updated_at'
-    )
-    readonly_fields = (
+    ]
+    readonly_fields = [
         'actor_id__display_name',
         'report_id__comment',
         'content',
         'created_at',
         'updated_at'
-    )
+    ]
     list_per_page = 20
     def actor(
         self: 'ReportNoteAdminConfig',
@@ -53,9 +53,9 @@ class ReportNoteAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
-                args = (
-                    note.actor_id.user_id.id,
-                )
+                args = [
+                    note.actor_id.user_id.id
+                ]
             ),
             name = note.actor_id.username
         )
@@ -70,9 +70,9 @@ class ReportNoteAdminConfig(ModelAdmin):
             '<a href="{url}">{text}</a>',
             url = reverse(
                 'admin:nomad_report_change',
-                args = (
-                    note.report_id.id,
-                )
+                args = [
+                    note.report_id.id
+                ]
             ),
             text = note.report_id.comment
         )

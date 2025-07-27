@@ -13,9 +13,9 @@ class CustomEmojiCategorySetializer(ModelSerializer):
         """
         model = CustomEmojiCategory
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'actor_id',
             'created_at',
             'updated_at'
-        )
+        ]

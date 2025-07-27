@@ -39,62 +39,73 @@ from ..models import ReportNote
 from ..models import Report
 from ..models import SiteUpload
 from ..models import Tag
-# Pair admin configs with corresponding SQL table model here.
-PAIRS = ({
-    'config': ActorModerationNoteAdminConfig,
-    'model': ActorModerationNote
-}, {
-    'config': ActorWarningPresetAdminConfig,
-    'model': ActorWarningPreset
-}, {
-    'config': ActorWarningAdminConfig,
-    'model': ActorWarning
-}, {
-    'config': AdminActionLogAdminConfig,
-    'model': AdminActionLog
-}, {
-    'config': AnnouncementAdminConfig,
-    'model': Announcement
-}, {
-    'config': CustomEmojiCategoryAdminConfig,
-    'model': CustomEmojiCategory
-}, {
-    'config': CustomEmojiAdminConfig,
-    'model': CustomEmoji
-}, {
-    'config': DomainAllowAdminConfig,
-    'model': DomainAllow
-}, {
-    'config': DomainBlockAdminConfig,
-    'model': DomainBlock
-}, {
-    'config': EmailDomainBlockAdminConfig,
-    'model': EmailDomainBlock
-}, {
-    'config': MediaAttachmentAdminConfig,
-    'model': MediaAttachment
-}, {
-    'config': PollAdminConfig,
-    'model': Poll
-}, {
-    'config': PostAdminConfig,
-    'model': Post
-}, {
-    'config': ReportNoteAdminConfig,
-    'model': ReportNote
-}, {
-    'config': ReportAdminConfig,
-    'model': Report
-}, {
-    'config': SiteUploadAdminConfig,
-    'model': SiteUpload
-}, {
-    'config': TagAdminConfig,
-    'model': Tag
-})
 # Register admin configs and corresponding SQL table models here.
-for PAIR in PAIRS:
-    site.register(
-        PAIR.get('model'),
-        PAIR.get('config')
-    )
+# site.register(
+#     ActorModerationNote,
+#     ActorModerationNoteAdminConfig
+# )
+site.register(
+    ActorWarningPreset,
+    ActorWarningPresetAdminConfig
+)
+# site.register(
+#     ActorWarning,
+#     ActorWarningAdminConfig
+# )
+# site.register(
+#     AdminActionLog,
+#     AdminActionLogAdminConfig
+# )
+site.register(
+    Announcement,
+    AnnouncementAdminConfig
+)
+# site.register(
+#     CustomEmojiCategory,
+#     CustomEmojiCategoryAdminConfig
+# )
+# site.register(
+#     CustomEmoji,
+#     CustomEmojiAdminConfig
+# )
+site.register(
+    DomainAllow,
+    DomainAllowAdminConfig
+)
+site.register(
+    DomainBlock,
+    DomainBlockAdminConfig
+)
+site.register(
+    EmailDomainBlock,
+    EmailDomainBlockAdminConfig
+)
+## The problem with this one is unique.
+# site.register(
+#     MediaAttachment,
+#     MediaAttachmentAdminConfig
+# )
+# site.register(
+#     Poll,
+#     PollAdminConfig
+# )
+# site.register(
+#     Post,
+#     PostAdminConfig
+# )
+# site.register(
+#     ReportNote,
+#     ReportNoteAdminConfig
+# )
+site.register(
+    Report,
+    ReportAdminConfig
+)
+site.register(
+    SiteUpload,
+    SiteUploadAdminConfig
+)
+site.register(
+    Tag,
+    TagAdminConfig
+)

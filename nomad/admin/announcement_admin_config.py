@@ -6,7 +6,7 @@ class AnnouncementAdminConfig(ModelAdmin):
     """
     Announcement admin config
     """
-    list_display = (
+    list_display = [
         'text',
         'is_published',
         'is_all_day',
@@ -16,15 +16,15 @@ class AnnouncementAdminConfig(ModelAdmin):
         'published_at',
         'created_at',
         'updated_at'
-    )
-    list_display_links = (
-        'text',
-    )
-    list_editable = (
+    ]
+    list_display_links = [
+        'text'
+    ]
+    list_editable = [
         'is_published',
         'is_all_day'
-    )
-    list_filter = (
+    ]
+    list_filter = [
         'text',
         'is_published',
         'is_all_day',
@@ -34,8 +34,8 @@ class AnnouncementAdminConfig(ModelAdmin):
         'published_at',
         'created_at',
         'updated_at'
-    )
-    search_fields = (
+    ]
+    search_fields = [
         'text',
         'is_published',
         'is_all_day',
@@ -45,9 +45,9 @@ class AnnouncementAdminConfig(ModelAdmin):
         'published_at',
         'created_at',
         'updated_at'
-    )
-    readonly_fields = (
+    ]
+    readonly_fields = [
         'created_at',
         'updated_at'
-    )
+    ]
     list_per_page = 20

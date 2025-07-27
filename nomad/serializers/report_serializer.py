@@ -13,7 +13,7 @@ class ReportSerializer(ModelSerializer):
         """
         model = Report
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'actor_id',
             'target_actor_id',
@@ -22,4 +22,4 @@ class ReportSerializer(ModelSerializer):
             'uri',
             'created_at',
             'updated_at'
-        )
+        ]

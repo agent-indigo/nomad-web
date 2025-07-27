@@ -13,7 +13,7 @@ class PostSerializer(ModelSerializer):
         """
         model = Post
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'actor_id',
             'in_reply_to_actor_id',
@@ -26,4 +26,4 @@ class PostSerializer(ModelSerializer):
             'is_reply',
             'created_at',
             'updated_at'
-        )
+        ]

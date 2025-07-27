@@ -10,7 +10,7 @@ class CustomEmojiAdminConfig(ModelAdmin):
     """
     Custom emoji admin config
     """
-    list_display = (
+    list_display = [
         'actor',
         'category',
         'short_code',
@@ -25,15 +25,15 @@ class CustomEmojiAdminConfig(ModelAdmin):
         'uri',
         'created_at',
         'updated_at'
-    )
-    list_display_links = (
-        'short_code',
-    )
-    list_editable = (
+    ]
+    list_display_links = [
+        'short_code'
+    ]
+    list_editable = [
         'is_disabled',
         'is_visible_in_selector'
-    )
-    list_filter = (
+    ]
+    list_filter = [
         'actor_id__display_name',
         'category_id__name',
         'short_code',
@@ -48,8 +48,8 @@ class CustomEmojiAdminConfig(ModelAdmin):
         'uri',
         'created_at',
         'updated_at'
-    )
-    search_fields = (
+    ]
+    search_fields = [
         'actor_id__display_name',
         'category_id__name',
         'short_code',
@@ -64,8 +64,8 @@ class CustomEmojiAdminConfig(ModelAdmin):
         'uri',
         'created_at',
         'updated_at'
-    )
-    readonly_fields = (
+    ]
+    readonly_fields = [
         'actor_id__display_name',
         'short_code',
         'domain',
@@ -77,7 +77,7 @@ class CustomEmojiAdminConfig(ModelAdmin):
         'uri',
         'created_at',
         'updated_at'
-    )
+    ]
     list_per_page = 20
     def actor(
         self: 'CustomEmojiAdminConfig',
@@ -90,9 +90,9 @@ class CustomEmojiAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:auth_user_change',
-                args = (
-                    emoji.actor_id.user_id.id,
-                )
+                args = [
+                    emoji.actor_id.user_id.id
+                ]
             ),
             name = emoji.actor_id.display_name
         )
@@ -107,9 +107,9 @@ class CustomEmojiAdminConfig(ModelAdmin):
             '<a href="{url}">{name}</a>',
             url = reverse(
                 'admin:nomad_customemojicategory_change',
-                args = (
-                    emoji.category_id.id,
-                )
+                args = [
+                    emoji.category_id.id
+                ]
             ),
             name = emoji.category_id.name
         )

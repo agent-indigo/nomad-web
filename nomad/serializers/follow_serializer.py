@@ -13,11 +13,11 @@ class FollowSerializer(ModelSerializer):
         """
         model = Follow
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'actor_id',
             'target_actor_id',
             'uri',
             'created_at',
             'updated_at'
-        )
+        ]

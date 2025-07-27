@@ -13,10 +13,10 @@ class WebPushSubscriptionSerializer(ModelSerializer):
         """
         model = WebPushSubscription
         fields = '__all__'
-        read_only_fields = (
+        read_only_fields = [
             'id',
             'user_id',
             'endpoint',
             'created_at',
             'updated_at'
-        )
+        ]
