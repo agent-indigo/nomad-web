@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from knox import views as knox_views
-from .api_views import CurrentUserApiView, LogInApiView, RegistrationApiView
+from .api_view_sets import CurrentUserApiViewSet, LogInApiViewSet, RegistrationApiViewSet
 from .settings import DEBUG, STATIC_URL, STATIC_ROOT
 from .views import index
 urlpatterns = [
@@ -36,11 +36,11 @@ urlpatterns = [
     ),
     path(
         'api/auth/user/',
-        CurrentUserApiView.as_view()
+        CurrentUserApiViewSet.as_view()
     ),
     path(
         'api/auth/login/',
-        LogInApiView.as_view()
+        LogInApiViewSet.as_view()
     ),
     path(
         'api/auth/logout/',
@@ -49,7 +49,7 @@ urlpatterns = [
     ),
     path(
         'api/auth/register/',
-        RegistrationApiView.as_view()
+        RegistrationApiViewSet.as_view()
     )
 ]
 # Serve static files only during development
