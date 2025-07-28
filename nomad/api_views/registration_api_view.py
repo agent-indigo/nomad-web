@@ -1,22 +1,22 @@
 """
-Log in API View
+Registration API View
 """
 from urllib.request import Request
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from knox.models import AuthToken
-from ..serializers import LogInSerializer, UserSerializer
-class LogInApiViewSet(GenericAPIView):
+from ..serializers import RegistrationSerializer, UserSerializer
+class RegistrationApiView(GenericAPIView):
     """
-    Log in API View
+    Registration API View
     """
-    serializer_class = LogInSerializer
+    serializer_class = RegistrationSerializer
     def post(
-        self: 'LogInApiViewSet',
+        self: 'RegistrationApiView',
         request: Request
     ) -> Response:
         """
-        Log in request handler
+        Registration request handler
         """
         serializer = self.get_serializer(
             data = request.data
@@ -24,7 +24,7 @@ class LogInApiViewSet(GenericAPIView):
         serializer.is_valid(
             raise_exception = True
         )
-        user = serializer.validated_data
+        user = serializer.save()
         return Response({
             'user': UserSerializer(
                 user,
