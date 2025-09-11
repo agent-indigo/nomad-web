@@ -29,7 +29,6 @@ from .import_serializer import ImportSerializer
 from .invite_serializer import InviteSerializer
 from .list_actor_serializer import ListActorSerializer
 from .list_serializer import ListSerializer
-from .log_in_serializer import LogInSerializer
 from .marker_serializer import MarkerSerializer
 from .media_attachment_serializer import MediaAttachmentSerializer
 from .mention_serializer import MentionSerializer
@@ -37,12 +36,11 @@ from .notification_serializer import NotificationSerializer
 from .post_pin_serializer import PostPinSerializer
 from .post_stats_serializer import PostStatsSerializer
 from .post_serializer import PostSerializer
-from .registration_serializer import RegistrationSerializer
 from .relay_serializer import RelaySerializer
 from .report_note_serializer import ReportNoteSerializer
 from .report_serializer import ReportSerializer
 from .site_upload_serializer import SiteUploadSerializer
-from .tag_serializer import Tag
+from .tag_serializer import TagSerializer
 from .tomb_stone_serializer import TombStoneSerializer
 from .user_invite_request_serializer import UserInviteSerializer
 from .user_serializer import UserSerializer

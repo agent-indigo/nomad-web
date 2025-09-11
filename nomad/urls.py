@@ -18,9 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from knox import views as knox_views
-from .api_views import CurrentUserApiView, LogInApiView, RegistrationApiView
+from rest_framework.routers import DefaultRouter
+from .api_views import CurrentUserApiViewSet, RegistrationApiView
 from .settings import DEBUG, STATIC_URL, STATIC_ROOT
 from .views import index
+CURRENT_USER_ROUTER = DefaultRouter()
+CURRENT_USER_ROUTER.register(
+    '/',
+    CurrentUserApiViewSet
+)
 urlpatterns = [
     path(
         '',
@@ -36,11 +42,7 @@ urlpatterns = [
     ),
     path(
         'api/auth/user',
-        CurrentUserApiView.as_view()
-    ),
-    path(
-        'api/auth/login',
-        LogInApiView.as_view()
+        CURRENT_USER_ROUTER.urls
     ),
     path(
         'api/auth/logout',
