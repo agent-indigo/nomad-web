@@ -15,12 +15,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import (
+    path,
+    include
+)
 from django.conf.urls.static import static
 from knox import views as knox_views
 from rest_framework.routers import DefaultRouter
-from .api_views import CurrentUserApiViewSet, RegistrationApiView
-from .settings import DEBUG, STATIC_URL, STATIC_ROOT
+from .api_views import (
+    CurrentUserApiViewSet,
+    RegistrationApiView
+)
+from .settings import (
+    DEBUG,
+    STATIC_URL,
+    STATIC_ROOT
+)
 from .views import index
 CURRENT_USER_ROUTER = DefaultRouter()
 CURRENT_USER_ROUTER.register(

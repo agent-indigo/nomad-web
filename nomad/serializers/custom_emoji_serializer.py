@@ -25,5 +25,5 @@ class CustomEmojiSerializer(ModelSerializer):
             'image_uploaded_at',
             'uri',
             'created_at',
-            'updated_at',
+            'updated_at'
         ]

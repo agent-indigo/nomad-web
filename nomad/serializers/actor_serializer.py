@@ -35,7 +35,7 @@ class ActorSerializer(ModelSerializer):
             'avatar_remote_url',
             'header_remote_url',
             'created_at',
-            'updated_at',
+            'updated_at'
         ]
         read_only_fields = [
             'id',
