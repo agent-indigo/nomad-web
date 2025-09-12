@@ -20,7 +20,6 @@ from django.urls import (
     include
 )
 from django.conf.urls.static import static
-from knox import views as knox_views
 from rest_framework.routers import DefaultRouter
 from .api_views import (
     CurrentUserApiViewSet,
@@ -36,7 +35,7 @@ CURRENT_USER_ROUTER = DefaultRouter()
 CURRENT_USER_ROUTER.register(
     '',
     CurrentUserApiViewSet,
-    basename = 'user'
+    'user'
 )
 urlpatterns = [
     path(
@@ -54,11 +53,6 @@ urlpatterns = [
     path(
         'api/auth/user',
         CURRENT_USER_ROUTER.urls
-    ),
-    path(
-        'api/auth/logout',
-        knox_views.LogoutView.as_view(),
-        name = 'knox_logout'
     ),
     path(
         'api/auth/register',
