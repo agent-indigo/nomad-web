@@ -34,8 +34,9 @@ from .settings import (
 from .views import index
 CURRENT_USER_ROUTER = DefaultRouter()
 CURRENT_USER_ROUTER.register(
-    '/',
-    CurrentUserApiViewSet
+    '',
+    CurrentUserApiViewSet,
+    basename = 'user'
 )
 urlpatterns = [
     path(
