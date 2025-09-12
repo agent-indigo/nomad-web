@@ -4,7 +4,6 @@ Admin action log admin config
 from django.contrib.admin import ModelAdmin
 from django.urls import reverse
 from django.utils.html import format_html
-from django.utils.safestring import SafeText
 from ..models import AdminActionLog
 class AdminActionLogAdminConfig(ModelAdmin):
     """
@@ -49,9 +48,9 @@ class AdminActionLogAdminConfig(ModelAdmin):
     ]
     list_per_page = 20
     def actor(
-        self: 'AdminActionLogAdminConfig',
+        self,
         log: AdminActionLog
-    ) -> SafeText:
+    ):
         """
         Link to the actor who issued the action
         """
@@ -66,9 +65,9 @@ class AdminActionLogAdminConfig(ModelAdmin):
             name = log.actor_id.display_name
         )
     def target_actor(
-        self: 'AdminActionLogAdminConfig',
+        self,
         log: AdminActionLog
-    ) -> SafeText:
+    ):
         """
         Link to the actor who received action
         """

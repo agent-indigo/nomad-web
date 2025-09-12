@@ -4,7 +4,6 @@ Custom emoji admin config
 from django.contrib.admin import ModelAdmin
 from django.urls import reverse
 from django.utils.html import format_html
-from django.utils.safestring import SafeText
 from ..models import CustomEmoji
 class CustomEmojiAdminConfig(ModelAdmin):
     """
@@ -80,9 +79,9 @@ class CustomEmojiAdminConfig(ModelAdmin):
     ]
     list_per_page = 20
     def actor(
-        self: 'CustomEmojiAdminConfig',
+        self,
         emoji = CustomEmoji
-    ) -> SafeText:
+    ):
         """
         Link to the actor who created the custom emoji
         """
@@ -97,9 +96,9 @@ class CustomEmojiAdminConfig(ModelAdmin):
             name = emoji.actor_id.display_name
         )
     def category(
-        self: 'CustomEmojiAdminConfig',
+        self,
         emoji: CustomEmoji
-    ) -> SafeText:
+    ):
         """
         Link to the category of the custom emoji
         """
@@ -114,9 +113,9 @@ class CustomEmojiAdminConfig(ModelAdmin):
             name = emoji.category_id.name
         )
     def domain(
-        self: 'CustomEmojiAdminConfig',
+        self,
         emoji: CustomEmoji
-    ) -> SafeText:
+    ):
         """
         Link to the domain of the custom emoji
         """
@@ -125,9 +124,9 @@ class CustomEmojiAdminConfig(ModelAdmin):
             url = emoji.domain
         )
     def uri(
-        self: 'CustomEmojiAdminConfig',
+        self,
         emoji: CustomEmoji
-    ) -> SafeText:
+    ):
         """
         Link to the URI of the custom emoji
         """

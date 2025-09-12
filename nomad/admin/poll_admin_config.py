@@ -4,7 +4,6 @@ Poll admin config
 from django.contrib.admin import ModelAdmin
 from django.urls import reverse
 from django.utils.html import format_html
-from django.utils.safestring import SafeText
 from ..models import Poll
 class PollAdminConfig(ModelAdmin):
     """
@@ -47,9 +46,9 @@ class PollAdminConfig(ModelAdmin):
     ]
     list_per_page = 20
     def actor(
-        self: 'PollAdminConfig',
+        self,
         poll: Poll
-    ) -> SafeText:
+    ):
         """
         Link to the actor who created the poll
         """
@@ -64,9 +63,9 @@ class PollAdminConfig(ModelAdmin):
             name = poll.actor_id.display_name
         )
     def post(
-        self: 'PollAdminConfig',
+        self,
         poll: Poll
-    ) -> SafeText:
+    ):
         """
         Link to the post containing the poll
         """

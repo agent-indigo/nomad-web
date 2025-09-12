@@ -4,7 +4,6 @@ Post admin config
 from django.contrib.admin import ModelAdmin
 from django.urls import reverse
 from django.utils.html import format_html
-from django.utils.safestring import SafeText
 from ..models import Post
 class PostAdminConfig(ModelAdmin):
     """
@@ -67,9 +66,9 @@ class PostAdminConfig(ModelAdmin):
     ]
     list_per_page = 20
     def actor(
-        self: 'PostAdminConfig',
+        self,
         post: Post
-    ) -> SafeText:
+    ) :
         """
         Link to the actor who made the post
         """
@@ -84,9 +83,9 @@ class PostAdminConfig(ModelAdmin):
             name = post.actor_id.display_name
         )
     def reply_to_actor(
-        self: 'PostAdminConfig',
+        self,
         post: Post
-    ) -> SafeText:
+    ) :
         """
         Link to the actor being replied to in the post
         """
@@ -101,9 +100,9 @@ class PostAdminConfig(ModelAdmin):
             name = post.in_reply_to_actor_id.display_name
         )
     def reply_to_post(
-        self: 'PostAdminConfig',
+        self,
         post: Post
-    ) -> SafeText:
+    ) :
         """
         Link to the post being replied to in the post
         """
@@ -118,9 +117,9 @@ class PostAdminConfig(ModelAdmin):
             text = post.in_reply_to_post_id.text
         )
     def reblog_of_post(
-            self: 'PostAdminConfig',
+            self,
             post: Post
-    ) -> SafeText:
+    ) :
         """
         Link to the post being reblogged by the post
         """

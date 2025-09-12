@@ -4,7 +4,6 @@ Custom emoji category admin config
 from django.contrib.admin import ModelAdmin
 from django.urls import reverse
 from django.utils.html import format_html
-from django.utils.safestring import SafeText
 from ..models import CustomEmojiCategory
 class CustomEmojiCategoryAdminConfig(ModelAdmin):
     """
@@ -38,9 +37,9 @@ class CustomEmojiCategoryAdminConfig(ModelAdmin):
     ]
     list_per_page = 20
     def actor(
-        self: 'CustomEmojiCategoryAdminConfig',
+        self,
         category: CustomEmojiCategory
-    ) -> SafeText:
+    ):
         """
         Link to the actor who created the custom emoji category
         """

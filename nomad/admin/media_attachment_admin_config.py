@@ -4,7 +4,6 @@ Media attachment admin config
 from django.contrib.admin import ModelAdmin
 from django.urls import reverse
 from django.utils.html import format_html
-from django.utils.safestring import SafeText
 from ..models import MediaAttachment
 class MediaAttachmentAdminConfig(ModelAdmin):
     """
@@ -68,9 +67,9 @@ class MediaAttachmentAdminConfig(ModelAdmin):
     ]
     list_per_page = 20
     def actor(
-        self: 'MediaAttachmentAdminConfig',
+        self,
         file: MediaAttachment
-    ) -> SafeText:
+    ):
         """
         Link to the actor who made the post that the file is attached to
         """
@@ -85,9 +84,9 @@ class MediaAttachmentAdminConfig(ModelAdmin):
             name = file.actor_id.display_name
         )
     def post(
-        self: 'MediaAttachmentAdminConfig',
+        self,
         file: MediaAttachment
-    ) -> SafeText:
+    ):
         """
         Link to the post that the file is attached to
         """
@@ -102,9 +101,9 @@ class MediaAttachmentAdminConfig(ModelAdmin):
             text = file.post_id.text
         )
     def remote_url(
-        self: 'MediaAttachmentAdminConfig',
+        self,
         file: MediaAttachment
-    ) -> SafeText:
+    ):
         """
         Link to the file
         """

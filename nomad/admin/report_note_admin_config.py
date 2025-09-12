@@ -4,7 +4,6 @@ Report note admin config
 from django.contrib.admin import ModelAdmin
 from django.urls import reverse
 from django.utils.html import format_html
-from django.utils.safestring import SafeText
 from ..models import ReportNote
 class ReportNoteAdminConfig(ModelAdmin):
     """
@@ -43,9 +42,9 @@ class ReportNoteAdminConfig(ModelAdmin):
     ]
     list_per_page = 20
     def actor(
-        self: 'ReportNoteAdminConfig',
+        self,
         note: ReportNote
-    ) -> SafeText:
+    ):
         """
         Link to the actor who created the report note
         """
@@ -60,9 +59,9 @@ class ReportNoteAdminConfig(ModelAdmin):
             name = note.actor_id.username
         )
     def report(
-        self: 'ReportNoteAdminConfig',
+        self,
         note: ReportNote
-    ) -> SafeText:
+    ):
         """
         Link to the report referenced in the note
         """

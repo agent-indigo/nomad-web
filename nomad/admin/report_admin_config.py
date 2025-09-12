@@ -4,7 +4,6 @@ Report admin config
 from django.contrib.admin import ModelAdmin
 from django.urls import reverse
 from django.utils.html import format_html
-from django.utils.safestring import SafeText
 from ..models import Report
 class ReportAdminConfig(ModelAdmin):
     """
@@ -54,9 +53,9 @@ class ReportAdminConfig(ModelAdmin):
     ]
     list_per_page = 20
     def actor(
-        self: 'ReportAdminConfig',
+        self,
         report: Report
-    ) -> SafeText:
+    ):
         """
         Link to the actor who filed the report
         """
@@ -71,9 +70,9 @@ class ReportAdminConfig(ModelAdmin):
             name = report.actor_id.username
         )
     def target_actor(
-        self: 'ReportAdminConfig',
+        self,
         report: Report
-    ) -> SafeText:
+    ):
         """
         Link to the actor named in the report
         """
@@ -88,9 +87,9 @@ class ReportAdminConfig(ModelAdmin):
             name = report.target_actor_id.username
         )
     def action_taken_by_actor(
-        self: 'ReportAdminConfig',
+        self,
         report: Report
-    ) -> SafeText:
+    ):
         """
         Link to the actor who took action on the report
         """
@@ -105,9 +104,9 @@ class ReportAdminConfig(ModelAdmin):
             name = report.action_taken_by_actor_id.username
         )
     def assigned_to_actor(
-        self: 'ReportAdminConfig',
+        self,
         report: Report
-    ) -> SafeText:
+    ):
         """
         Link to the actor who is assigned to resolve the report
         """

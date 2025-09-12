@@ -4,7 +4,6 @@ Actor warning admin config
 from django.contrib.admin import ModelAdmin
 from django.urls import reverse
 from django.utils.html import format_html
-from django.utils.safestring import SafeText
 from ..models import ActorWarning
 class ActorWarningAdminConfig(ModelAdmin):
     """
@@ -46,9 +45,9 @@ class ActorWarningAdminConfig(ModelAdmin):
     ]
     list_per_page = 20
     def actor(
-        self: 'ActorWarningAdminConfig',
+        self,
         warning: ActorWarning
-    ) -> SafeText:
+    ):
         """
         Link to the actor who issued the warning
         """
@@ -63,9 +62,9 @@ class ActorWarningAdminConfig(ModelAdmin):
             name = warning.actor_id.display_name
         )
     def target_actor(
-        self: 'ActorWarningAdminConfig',
+        self,
         warning: ActorWarning
-    ) -> SafeText:
+    ):
         """
         Link to the actor who was issued the warning
         """

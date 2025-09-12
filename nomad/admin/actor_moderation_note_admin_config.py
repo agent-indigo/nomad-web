@@ -4,7 +4,6 @@ Actor moderation note admin config
 from django.contrib.admin import ModelAdmin
 from django.urls import reverse
 from django.utils.html import format_html
-from django.utils.safestring import SafeText
 from ..models import ActorModerationNote
 class ActorModerationNoteAdminConfig(ModelAdmin):
     """
@@ -42,9 +41,9 @@ class ActorModerationNoteAdminConfig(ModelAdmin):
     ]
     list_per_page = 20
     def actor(
-        self: 'ActorModerationNoteAdminConfig',
+        self,
         note: ActorModerationNote
-    ) -> SafeText:
+    ):
         """
         Link to the actor who issued the moderation note
         """
@@ -59,9 +58,9 @@ class ActorModerationNoteAdminConfig(ModelAdmin):
             name = note.actor_id.display_name
         )
     def target_actor(
-        self: 'ActorModerationNoteAdminConfig',
+        self,
         note: ActorModerationNote
-    ) -> SafeText:
+    ):
         """
         Link to the actor who was issued the moderation note
         """
