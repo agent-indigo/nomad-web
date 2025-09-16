@@ -14,7 +14,6 @@ import ContextProps from '@/types/ContextProps'
 const StaffRoute: FunctionComponent = (): ReactElement => {
   const {
     user,
-    token,
     setUser
   }: ContextProps = useGetContext()
   const [
@@ -25,6 +24,7 @@ const StaffRoute: FunctionComponent = (): ReactElement => {
     errorMessage,
     setErrorMessage
   ] = useState<string>('')
+  const token: string = localStorage.getItem('token') ?? ''
   useEffect((): void => {(async (): Promise<void> => {
     const response: Response = await fetch(
       '/api/auth/user', {
