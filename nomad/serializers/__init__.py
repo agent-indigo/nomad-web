@@ -29,6 +29,7 @@ from .import_serializer import ImportSerializer
 from .invite_serializer import InviteSerializer
 from .list_actor_serializer import ListActorSerializer
 from .list_serializer import ListSerializer
+from .login_serializer import LoginSerializer
 from .marker_serializer import MarkerSerializer
 from .media_attachment_serializer import MediaAttachmentSerializer
 from .mention_serializer import MentionSerializer

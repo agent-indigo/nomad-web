@@ -14,16 +14,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import (
-    path,
-    include
-)
+from django.contrib.admin import site
+from django.urls import path
 from django.conf.urls.static import static
-from rest_framework.routers import DefaultRouter
+from knox.views import (
+    LogoutView,
+    LogoutAllView
+)
 from .api_views import (
-    CurrentUserApiViewSet,
-    RegistrationApiView
+    CurrentUserApiView,
+    RegistrationApiView,
+    LoginApiView
 )
 from .settings import (
     DEBUG,
@@ -31,12 +32,6 @@ from .settings import (
     STATIC_ROOT
 )
 from .views import index
-CURRENT_USER_ROUTER = DefaultRouter()
-CURRENT_USER_ROUTER.register(
-    '',
-    CurrentUserApiViewSet,
-    'user'
-)
 urlpatterns = [
     path(
         '',
@@ -44,19 +39,29 @@ urlpatterns = [
     ),
     path(
         'admin/',
-        admin.site.urls
+        site.urls
     ),
     path(
-        'api/auth/',
-        include('knox.urls')
+        'api/auth/login',
+        LoginApiView.as_view()
     ),
     path(
-        'api/auth/user',
-        CURRENT_USER_ROUTER.urls
+        'api/auth/logout',
+        LogoutView.as_view(),
+        name = 'knox_logout'
+    ),
+    path(
+        'api/auth/logoutall',
+        LogoutAllView.as_view(),
+        name = 'knox_logoutall'
     ),
     path(
         'api/auth/register',
         RegistrationApiView.as_view()
+    ),
+    path(
+        'api/auth/user',
+        CurrentUserApiView.as_view()
     )
 ]
 # Serve static files only during development
