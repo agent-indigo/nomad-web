@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom'
 import {useGetContext} from '../components/ContextProvider'
 import ContextProps from '@/types/ContextProps'
-const LoginRoute: FunctionComponent = (): ReactElement => {
+const WelcomePageRoute: FunctionComponent = (): ReactElement => {
   const {
     user,
     token,
@@ -34,4 +34,4 @@ const LoginRoute: FunctionComponent = (): ReactElement => {
     <Outlet/>
   )
 }
-export default LoginRoute
+export default WelcomePageRoute

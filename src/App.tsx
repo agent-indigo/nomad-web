@@ -14,6 +14,8 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import CreateSuperuserRoute from './security/CreateSuperuserRoute'
 import ProductionRoute from './security/ProductionRoute'
+import HomePageRoute from './security/HomePageRoute'
+import WelcomePageRoute from './security/WelcomePageRoute'
 import LoginRoute from './security/LoginRoute'
 import PrivateRoute from './security/PrivateRoute'
 import StaffRoute from './security/StaffRoute'
@@ -30,6 +32,18 @@ const App: FunctionComponent = (): ReactElement => (
             path='/'
             element={<ProductionRoute/>}
           >
+            <Route
+              path=''
+              element={<HomePageRoute/>}
+            >
+
+            </Route>
+            <Route
+              path=''
+              element={<WelcomePageRoute/>}
+            >
+
+            </Route>
             <Route
               path=''
               element={<LoginRoute/>}

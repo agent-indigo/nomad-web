@@ -1,6 +1,8 @@
 import {
   FunctionComponent,
-  ReactElement
+  ReactElement,
+  useEffect,
+  useState
 } from 'react'
 import {
   Navigate,
@@ -8,11 +10,38 @@ import {
 } from 'react-router-dom'
 import {useGetContext} from '../components/ContextProvider'
 import ContextProps from '@/types/ContextProps'
-import ConfigStatus from '@/types/ConfigStatus'
 const ProductionRoute: FunctionComponent = (): ReactElement => {
-  const {configStatus}: ContextProps = useGetContext()
-  const {rootExists}: ConfigStatus = configStatus
-  return rootExists ? (
+  const {
+    configStatus,
+    setConfigStatus
+  }: ContextProps = useGetContext()
+  const [
+    errorOccured,
+    setErrorOccured
+  ] = useState<boolean>(false)
+  const [
+    errorMessage,
+    setErrorMessage
+  ] = useState<string>('')
+  useEffect((): void => {(async (): Promise<void> => {
+    const response: Response = await fetch('/api/config/status')
+    if (response.ok) {
+      setConfigStatus(await response.json())
+    } else {
+      setErrorOccured(true)
+      setErrorMessage(await response.text())
+    }
+  })()})
+  return errorOccured ? (
+    <section>
+      <h1>
+        Configuration Status Verification Error
+      </h1>
+      <p>
+        {errorMessage}
+      </p>
+    </section>
+  ) : configStatus.rootExists ? (
     <Outlet/>
   ) : (
     <Navigate
