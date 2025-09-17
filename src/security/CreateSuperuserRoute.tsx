@@ -31,7 +31,9 @@ const CreateSuperuserRoute: FunctionComponent = (): ReactElement => {
       setErrorOccurred(true)
       setErrorMessage(await response.text())
     }
-  })()})
+  })()}, [
+    setConfigStatus
+  ])
   return errorOccurred ? (
     <section>
       <h1>

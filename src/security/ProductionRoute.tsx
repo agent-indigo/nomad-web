@@ -31,7 +31,9 @@ const ProductionRoute: FunctionComponent = (): ReactElement => {
       setErrorOccured(true)
       setErrorMessage(await response.text())
     }
-  })()})
+  })()}, [
+    setConfigStatus
+  ])
   return errorOccured ? (
     <section>
       <h1>

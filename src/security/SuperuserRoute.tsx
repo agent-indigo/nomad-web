@@ -39,7 +39,10 @@ const SuperuserRoute: FunctionComponent = (): ReactElement => {
       setErrorOccured(true)
       setErrorMessage(await response.text())
     }
-  })()})
+  })()}, [
+    setUser,
+    token
+  ])
   !user?.is_superuser && toast.error('You are not logged in as the superuser.')
   return errorOccured ? (
     <section>
