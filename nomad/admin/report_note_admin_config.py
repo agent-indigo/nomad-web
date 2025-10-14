@@ -21,14 +21,14 @@ class ReportNoteAdminConfig(ModelAdmin):
     ]
     list_filter = [
         'actor__display_name',
-        'report_id__comment',
+        'report__comment',
         'content',
         'created_at',
         'updated_at'
     ]
     search_fields = [
         'actor__display_name',
-        'report_id__comment',
+        'report__comment',
         'content',
         'created_at',
         'updated_at'
@@ -70,8 +70,8 @@ class ReportNoteAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:nomad_report_change',
                 args = [
-                    note.report_id.id
+                    note.report.id
                 ]
             ),
-            text = note.report_id.comment
+            text = note.report.comment
         )

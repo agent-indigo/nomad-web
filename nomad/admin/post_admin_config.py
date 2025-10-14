@@ -126,7 +126,7 @@ class PostAdminConfig(ModelAdmin):
         return format_html(
             '<a href="{url}">{text}</a>',
             url = reverse(
-                'admin:nomad:post:change',
+                'admin:nomad_post_change',
                 args = [
                     post.reblog_of_post.id
                 ]
