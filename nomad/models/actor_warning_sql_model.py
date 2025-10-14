@@ -22,14 +22,14 @@ class ActorWarning(models.Model):
         default = uuid4,
         editable = False
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'issued_warnings',
         null = True,
         blank = True
     )
-    target_actor_id = models.ForeignKey(
+    target_actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'received_warnings',

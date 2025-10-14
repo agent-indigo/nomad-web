@@ -22,7 +22,7 @@ class CustomEmojiCategory(models.Model):
         default = uuid4,
         editable = False
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.DO_NOTHING,
         related_name = 'custom_emoji_categories',

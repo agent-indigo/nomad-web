@@ -22,7 +22,7 @@ class UserInvite(models.Model):
         default = uuid4,
         editable = False
     )
-    user_id = models.ForeignKey(
+    user = models.ForeignKey(
         to = 'auth.User',
         on_delete = models.CASCADE,
         related_name = 'invite_requests',

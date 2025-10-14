@@ -22,7 +22,7 @@ class ActorTagStats(models.Model):
         default = uuid4,
         editable = False
     )
-    tag_id = models.ForeignKey(
+    tag = models.ForeignKey(
         to = 'Tag',
         on_delete = models.CASCADE,
         related_name = 'stats'

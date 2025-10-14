@@ -15,9 +15,9 @@ class ReportSerializer(ModelSerializer):
         fields = '__all__'
         read_only_fields = [
             'id',
-            'actor_id',
-            'target_actor_id',
-            'action_taken_by_account_id',
+            'actor',
+            'target_actor',
+            'action_taken_by_account',
             'post_ids',
             'uri',
             'created_at',

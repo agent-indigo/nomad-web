@@ -19,40 +19,40 @@ class Post(models.Model):
         default = uuid4,
         editable = False
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'posts'
     )
-    in_reply_to_actor_id = models.ForeignKey(
+    in_reply_to_actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'replies',
         null = True,
         blank = True
     )
-    in_reply_to_post_id = models.ForeignKey(
+    in_reply_to_post = models.ForeignKey(
         to = 'Post',
         on_delete = models.CASCADE,
         related_name = 'replies',
         null = True,
         blank = True
     )
-    reblog_of_post_id = models.ForeignKey(
+    reblog_of_post = models.ForeignKey(
         to = 'Post',
         on_delete = models.CASCADE,
         related_name = 'reblogs',
         null = True,
         blank = True
     )
-    conversation_id = models.ForeignKey(
+    conversation = models.ForeignKey(
         to = 'Conversation',
         on_delete = models.DO_NOTHING,
         related_name = 'conversations',
         null = True,
         blank = True
     )
-    poll_id = models.ForeignKey(
+    poll = models.ForeignKey(
         to = 'Poll',
         on_delete = models.CASCADE,
         related_name = 'polls',

@@ -22,12 +22,12 @@ class FollowRequest(models.Model):
         default = uuid4,
         editable = False
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'follow_requests'
     )
-    target_actor_id = models.ForeignKey(
+    target_actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'follow_requesters'

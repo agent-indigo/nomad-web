@@ -15,8 +15,8 @@ class PollVoteSerializer(ModelSerializer):
         fields = '__all__'
         read_only_fields = [
             'id',
-            'post_id',
-            'actor_id',
+            'post',
+            'actor',
             'uri',
             'created_at',
             'updated_at'

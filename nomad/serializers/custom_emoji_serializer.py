@@ -15,7 +15,7 @@ class CustomEmojiSerializer(ModelSerializer):
         fields = '__all__'
         read_only_fields = [
             'id',
-            'category_id',
+            'category',
             'short_code',
             'domain',
             'image_file_name',

@@ -15,7 +15,7 @@ class InviteSerializer(ModelSerializer):
         fields = '__all__'
         read_only_fields = [
             'id',
-            'user_id',
+            'user',
             'code',
             'created_at',
             'updated_at'

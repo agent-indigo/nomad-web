@@ -23,16 +23,16 @@ class AdminActionLogAdminConfig(ModelAdmin):
         'recorded_changes'
     ]
     list_filter = [
-        'actor_id__display_name',
-        'target_actor_id__display_name',
+        'actor__display_name',
+        'target_actor__display_name',
         'action',
         'recorded_changes',
         'created_at',
         'updated_at'
     ]
     search_fields = [
-        'actor_id__display_name',
-        'target_actor_id__display_name',
+        'actor__display_name',
+        'target_actor__display_name',
         'action',
         'recorded_changes',
         'created_at',
@@ -59,10 +59,10 @@ class AdminActionLogAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    log.actor_id.user_id.id
+                    log.actor.user.id
                 ]
             ),
-            name = log.actor_id.display_name
+            name = log.actor.display_name
         )
     def target_actor(
         self,
@@ -76,8 +76,8 @@ class AdminActionLogAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    log.target_actor_id.user_id.id
+                    log.target_actor.user.id
                 ]
             ),
-            name = log.target_actor_id.display_name
+            name = log.target_actor.display_name
         )

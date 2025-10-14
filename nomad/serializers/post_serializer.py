@@ -15,12 +15,12 @@ class PostSerializer(ModelSerializer):
         fields = '__all__'
         read_only_fields = [
             'id',
-            'actor_id',
-            'in_reply_to_actor_id',
-            'in_reply_to_post_id',
-            'reblog_of_post_id',
-            'conversation_id',
-            'poll_id',
+            'actor',
+            'in_reply_to_actor',
+            'in_reply_to_post',
+            'reblog_of_post',
+            'conversation',
+            'poll',
             'uri',
             'url',
             'is_reply',

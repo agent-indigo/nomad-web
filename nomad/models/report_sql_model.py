@@ -20,24 +20,24 @@ class Report(models.Model):
         default = uuid4,
         editable = False
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'filed_reports'
     )
-    target_actor_id = models.ForeignKey(
+    target_actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'in_reports'
     )
-    action_taken_by_actor_id = models.ForeignKey(
+    action_taken_by_actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.DO_NOTHING,
         related_name = 'reports_acted_on',
         null = True,
         blank = True
     )
-    assigned_to_actor_id = models.ForeignKey(
+    assigned_to_actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.DO_NOTHING,
         related_name = 'assigned_reports',

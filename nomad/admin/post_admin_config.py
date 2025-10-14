@@ -26,10 +26,10 @@ class PostAdminConfig(ModelAdmin):
         'text'
     ]
     list_filter = [
-        'actor_id__display_name',
-        'in_reply_to_actor_id__display_name',
-        'in_reply_to_post_id__text',
-        'reblog_of_post_id__text',
+        'actor__display_name',
+        'in_reply_to_actor__display_name',
+        'in_reply_to_post__text',
+        'reblog_of_post__text',
         'text',
         'language',
         'is_sensitive',
@@ -39,10 +39,10 @@ class PostAdminConfig(ModelAdmin):
         'updated_at'
     ]
     search_fields = [
-        'actor_id__display_name',
-        'in_reply_to_actor_id__display_name',
-        'in_reply_to_post_id__text',
-        'reblog_of_post_id__text',
+        'actor__display_name',
+        'in_reply_to_actor__display_name',
+        'in_reply_to_post__text',
+        'reblog_of_post__text',
         'text',
         'language',
         'is_sensitive',
@@ -77,10 +77,10 @@ class PostAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    post.actor_id.user_id.id
+                    post.actor.user.id
                 ]
             ),
-            name = post.actor_id.display_name
+            name = post.actor.display_name
         )
     def reply_to_actor(
         self,
@@ -94,10 +94,10 @@ class PostAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    post.in_reply_to_actor_id.user_id.id
+                    post.in_reply_to_actor.user.id
                 ]
             ),
-            name = post.in_reply_to_actor_id.display_name
+            name = post.in_reply_to_actor.display_name
         )
     def reply_to_post(
         self,
@@ -111,10 +111,10 @@ class PostAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:nomad_post_change',
                 args = [
-                    post.in_reply_to_post_id.id
+                    post.in_reply_to_post.id
                 ]
             ),
-            text = post.in_reply_to_post_id.text
+            text = post.in_reply_to_post.text
         )
     def reblog_of_post(
             self,
@@ -128,8 +128,8 @@ class PostAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:nomad:post:change',
                 args = [
-                    post.reblog_of_post_id.id
+                    post.reblog_of_post.id
                 ]
             ),
-            text = post.reblog_of_post_id.text
+            text = post.reblog_of_post.text
         )

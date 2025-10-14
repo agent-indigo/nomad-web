@@ -19,13 +19,13 @@ class CustomEmojiCategoryAdminConfig(ModelAdmin):
         'name'
     ]
     list_filter = [
-        'actor_id__display_name',
+        'actor__display_name',
         'name',
         'created_at',
         'updated_at'
     ]
     search_fields = [
-        'actor_id__display_name',
+        'actor__display_name',
         'name',
         'created_at',
         'updated_at'
@@ -48,8 +48,8 @@ class CustomEmojiCategoryAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    category.actor_id.user_id.id
+                    category.actor.user.id
                 ]
             ),
-            name = category.actor_id.username
+            name = category.actor.username
         )

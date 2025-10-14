@@ -22,12 +22,12 @@ class ReportNote(models.Model):
         default = uuid4,
         editable = False
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.DO_NOTHING,
         related_name = 'report_notes'
     )
-    report_id = models.ForeignKey(
+    report = models.ForeignKey(
         to = 'Report',
         on_delete = models.CASCADE,
         related_name = 'report_notes'

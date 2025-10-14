@@ -21,16 +21,16 @@ class PollAdminConfig(ModelAdmin):
         'options'
     ]
     list_filter = [
-        'post_id__text',
-        'actor_id__display_name',
+        'post__text',
+        'actor__display_name',
         'options',
         'expires_at',
         'created_at',
         'updated_at'
     ]
     search_fields = [
-        'post_id__text',
-        'actor_id__display_name',
+        'post__text',
+        'actor__display_name',
         'options',
         'expires_at',
         'created_at',
@@ -57,10 +57,10 @@ class PollAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    poll.actor_id.user_id.id
+                    poll.actor.user.id
                 ]
             ),
-            name = poll.actor_id.display_name
+            name = poll.actor.display_name
         )
     def post(
         self,
@@ -74,8 +74,8 @@ class PollAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:nomad_post_change',
                 args = [
-                    poll.post_id.id
+                    poll.post.id
                 ]
             ),
-            text = poll.post_id.text
+            text = poll.post.text
         )

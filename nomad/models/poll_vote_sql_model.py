@@ -22,14 +22,14 @@ class PollVote(models.Model):
         default = uuid4,
         editable = False
     )
-    post_id = models.ForeignKey(
+    post = models.ForeignKey(
         to = 'Post',
         on_delete = models.CASCADE,
         related_name = 'poll_votes',
         null = True,
         blank = True
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'poll_votes',

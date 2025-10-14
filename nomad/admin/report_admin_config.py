@@ -23,20 +23,20 @@ class ReportAdminConfig(ModelAdmin):
         'comment'
     ]
     list_filter = [
-        'actor_id__display_name',
-        'target_actor_id__display_name',
-        'action_taken_by_actor_id__display_name',
-        'assigned_to_actor_id__display_name',
+        'actor__display_name',
+        'target_actor__display_name',
+        'action_taken_by_actor__display_name',
+        'assigned_to_actor__display_name',
         'comment',
         'is_resolved',
         'created_at',
         'updated_at'
     ]
     search_fields = [
-        'actor_id__display_name',
-        'target_actor_id__display_name',
-        'action_taken_by_actor_id__display_name',
-        'assigned_to_actor_id__display_name',
+        'actor__display_name',
+        'target_actor__display_name',
+        'action_taken_by_actor__display_name',
+        'assigned_to_actor__display_name',
         'comment',
         'is_resolved',
         'created_at',
@@ -64,10 +64,10 @@ class ReportAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    report.actor_id.user_id.id
+                    report.actor.user.id
                 ]
             ),
-            name = report.actor_id.username
+            name = report.actor.username
         )
     def target_actor(
         self,
@@ -81,10 +81,10 @@ class ReportAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    report.target_actor_id.user_id.id
+                    report.target_actor.user.id
                 ]
             ),
-            name = report.target_actor_id.username
+            name = report.target_actor.username
         )
     def action_taken_by_actor(
         self,
@@ -98,10 +98,10 @@ class ReportAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    report.action_taken_by_actor_id.user_id.id
+                    report.action_taken_by_actor.user.id
                 ]
             ),
-            name = report.action_taken_by_actor_id.username
+            name = report.action_taken_by_actor.username
         )
     def assigned_to_actor(
         self,
@@ -115,8 +115,8 @@ class ReportAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    report.assigned_to_actor_id.user_id.id
+                    report.assigned_to_actor.user.id
                 ]
             ),
-            name = report.assigned_to_actor_id.username
+            name = report.assigned_to_actor.username
         )

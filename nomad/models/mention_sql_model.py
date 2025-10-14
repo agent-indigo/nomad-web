@@ -19,12 +19,12 @@ class Mention(models.Model):
         default = uuid4,
         editable = False
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'mentions'
     )
-    post_id = models.ForeignKey(
+    post = models.ForeignKey(
         to = 'Post',
         on_delete = models.CASCADE,
         related_name = 'mentions'

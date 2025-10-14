@@ -15,8 +15,8 @@ class ActorModerationNoteSerializer(ModelSerializer):
         fields = '__all__'
         read_only_fields = [
             'id',
-            'actor_id',
-            'target_actor_id',
+            'actor',
+            'target_actor',
             'created_at',
             'updated_at'
         ]

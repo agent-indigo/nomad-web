@@ -22,14 +22,14 @@ class WebPushSubscription(models.Model):
         default = uuid4,
         editable = False
     )
-    access_token_id = models.ForeignKey(
+    access_token = models.ForeignKey(
         to = 'knox.AuthToken',
         on_delete = models.DO_NOTHING,
         related_name = 'web_push_subscriptions',
         null = True,
         blank = True
     )
-    user_id = models.ForeignKey(
+    user = models.ForeignKey(
         to = 'auth.User',
         on_delete = models.CASCADE,
         related_name = 'web_push_subscriptions'

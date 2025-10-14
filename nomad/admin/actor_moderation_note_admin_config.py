@@ -20,15 +20,15 @@ class ActorModerationNoteAdminConfig(ModelAdmin):
         'content'
     ]
     list_filter = [
-        'actor_id__display_name',
-        'target_actor_id__display_name',
+        'actor__display_name',
+        'target_actor__display_name',
         'content',
         'created_at',
         'updated_at'
     ]
     search_fields = [
-        'actor_id__display_name',
-        'target_actor_id__display_name',
+        'actor__display_name',
+        'target_actor__display_name',
         'content',
         'created_at',
         'updated_at'
@@ -52,10 +52,10 @@ class ActorModerationNoteAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    note.actor_id.user_id.id
+                    note.actor.user.id
                 ]
             ),
-            name = note.actor_id.display_name
+            name = note.actor.display_name
         )
     def target_actor(
         self,
@@ -69,8 +69,8 @@ class ActorModerationNoteAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    note.target_actor_id.user_id.id
+                    note.target_actor.user.id
                 ]
             ),
-            name = note.target_actor_id.display_name
+            name = note.target_actor.display_name
         )

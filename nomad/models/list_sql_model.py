@@ -19,7 +19,7 @@ class List(models.Model):
         default = uuid4,
         editable = False
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'List',
         on_delete = models.CASCADE,
         related_name = 'lists'

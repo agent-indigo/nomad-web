@@ -22,17 +22,17 @@ class ListActor(models.Model):
         default = uuid4,
         editable = False
     )
-    list_id = models.ForeignKey(
+    list = models.ForeignKey(
         to = 'List',
         on_delete = models.CASCADE,
         related_name = 'actors'
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'lists'
     )
-    follow_id = models.ForeignKey(
+    follow = models.ForeignKey(
         to = 'Follow',
         on_delete = models.CASCADE,
         related_name = 'lists'

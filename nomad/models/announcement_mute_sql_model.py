@@ -22,14 +22,14 @@ class AnnouncementMute(models.Model):
         default = uuid4,
         editable = False
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'announcement_mutes',
         null = True,
         blank = True
     )
-    announcement_id = models.ForeignKey(
+    announcement = models.ForeignKey(
         to = 'Announcement',
         on_delete = models.CASCADE,
         related_name = 'mutes',

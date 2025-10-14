@@ -20,14 +20,14 @@ class ReportNoteAdminConfig(ModelAdmin):
         'content'
     ]
     list_filter = [
-        'actor_id__display_name',
+        'actor__display_name',
         'report_id__comment',
         'content',
         'created_at',
         'updated_at'
     ]
     search_fields = [
-        'actor_id__display_name',
+        'actor__display_name',
         'report_id__comment',
         'content',
         'created_at',
@@ -53,10 +53,10 @@ class ReportNoteAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    note.actor_id.user_id.id
+                    note.actor.user.id
                 ]
             ),
-            name = note.actor_id.username
+            name = note.actor.username
         )
     def report(
         self,

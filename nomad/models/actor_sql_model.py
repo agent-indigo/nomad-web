@@ -20,14 +20,14 @@ class Actor(models.Model):
         default = uuid4,
         editable = False
     )
-    moved_to_actor_id = models.ForeignKey(
+    moved_to_actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'moved_from_actor_id',
         null = True,
         blank = True
     )
-    user_id = models.ForeignKey(
+    user = models.ForeignKey(
         to = 'auth.User',
         on_delete = models.CASCADE,
         related_name = 'actor'

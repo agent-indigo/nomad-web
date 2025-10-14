@@ -22,21 +22,21 @@ class AnnouncementReaction(models.Model):
         default = uuid4,
         editable = False
     )
-    actor_id = models.ForeignKey(
+    actor = models.ForeignKey(
         to = 'Actor',
         on_delete = models.CASCADE,
         related_name = 'announcement_reactions',
         null = True,
         blank = True
     )
-    announcement_id = models.ForeignKey(
+    announcement = models.ForeignKey(
         to = 'Announcement',
         on_delete = models.CASCADE,
         related_name = 'reactions',
         null = True,
         blank = True
     )
-    custom_emoji_id = models.ForeignKey(
+    custom_emoji = models.ForeignKey(
         to = 'CustomEmoji',
         on_delete = models.CASCADE,
         related_name = 'announcement_reactions',

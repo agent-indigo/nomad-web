@@ -19,7 +19,7 @@ class Marker(models.Model):
         default = uuid4,
         editable = False
     )
-    user_id = models.ForeignKey(
+    user = models.ForeignKey(
         to = 'auth.User',
         on_delete = models.CASCADE,
         related_name = 'markers',
@@ -29,7 +29,7 @@ class Marker(models.Model):
     timeline = models.TextField(
         unique = True
     )
-    last_read_id = models.ForeignKey(
+    last_read = models.ForeignKey(
         to = 'Post',
         on_delete = models.DO_NOTHING,
         related_name = 'markers',

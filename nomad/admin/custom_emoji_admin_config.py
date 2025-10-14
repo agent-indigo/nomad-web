@@ -33,8 +33,8 @@ class CustomEmojiAdminConfig(ModelAdmin):
         'is_visible_in_selector'
     ]
     list_filter = [
-        'actor_id__display_name',
-        'category_id__name',
+        'actor__display_name',
+        'category__name',
         'short_code',
         'domain',
         'is_disabled',
@@ -49,8 +49,8 @@ class CustomEmojiAdminConfig(ModelAdmin):
         'updated_at'
     ]
     search_fields = [
-        'actor_id__display_name',
-        'category_id__name',
+        'actor__display_name',
+        'category__name',
         'short_code',
         'domain',
         'is_disabled',
@@ -90,10 +90,10 @@ class CustomEmojiAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    emoji.actor_id.user_id.id
+                    emoji.actor.user.id
                 ]
             ),
-            name = emoji.actor_id.display_name
+            name = emoji.actor.display_name
         )
     def category(
         self,
@@ -107,10 +107,10 @@ class CustomEmojiAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:nomad_customemojicategory_change',
                 args = [
-                    emoji.category_id.id
+                    emoji.category.id
                 ]
             ),
-            name = emoji.category_id.name
+            name = emoji.category.name
         )
     def domain(
         self,

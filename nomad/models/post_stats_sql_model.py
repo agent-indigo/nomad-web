@@ -22,7 +22,7 @@ class PostStats(models.Model):
         default = uuid4,
         editable = False
     )
-    post_id = models.ForeignKey(
+    post = models.ForeignKey(
         to = 'Post',
         on_delete = models.CASCADE,
         related_name = 'stats'

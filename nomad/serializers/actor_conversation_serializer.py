@@ -15,8 +15,8 @@ class ActorConversationSerializer(ModelSerializer):
         fields = '__all__'
         read_only_fields = [
             'id',
-            'actor_id',
-            'conversation_id',
+            'actor',
+            'conversation',
             'created_at',
             'updated_at'
         ]

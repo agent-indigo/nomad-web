@@ -27,8 +27,8 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         'description'
     ]
     list_filter = [
-        'post_id__text',
-        'actor_id__display_name',
+        'post__text',
+        'actor__display_name',
         'short_code',
         'description',
         'remote_url',
@@ -40,8 +40,8 @@ class MediaAttachmentAdminConfig(ModelAdmin):
         'updated_at'
     ]
     search_fields = [
-        'post_id__text',
-        'actor_id__display_name',
+        'post__text',
+        'actor__display_name',
         'short_code',
         'description',
         'remote_url',
@@ -78,10 +78,10 @@ class MediaAttachmentAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    file.actor_id.user_id.id
+                    file.actor.user.id
                 ]
             ),
-            name = file.actor_id.display_name
+            name = file.actor.display_name
         )
     def post(
         self,
@@ -95,10 +95,10 @@ class MediaAttachmentAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:nomad_post_change',
                 args = [
-                    file.post_id.id
+                    file.post.id
                 ]
             ),
-            text = file.post_id.text
+            text = file.post.text
         )
     def remote_url(
         self,

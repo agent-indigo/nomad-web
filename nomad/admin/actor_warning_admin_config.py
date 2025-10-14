@@ -22,16 +22,16 @@ class ActorWarningAdminConfig(ModelAdmin):
         'text'
     ]
     list_filter = [
-        'actor_id__display_name',
-        'target_actor_id__display_name',
+        'actor__display_name',
+        'target_actor__display_name',
         'action',
         'text',
         'created_at',
         'updated_at'
     ]
     search_fields = [
-        'actor_id__display_name',
-        'target_actor_id__display_name',
+        'actor__display_name',
+        'target_actor__display_name',
         'action',
         'text',
         'created_at',
@@ -56,10 +56,10 @@ class ActorWarningAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    warning.actor_id.user_id.id
+                    warning.actor.user.id
                 ]
             ),
-            name = warning.actor_id.display_name
+            name = warning.actor.display_name
         )
     def target_actor(
         self,
@@ -73,8 +73,8 @@ class ActorWarningAdminConfig(ModelAdmin):
             url = reverse(
                 'admin:auth_user_change',
                 args = [
-                    warning.target_actor_id.user_id.id
+                    warning.target_actor.user.id
                 ]
             ),
-            name = warning.target_actor_id.display_name
+            name = warning.target_actor.display_name
         )

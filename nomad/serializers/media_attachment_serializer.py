@@ -15,8 +15,8 @@ class MediaAttachmentSerializer(ModelSerializer):
         fields = '__all__'
         read_only_fields = [
             'id',
-            'post_id',
-            'actor_id',
+            'post',
+            'actor',
             'short_code',
             'remote_url',
             'blur_hash',

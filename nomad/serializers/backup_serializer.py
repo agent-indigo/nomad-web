@@ -15,7 +15,7 @@ class BackupSerializer(ModelSerializer):
         fields = '__all__'
         read_only_fields = [
             'id',
-            'user_id',
+            'user',
             'is_processed',
             'created_at',
             'updated_at'
