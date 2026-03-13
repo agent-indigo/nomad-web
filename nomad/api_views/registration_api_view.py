@@ -29,9 +29,9 @@ class RegistrationApiView(GenericAPIView):
             request,
             user
         )
-        return Response({
-            'user': UserSerializer(
+        return Response(
+            UserSerializer(
                 user,
                 context = self.get_serializer_context()
             ).data
-        })
+        )
