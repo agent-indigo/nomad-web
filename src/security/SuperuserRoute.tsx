@@ -11,6 +11,7 @@ import {
 import {toast} from 'react-toastify'
 import {useGetContext} from '../components/ContextProvider'
 import ContextProps from '@/types/ContextProps'
+import getCsrfToken from '../utilities/getCsrfToken'
 const SuperuserRoute: FunctionComponent = (): ReactElement => {
   const {
     user,
@@ -24,13 +25,13 @@ const SuperuserRoute: FunctionComponent = (): ReactElement => {
     errorMessage,
     setErrorMessage
   ] = useState<string>('')
-  const token: string = localStorage.getItem('token') ?? ''
   useEffect((): void => {(async (): Promise<void> => {
     const response: Response = await fetch(
       '/api/auth/user', {
         headers: {
-          Authorization: `Token ${token}`
-        }
+          'X-CSRFToken': getCsrfToken()
+        },
+        credentials: 'include'
       }
     )
     if (response.ok) {
@@ -40,8 +41,7 @@ const SuperuserRoute: FunctionComponent = (): ReactElement => {
       setErrorMessage(await response.text())
     }
   })()}, [
-    setUser,
-    token
+    setUser
   ])
   !user?.is_superuser && toast.error('You are not logged in as the superuser.')
   return errorOccured ? (
@@ -53,7 +53,7 @@ const SuperuserRoute: FunctionComponent = (): ReactElement => {
         {errorMessage}
       </p>
     </section>
-  ) : user?.is_superuser && token !== '' ? (
+  ) : user?.is_superuser ? (
     <Outlet/>
   ) : (
     <Navigate

@@ -11,6 +11,7 @@ import {
 import {toast} from 'react-toastify'
 import {useGetContext} from '../components/ContextProvider'
 import ContextProps from '@/types/ContextProps'
+import getCsrfToken from '../utilities/getCsrfToken'
 const StaffRoute: FunctionComponent = (): ReactElement => {
   const {
     user,
@@ -24,13 +25,13 @@ const StaffRoute: FunctionComponent = (): ReactElement => {
     errorMessage,
     setErrorMessage
   ] = useState<string>('')
-  const token: string = localStorage.getItem('token') ?? ''
   useEffect((): void => {(async (): Promise<void> => {
     const response: Response = await fetch(
       '/api/auth/user', {
         headers: {
-          Authorization: `Token ${token}`
-        }
+          'X-CSRFToken': getCsrfToken()
+        },
+        credentials: 'include'
       }
     )
     if (response.ok) {
@@ -40,8 +41,7 @@ const StaffRoute: FunctionComponent = (): ReactElement => {
       setErrorMessage(await response.text())
     }
   })()}, [
-    setUser,
-    token
+    setUser
   ])
   !user?.is_staff && toast.error('You are not logged in as an administrator.')
   return errorOccurred ? (
@@ -53,7 +53,7 @@ const StaffRoute: FunctionComponent = (): ReactElement => {
         {errorMessage}
       </p>
     </section>
-  ) : user?.is_staff && token !== '' ? (
+  ) : user?.is_staff ? (
     <Outlet/>
   ) : (
     <Navigate

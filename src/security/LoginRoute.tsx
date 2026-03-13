@@ -9,26 +9,26 @@ import {
 } from 'react-router-dom'
 import {useGetContext} from '../components/ContextProvider'
 import ContextProps from '@/types/ContextProps'
+import getCsrfToken from '../utilities/getCsrfToken'
 const LoginRoute: FunctionComponent = (): ReactElement => {
   const {
     user,
     setUser
   }: ContextProps = useGetContext()
-  const token: string = localStorage.getItem('token') ?? ''
   useEffect((): void => {(async (): Promise<void> => {
     const response: Response = await fetch(
       '/api/auth/user', {
         headers: {
-          Authorization: `Token ${token}`
-        }
+          'X-CSRFToken': getCsrfToken()
+        },
+        credentials: 'include'
       }
     )
     response.ok && setUser(await response.json())
   })()}, [
-    setUser,
-    token
+    setUser
   ])
-  return user && token !== '' ? (
+  return user ? (
     <Navigate
       to='/home'
       replace

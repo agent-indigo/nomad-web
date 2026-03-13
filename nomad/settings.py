@@ -39,17 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.postgres',
     'django.contrib.staticfiles',
-    'knox',
     'nomad.apps.NomadConfig',
     'rest_framework'
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'knox.auth.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ]
 }
-KNOX_TOKEN_MODEL = 'knox.AuthToken'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

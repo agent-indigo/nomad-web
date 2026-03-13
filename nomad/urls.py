@@ -17,14 +17,12 @@ Including another URLconf
 from django.contrib.admin import site
 from django.urls import path
 from django.conf.urls.static import static
-from knox.views import (
-    LogoutView,
-    LogoutAllView
-)
 from .api_views import (
     CurrentUserApiView,
-    RegistrationApiView,
-    LoginApiView
+    LoginApiView,
+    LogoutApiView,
+    LogoutAllApiView,
+    RegistrationApiView
 )
 from .settings import (
     DEBUG,
@@ -47,13 +45,11 @@ urlpatterns = [
     ),
     path(
         'api/auth/logout',
-        LogoutView.as_view(),
-        name = 'knox_logout'
+        LogoutApiView.as_view()
     ),
     path(
         'api/auth/logoutall',
-        LogoutAllView.as_view(),
-        name = 'knox_logoutall'
+        LogoutAllApiView.as_view()
     ),
     path(
         'api/auth/register',

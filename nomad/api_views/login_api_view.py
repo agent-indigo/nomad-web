@@ -4,7 +4,7 @@ Login API View
 from urllib.request import Request
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
-from knox.models import AuthToken
+from django.contrib.auth import login
 from ..serializers import (
     LoginSerializer,
     UserSerializer
@@ -28,10 +28,13 @@ class LoginApiView(GenericAPIView):
             raise_exception = True
         )
         user = serializer.validated_data
+        login(
+            request,
+            user
+        )
         return Response({
             'user': UserSerializer(
                 user,
                 context = self.get_serializer_context()
-            ).data,
-            'token': AuthToken.objects.create(user)[1]
+            ).data
         })
